@@ -16,10 +16,12 @@
 class Rule_5D {
  public:
   unsigned int pri = 0;
-  uint8_t ipS[5];
-  uint8_t ipD[5];
+  uint8_t ipS[4];
+  uint8_t ipD[4];
   uint16_t portS[2];
   uint16_t portD[2];
+  uint8_t ipSMask;
+  uint8_t ipDMask;
   uint8_t protocol[2];
 };
 

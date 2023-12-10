@@ -19,10 +19,10 @@ bool InputFile5D_test::inputRule5D_test(std::vector<Rule_5D>& ruleV,
     outFile << "Priority: " << rule.pri << "\n";
     outFile << "Source IP: " << unsigned(rule.ipS[0]) << "."
             << unsigned(rule.ipS[1]) << "." << unsigned(rule.ipS[2]) << "."
-            << unsigned(rule.ipS[3]) << "/" << unsigned(rule.ipS[4]) << "\n";
+            << unsigned(rule.ipS[3]) << "/" << unsigned(rule.ipSMask) << "\n";
     outFile << "Destination IP: " << unsigned(rule.ipD[0]) << "."
             << unsigned(rule.ipD[1]) << "." << unsigned(rule.ipD[2]) << "."
-            << unsigned(rule.ipD[3]) << "/" << unsigned(rule.ipD[4]) << "\n";
+            << unsigned(rule.ipD[3]) << "/" << unsigned(rule.ipDMask) << "\n";
     outFile << "Source Port: " << unsigned(rule.portS[0]) << " : "
             << unsigned(rule.portS[1]) << "\n";
     outFile << "Destination Port: " << unsigned(rule.portD[0]) << " : "
