@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
              << "\n";
         break;
       case 't':
-        // cout << "Input test: " << optarg << "\n";
+        // Don't need argument
         OutputFile_5D.dialog.timeReset();
         if (InputFile5D_test.inputRule5D_test(rule5V,
                                               "./test/inputRule5D_test.txt")) {
@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
              << OutputFile_5D.dialog.elapsed_s() << "\n";
         break;
       case 'm':
-        // cout << "Merge ip:  " << optarg << "\n";
+        // Don't need argument
         OutputFile_5D.dialog.timeReset();
         InputFile_5D.rule_5D_ip_merge(rule5V);
         InputFile_5D.packet_5D_ip_merge(packet5V);
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
              << "\n";
         break;
       case 'n':
-        // cout << "Merge test: " << optarg << "\n";
+        // Don't need argument
         OutputFile_5D.dialog.timeReset();
         if (InputFile5D_test.inputRule5D_merge_test(
                 rule5V, "./test/inputRule5D_merge_test.txt")) {
@@ -120,6 +120,7 @@ int main(int argc, char *argv[]) {
              << OutputFile_5D.dialog.elapsed_s() << "\n";
         break;
       case 'h':
+        // Don't need argument
         cout << "****************************"
              << "\n";
 
