@@ -16,23 +16,38 @@
 class Rule_5D {
  public:
   unsigned int pri = 0;
-  uint8_t ipS[4];
-  uint8_t ipD[4];
+  union {
+    uint8_t ipS[4];
+    uint32_t ipS32;
+  };
+  union {
+    uint8_t ipD[4];
+    uint32_t ipD32;
+  };
   uint16_t portS[2];
   uint16_t portD[2];
   uint8_t ipSMask;
   uint8_t ipDMask;
   uint8_t protocol[2];
+
+  void ip_merge();
 };
 
 class Packet_5D {
  public:
   uint16_t portS;
   uint16_t portD;
-
-  uint8_t ipS[4];
+  union {
+    uint8_t ipS[4];
+    uint32_t ipS32;
+  };
   uint8_t protocol;
-  uint8_t ipD[4];
+  union {
+    uint8_t ipD[4];
+    uint32_t ipD32;
+  };
+
+  void ip_merge();
 };
 
 class Dialog {
