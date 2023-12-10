@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
   vector<Packet_5D> packet5V;
   InputFile5D InputFile_5D;
   InputFile5D_test InputFile5D_test;
-  OutputFile5D OutputFile5D;
+  OutputFile5D OutputFile_5D;
   vector<int> check_list;
 
   static struct option long_options[] = {
@@ -31,45 +31,45 @@ int main(int argc, char *argv[]) {
     switch (option) {
       case 'r':
         cout << "Read ruleset:  " << optarg << "\n";
-        OutputFile5D.dialog.timeReset();
+        OutputFile_5D.dialog.timeReset();
         if (InputFile_5D.inputRule5D(rule5V, optarg)) {
           cout << "Read ruleset ERROR!!"
                << "\n";
           return -1;
         }
-        cout << "Read ruleset time(ns): " << OutputFile5D.dialog.elapsed_ns()
+        cout << "Read ruleset time(ns): " << OutputFile_5D.dialog.elapsed_ns()
              << "\n";
-        cout << "Read ruleset time(s): " << OutputFile5D.dialog.elapsed_s()
+        cout << "Read ruleset time(s): " << OutputFile_5D.dialog.elapsed_s()
              << "\n";
         break;
       case 'p':
         cout << "Rread trace: " << optarg << "\n";
-        OutputFile5D.dialog.timeReset();
+        OutputFile_5D.dialog.timeReset();
         if (InputFile_5D.inputPacket5D(packet5V, optarg, check_list)) {
           cout << "Read trace ERROR!!"
                << "\n";
           return -1;
         }
-        cout << "Read trace time(ns): " << OutputFile5D.dialog.elapsed_ns()
+        cout << "Read trace time(ns): " << OutputFile_5D.dialog.elapsed_ns()
              << "\n";
-        cout << "Read trace time(s): " << OutputFile5D.dialog.elapsed_s()
+        cout << "Read trace time(s): " << OutputFile_5D.dialog.elapsed_s()
              << "\n";
         break;
       case 't':
         cout << "Input test: " << optarg << "\n";
-        OutputFile5D.dialog.timeReset();
+        OutputFile_5D.dialog.timeReset();
         if (InputFile5D_test.inputRule5D_test(rule5V,
                                               "./test/inputRule5D_test.txt")) {
           cout << "Input Rule test ERROR!!"
                << "\n";
           return -1;
         }
-        cout << "Input rule test time(ns): " << OutputFile5D.dialog.elapsed_ns()
-             << "\n";
-        cout << "Input rule test time(s): " << OutputFile5D.dialog.elapsed_s()
+        cout << "Input rule test time(ns): "
+             << OutputFile_5D.dialog.elapsed_ns() << "\n";
+        cout << "Input rule test time(s): " << OutputFile_5D.dialog.elapsed_s()
              << "\n";
 
-        OutputFile5D.dialog.timeReset();
+        OutputFile_5D.dialog.timeReset();
         if (InputFile5D_test.inputPacket5D_test(
                 packet5V, "./test/inputPacket5D_test.txt", check_list)) {
           cout << "Input Packet test ERROR!!"
@@ -77,9 +77,9 @@ int main(int argc, char *argv[]) {
           return -1;
         }
         cout << "Input packet test time(ns): "
-             << OutputFile5D.dialog.elapsed_ns() << "\n";
-        cout << "Input packet test time(s): " << OutputFile5D.dialog.elapsed_s()
-             << "\n";
+             << OutputFile_5D.dialog.elapsed_ns() << "\n";
+        cout << "Input packet test time(s): "
+             << OutputFile_5D.dialog.elapsed_s() << "\n";
         break;
       case 'h':
         cout << "****************************"
