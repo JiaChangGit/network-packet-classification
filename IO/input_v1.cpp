@@ -31,8 +31,8 @@ bool InputFile5D::inputRule5D(std::vector<Rule_5D>& ruleV,
     r.pri++;
     r.protocol[0] = (uint8_t)protocol[0];
     r.protocol[1] = (uint8_t)protocol[1];
-    r.ipS[4] = (uint8_t)ipS_fscan[4];
-    r.ipD[4] = (uint8_t)ipD_fscan[4];
+    r.ipSMask = (uint8_t)ipS_fscan[4];
+    r.ipDMask = (uint8_t)ipD_fscan[4];
 
     for (int j = 0; j < 4; j++) {
       r.ipS[j] = (uint8_t)ipS_fscan[j];
