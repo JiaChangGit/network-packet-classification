@@ -12,5 +12,8 @@ class InputFile5D_test {
   bool inputRule5D_test(std::vector<Rule_5D>&, const char*);
   bool inputPacket5D_test(std::vector<Packet_5D>&, const char*,
                           std::vector<int>&);
+  bool inputRule5D_merge_test(std::vector<Rule_5D>&, const char*);
+  bool inputPacket5D_merge_test(std::vector<Packet_5D>&, const char*,
+                                std::vector<int>&);
 };
 #endif

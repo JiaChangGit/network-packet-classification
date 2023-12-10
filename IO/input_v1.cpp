@@ -13,7 +13,7 @@ bool InputFile5D::inputRule5D(std::vector<Rule_5D>& ruleV,
     fprintf(stderr, "error - can not open rules file\n");
     return true;  // error
   }
-  // Dialog t_read_rule;
+  // Dialog t_inputRule5D;
   unsigned int ipS_fscan[5];
   unsigned int ipD_fscan[5];
   unsigned int portS_fscan[2];
@@ -44,9 +44,9 @@ bool InputFile5D::inputRule5D(std::vector<Rule_5D>& ruleV,
     r.portD[1] = (uint16_t)portD_fscan[1];
     ruleV.emplace_back(r);
   }
-  // std::cout << "Time taken: " << t_read_rule.elapsed_ns() << " ns"
+  // std::cout << "Time taken: " << t_inputRule5D.elapsed_ns() << " ns"
   //           << "\n";
-  // std::cout << "Time taken: " << t_read_rule.elapsed_s() << " s"
+  // std::cout << "Time taken: " << t_inputRule5D.elapsed_s() << " s"
   //           << "\n";
   std::cout << "Leave inputRule5D"
             << "\n";
@@ -55,7 +55,7 @@ bool InputFile5D::inputRule5D(std::vector<Rule_5D>& ruleV,
   return false;  // argv correct
 };
 
-bool InputFile5D::inputPacket5D(std::vector<Packet_5D>& PacketV,
+bool InputFile5D::inputPacket5D(std::vector<Packet_5D>& packetV,
                                 const char* file_name,
                                 std::vector<int>& check_list) {
   FILE* fp = NULL;
@@ -64,7 +64,7 @@ bool InputFile5D::inputPacket5D(std::vector<Packet_5D>& PacketV,
     fprintf(stderr, "error - can not open trace file\n");
     return true;  // error
   }
-  // Dialog t_read_trace;
+  // Dialog t_inputPacket5D;
   Packet_5D p;
   unsigned int ip_src, ip_des;
   int result;
@@ -73,17 +73,28 @@ bool InputFile5D::inputPacket5D(std::vector<Packet_5D>& PacketV,
     memcpy(p.ipS, &ip_src, 4);
     memcpy(p.ipD, &ip_des, 4);
     check_list.emplace_back(result);
-    PacketV.emplace_back(p);
+    packetV.emplace_back(p);
   }
-  // std::cout << "Time taken: " << t_read_trace.elapsed_ns() << " ns"
+  // std::cout << "Time taken: " << t_inputPacket5D.elapsed_ns() << " ns"
   //           << "\n";
-  // std::cout << "Time taken: " << t_read_trace.elapsed_s() << " s"
+  // std::cout << "Time taken: " << t_inputPacket5D.elapsed_s() << " s"
   //           << "\n";
   std::cout << "Leave inputPacket5D"
             << "\n";
   fclose(fp);
 
   return false;  // argv correct
+};
+
+void InputFile5D::rule_5D_ip_merge(std::vector<Rule_5D>& ruleV) {
+  for (auto& rule : ruleV) {
+    rule.ip_merge();
+  }
+};
+void InputFile5D::packet_5D_ip_merge(std::vector<Packet_5D>& packetV) {
+  for (auto& packet : packetV) {
+    packet.ip_merge();
+  }
 };
 
 // <Source Address>	<Destination Address>	<Source Port>	<Destination

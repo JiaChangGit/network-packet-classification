@@ -12,5 +12,7 @@ class InputFile5D {
  public:
   bool inputRule5D(std::vector<Rule_5D>&, const char*);
   bool inputPacket5D(std::vector<Packet_5D>&, const char*, std::vector<int>&);
+  void rule_5D_ip_merge(std::vector<Rule_5D>&);
+  void packet_5D_ip_merge(std::vector<Packet_5D>&);
 };
 #endif
