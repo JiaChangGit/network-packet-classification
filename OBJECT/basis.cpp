@@ -14,7 +14,14 @@ void Rule_5D::ip_merge() {
                 ((uint32_t)this->ipD[1] << 16) | ((uint32_t)this->ipD[2] << 8) |
                 ((uint32_t)this->ipD[3]);
 };
-void Packet_5D::ip_merge(){};
+void Packet_5D::ip_merge() {
+  this->ipS32 = ((uint32_t)this->ipS[0] << 24) |
+                ((uint32_t)this->ipS[1] << 16) | ((uint32_t)this->ipS[2] << 8) |
+                ((uint32_t)this->ipS[3]);
+  this->ipD32 = ((uint32_t)this->ipD[0] << 24) |
+                ((uint32_t)this->ipD[1] << 16) | ((uint32_t)this->ipD[2] << 8) |
+                ((uint32_t)this->ipD[3]);
+};
 uint64_t Dialog::getMemSize() { return this->memSize; };
 void Dialog::memReset() { this->memSize = 0; };
 void Dialog::timeReset() { m_beg = Clock::now(); };
