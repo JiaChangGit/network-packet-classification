@@ -8,6 +8,10 @@
 #include "../OBJECT/basis.hpp"
 class OutputFile5D {
  public:
-  Dialog dialog;
+  uint64_t memSize = 0;
+  Timer timer;
+
+  uint64_t getMemSize();
+  void memReset();
 };
 #endif

@@ -13,7 +13,7 @@ bool InputFile5D::inputRule5D(std::vector<Rule_5D>& ruleV,
     fprintf(stderr, "error - can not open rules file\n");
     return true;  // error
   }
-  // Dialog t_inputRule5D;
+  // Timer t_inputRule5D;
   unsigned int ipS_fscan[5];
   unsigned int ipD_fscan[5];
   unsigned int portS_fscan[2];
@@ -64,7 +64,7 @@ bool InputFile5D::inputPacket5D(std::vector<Packet_5D>& packetV,
     fprintf(stderr, "error - can not open trace file\n");
     return true;  // error
   }
-  // Dialog t_inputPacket5D;
+  // Timer t_inputPacket5D;
   Packet_5D p;
   unsigned int ip_src, ip_des;
   int result;

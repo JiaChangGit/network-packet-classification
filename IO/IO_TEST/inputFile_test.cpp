@@ -13,7 +13,7 @@ bool InputFile5D_test::inputRule5D_test(std::vector<Rule_5D>& ruleV,
     std::cerr << "Error opening output file: " << file_name << std::endl;
     return true;  // error
   }
-  // Dialog t_inputRule5D_test;
+  // Timer t_inputRule5D_test;
   // Write extracted data to the output file
   for (const auto& rule : ruleV) {
     outFile << "Priority: " << rule.pri << "\n";
@@ -52,7 +52,7 @@ bool InputFile5D_test::inputPacket5D_test(std::vector<Packet_5D>& packetV,
     std::cerr << "Error opening output file: " << file_name << std::endl;
     return true;  // error
   }
-  // Dialog t_inputPacket5D_test;
+  // Timer t_inputPacket5D_test;
   int i = 0;
   // Write extracted data to the output file
   for (const auto& packet : packetV) {
@@ -88,7 +88,7 @@ bool InputFile5D_test::inputRule5D_merge_test(std::vector<Rule_5D>& ruleV,
     std::cerr << "Error opening output file: " << file_name << std::endl;
     return true;  // error
   }
-  // Dialog inputRule5D_merge_test;
+  // Timer inputRule5D_merge_test;
   // Write extracted data to the output file
   for (const auto& rule : ruleV) {
     outFile << "Priority: " << rule.pri << "\n";
@@ -126,7 +126,7 @@ bool InputFile5D_test::inputPacket5D_merge_test(std::vector<Packet_5D>& packetV,
     std::cerr << "Error opening output file: " << file_name << std::endl;
     return true;  // error
   }
-  // Dialog inputPacket5D_merge_test;
+  // Timer inputPacket5D_merge_test;
   int i = 0;
   // Write extracted data to the output file
   for (const auto& packet : packetV) {
