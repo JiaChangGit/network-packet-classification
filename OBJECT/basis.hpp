@@ -50,10 +50,8 @@ class Packet_5D {
   void ip_merge();
 };
 
-class Dialog {
+class Timer {
  private:
-  uint64_t memSize = 0;
-
   // Type aliases to make accessing nested type easier
   using Clock = std::chrono::steady_clock;
   using Second = std::chrono::duration<double, std::ratio<1> >;
@@ -61,8 +59,6 @@ class Dialog {
   std::chrono::time_point<Clock> m_beg{Clock::now()};
 
  public:
-  uint64_t getMemSize();
-  void memReset();
   void timeReset();
   double elapsed_s() const;
   unsigned long long elapsed_ns() const;
@@ -71,12 +67,12 @@ class Dialog {
 #endif
 
 // https://www.learncpp.com/cpp-tutorial/timing-your-code/
-// Dialog using ex:
+// Timer using ex:
 // int main()
 // {
 //     std::array<int, g_arrayElements> array;
 //     std::iota(array.rbegin(), array.rend(), 1);
-//     Dialog t;
+//     Timer t;
 //     sortArray(array);
 //     std::cout << "Time taken: " << t.elapsed_s() << " seconds\n";
 //     return 0;

@@ -33,45 +33,45 @@ int main(int argc, char *argv[]) {
     switch (option) {
       case 'r':
         cout << "Read ruleset:  " << optarg << "\n";
-        OutputFile_5D.dialog.timeReset();
+        OutputFile_5D.timer.timeReset();
         if (InputFile_5D.inputRule5D(rule5V, optarg)) {
           cout << "Read ruleset ERROR!!"
                << "\n";
           return -1;
         }
-        cout << "Read ruleset time(ns): " << OutputFile_5D.dialog.elapsed_ns()
+        cout << "Read ruleset time(ns): " << OutputFile_5D.timer.elapsed_ns()
              << "\n";
-        cout << "Read ruleset time(s): " << OutputFile_5D.dialog.elapsed_s()
+        cout << "Read ruleset time(s): " << OutputFile_5D.timer.elapsed_s()
              << "\n";
         break;
       case 'p':
         cout << "Rread trace: " << optarg << "\n";
-        OutputFile_5D.dialog.timeReset();
+        OutputFile_5D.timer.timeReset();
         if (InputFile_5D.inputPacket5D(packet5V, optarg, check_list)) {
           cout << "Read trace ERROR!!"
                << "\n";
           return -1;
         }
-        cout << "Read trace time(ns): " << OutputFile_5D.dialog.elapsed_ns()
+        cout << "Read trace time(ns): " << OutputFile_5D.timer.elapsed_ns()
              << "\n";
-        cout << "Read trace time(s): " << OutputFile_5D.dialog.elapsed_s()
+        cout << "Read trace time(s): " << OutputFile_5D.timer.elapsed_s()
              << "\n";
         break;
       case 't':
         // Don't need argument
-        OutputFile_5D.dialog.timeReset();
+        OutputFile_5D.timer.timeReset();
         if (InputFile5D_test.inputRule5D_test(rule5V,
                                               "./test/inputRule5D_test.txt")) {
           cout << "Input Rule test ERROR!!"
                << "\n";
           return -1;
         }
-        cout << "Input rule test time(ns): "
-             << OutputFile_5D.dialog.elapsed_ns() << "\n";
-        cout << "Input rule test time(s): " << OutputFile_5D.dialog.elapsed_s()
+        cout << "Input rule test time(ns): " << OutputFile_5D.timer.elapsed_ns()
+             << "\n";
+        cout << "Input rule test time(s): " << OutputFile_5D.timer.elapsed_s()
              << "\n";
 
-        OutputFile_5D.dialog.timeReset();
+        OutputFile_5D.timer.timeReset();
         if (InputFile5D_test.inputPacket5D_test(
                 packet5V, "./test/inputPacket5D_test.txt", check_list)) {
           cout << "Input Packet test ERROR!!"
@@ -79,23 +79,22 @@ int main(int argc, char *argv[]) {
           return -1;
         }
         cout << "Input packet test time(ns): "
-             << OutputFile_5D.dialog.elapsed_ns() << "\n";
-        cout << "Input packet test time(s): "
-             << OutputFile_5D.dialog.elapsed_s() << "\n";
+             << OutputFile_5D.timer.elapsed_ns() << "\n";
+        cout << "Input packet test time(s): " << OutputFile_5D.timer.elapsed_s()
+             << "\n";
         break;
       case 'm':
         // Don't need argument
-        OutputFile_5D.dialog.timeReset();
+        OutputFile_5D.timer.timeReset();
         InputFile_5D.rule_5D_ip_merge(rule5V);
         InputFile_5D.packet_5D_ip_merge(packet5V);
-        cout << "Merge ip time(ns): " << OutputFile_5D.dialog.elapsed_ns()
+        cout << "Merge ip time(ns): " << OutputFile_5D.timer.elapsed_ns()
              << "\n";
-        cout << "Merge ip time(s): " << OutputFile_5D.dialog.elapsed_s()
-             << "\n";
+        cout << "Merge ip time(s): " << OutputFile_5D.timer.elapsed_s() << "\n";
         break;
       case 'n':
         // Don't need argument
-        OutputFile_5D.dialog.timeReset();
+        OutputFile_5D.timer.timeReset();
         if (InputFile5D_test.inputRule5D_merge_test(
                 rule5V, "./test/inputRule5D_merge_test.txt")) {
           cout << "Input Rule merge test ERROR!!"
@@ -103,11 +102,11 @@ int main(int argc, char *argv[]) {
           return -1;
         }
         cout << "Input rule merge test time(ns): "
-             << OutputFile_5D.dialog.elapsed_ns() << "\n";
+             << OutputFile_5D.timer.elapsed_ns() << "\n";
         cout << "Input rule merge test time(s): "
-             << OutputFile_5D.dialog.elapsed_s() << "\n";
+             << OutputFile_5D.timer.elapsed_s() << "\n";
 
-        OutputFile_5D.dialog.timeReset();
+        OutputFile_5D.timer.timeReset();
         if (InputFile5D_test.inputPacket5D_merge_test(
                 packet5V, "./test/inputPacket5D_merge_test.txt", check_list)) {
           cout << "Input Packet merge test ERROR!!"
@@ -115,9 +114,9 @@ int main(int argc, char *argv[]) {
           return -1;
         }
         cout << "Input packet merge test time(ns): "
-             << OutputFile_5D.dialog.elapsed_ns() << "\n";
+             << OutputFile_5D.timer.elapsed_ns() << "\n";
         cout << "Input packet merge test time(s): "
-             << OutputFile_5D.dialog.elapsed_s() << "\n";
+             << OutputFile_5D.timer.elapsed_s() << "\n";
         break;
       case 'h':
         // Don't need argument
