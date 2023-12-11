@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
   InputFile5D InputFile_5D;
   InputFile5D_test InputFile5D_test;
   OutputFile5D OutputFile_5D;
-  vector<int> check_list;
+  vector<int> filterNum;
 
   static struct option long_options[] = {
       {"ruleset", required_argument, NULL, 'r'},
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
       case 'p':
         cout << "Rread trace: " << optarg << "\n";
         OutputFile_5D.timer.timeReset();
-        if (InputFile_5D.inputPacket5D(packet5V, optarg, check_list)) {
+        if (InputFile_5D.inputPacket5D(packet5V, optarg, filterNum)) {
           cout << "Read trace ERROR!!"
                << "\n";
           return -1;
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 
         OutputFile_5D.timer.timeReset();
         if (InputFile5D_test.inputPacket5D_test(
-                packet5V, "./test/inputPacket5D_test.txt", check_list)) {
+                packet5V, "./test/inputPacket5D_test.txt", filterNum)) {
           cout << "Input Packet test ERROR!!"
                << "\n";
           return -1;
@@ -108,7 +108,7 @@ int main(int argc, char *argv[]) {
 
         OutputFile_5D.timer.timeReset();
         if (InputFile5D_test.inputPacket5D_merge_test(
-                packet5V, "./test/inputPacket5D_merge_test.txt", check_list)) {
+                packet5V, "./test/inputPacket5D_merge_test.txt", filterNum)) {
           cout << "Input Packet merge test ERROR!!"
                << "\n";
           return -1;

@@ -46,7 +46,7 @@ bool InputFile5D_test::inputRule5D_test(std::vector<Rule_5D>& ruleV,
 
 bool InputFile5D_test::inputPacket5D_test(std::vector<Packet_5D>& packetV,
                                           const char* file_name,
-                                          std::vector<int>& check_list) {
+                                          std::vector<int>& filterNum) {
   std::ofstream outFile(file_name);
   if (!outFile.is_open()) {
     std::cerr << "Error opening output file: " << file_name << std::endl;
@@ -56,7 +56,7 @@ bool InputFile5D_test::inputPacket5D_test(std::vector<Packet_5D>& packetV,
   int i = 0;
   // Write extracted data to the output file
   for (const auto& packet : packetV) {
-    outFile << "Check list: " << check_list[i++] << "\n";
+    outFile << "Check list: " << filterNum[i++] << "\n";
     outFile << "Source IP: " << unsigned(packet.ipS[0]) << "."
             << unsigned(packet.ipS[1]) << "." << unsigned(packet.ipS[2]) << "."
             << unsigned(packet.ipS[3]) << "\n";
@@ -120,7 +120,7 @@ bool InputFile5D_test::inputRule5D_merge_test(std::vector<Rule_5D>& ruleV,
 
 bool InputFile5D_test::inputPacket5D_merge_test(std::vector<Packet_5D>& packetV,
                                                 const char* file_name,
-                                                std::vector<int>& check_list) {
+                                                std::vector<int>& filterNum) {
   std::ofstream outFile(file_name);
   if (!outFile.is_open()) {
     std::cerr << "Error opening output file: " << file_name << std::endl;
@@ -130,7 +130,7 @@ bool InputFile5D_test::inputPacket5D_merge_test(std::vector<Packet_5D>& packetV,
   int i = 0;
   // Write extracted data to the output file
   for (const auto& packet : packetV) {
-    outFile << "Check list: " << check_list[i++] << "\n";
+    outFile << "Check list: " << filterNum[i++] << "\n";
     outFile << "Source IP: " << unsigned(packet.ipS32) << "\n";
     outFile << "Destination IP: " << unsigned(packet.ipD32) << "\n";
     outFile << "Source Port: " << unsigned(packet.portS) << "\n";

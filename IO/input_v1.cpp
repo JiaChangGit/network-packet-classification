@@ -57,7 +57,7 @@ bool InputFile5D::inputRule5D(std::vector<Rule_5D>& ruleV,
 
 bool InputFile5D::inputPacket5D(std::vector<Packet_5D>& packetV,
                                 const char* file_name,
-                                std::vector<int>& check_list) {
+                                std::vector<int>& filterNum) {
   FILE* fp = NULL;
   fp = fopen(file_name, "r");
   if (fp == NULL) {
@@ -72,7 +72,7 @@ bool InputFile5D::inputPacket5D(std::vector<Packet_5D>& packetV,
                 &p.portS, &p.portD, &p.protocol, &result) != EOF) {
     memcpy(p.ipS, &ip_src, 4);
     memcpy(p.ipD, &ip_des, 4);
-    check_list.emplace_back(result);
+    filterNum.emplace_back(result);
     packetV.emplace_back(p);
   }
   // std::cout << "Time taken: " << t_inputPacket5D.elapsed_ns() << " ns"
