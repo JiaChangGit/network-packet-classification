@@ -13,5 +13,9 @@ class OutputFile5D {
 
   uint64_t getMemSize();
   void memReset();
+
+  void gen_trace(std::vector<Packet_5D>& packets, std::vector<Rule_5D>& rules,
+                 unsigned int size);
 };
+
 #endif
