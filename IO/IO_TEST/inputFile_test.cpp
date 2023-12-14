@@ -45,18 +45,16 @@ bool InputFile5D_test::inputRule5D_test(std::vector<Rule_5D>& ruleV,
 };
 
 bool InputFile5D_test::inputPacket5D_test(std::vector<Packet_5D>& packetV,
-                                          const char* file_name,
-                                          std::vector<int>& filterNum) {
+                                          const char* file_name) {
   std::ofstream outFile(file_name);
   if (!outFile.is_open()) {
     std::cerr << "Error opening output file: " << file_name << std::endl;
     return true;  // error
   }
   // Timer t_inputPacket5D_test;
-  int i = 0;
+
   // Write extracted data to the output file
   for (const auto& packet : packetV) {
-    outFile << "Check list: " << filterNum[i++] << "\n";
     outFile << "Source IP: " << unsigned(packet.ipS[0]) << "."
             << unsigned(packet.ipS[1]) << "." << unsigned(packet.ipS[2]) << "."
             << unsigned(packet.ipS[3]) << "\n";
@@ -119,18 +117,16 @@ bool InputFile5D_test::inputRule5D_merge_test(std::vector<Rule_5D>& ruleV,
 };
 
 bool InputFile5D_test::inputPacket5D_merge_test(std::vector<Packet_5D>& packetV,
-                                                const char* file_name,
-                                                std::vector<int>& filterNum) {
+                                                const char* file_name) {
   std::ofstream outFile(file_name);
   if (!outFile.is_open()) {
     std::cerr << "Error opening output file: " << file_name << std::endl;
     return true;  // error
   }
   // Timer inputPacket5D_merge_test;
-  int i = 0;
+
   // Write extracted data to the output file
   for (const auto& packet : packetV) {
-    outFile << "Check list: " << filterNum[i++] << "\n";
     outFile << "Source IP: " << unsigned(packet.ipS32) << "\n";
     outFile << "Destination IP: " << unsigned(packet.ipD32) << "\n";
     outFile << "Source Port: " << unsigned(packet.portS) << "\n";
