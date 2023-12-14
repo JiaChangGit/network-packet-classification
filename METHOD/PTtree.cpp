@@ -1617,7 +1617,7 @@ void PTtree::print_node_info(int level, int rules) {
       FILE* fp = NULL;
       std::cout
           << "|- Write pTree inner node infomation to pInnerNode_info.txt...\n";
-      fp = fopen("pInnerNode_info.txt", "w");
+      fp = fopen("../info/pInnerNode_info.txt", "w");
       fprintf(fp, "IpNode [ID LAYER FIELD TABLE_NUM CHILD_NUM]\n\n");
       switch (this->layerFields.size()) {
         case 3: {
@@ -1637,7 +1637,7 @@ void PTtree::print_node_info(int level, int rules) {
             int c_num = 0;
             std::vector<IpTable>::iterator it = n->tableList.begin();
             for (; it != n->tableList.end(); ++it) c_num += it->child.size();
-            fprintf(fp, "%u\t%u\t%u\t%u\t%d\n", n->id, n->layer, n->field,
+            fprintf(fp, "%u\t%u\t%u\t%llu\t%d\n", n->id, n->layer, n->field,
                     n->tableList.size(), c_num);
           }
           break;
@@ -1647,12 +1647,12 @@ void PTtree::print_node_info(int level, int rules) {
 
       std::cout
           << "|- Write pTree leaf node infomation to pLeafNode_info.txt...\n";
-      fp = fopen("pLeafNode_info.txt", "w");
+      fp = fopen("../info/pLeafNode_info.txt", "w");
       fprintf(
           fp,
           "Leaf Node [ID]\n|- Rule_5D [PRI SIP DIP SPORT DPORT PROTOCOL]\n");
       for (int i = 0; i < this->pLeafNodeList.size(); ++i) {
-        fprintf(fp, "\n%d\t%u\n", i, this->pLeafNodeList[i]->Rule_5D.size());
+        fprintf(fp, "\n%d\t%llu\n", i, this->pLeafNodeList[i]->Rule_5D.size());
         for (auto r : this->pLeafNodeList[i]->Rule_5D)
           fprintf(
               fp,
@@ -1666,24 +1666,24 @@ void PTtree::print_node_info(int level, int rules) {
 
       std::cout
           << "|- Write aTree inner node infomation to aInnerNode_info.txt...\n";
-      fp = fopen("aInnerNode_info.txt", "w");
+      fp = fopen("../info/aInnerNode_info.txt", "w");
       fprintf(fp, "Protocol Node [ID TABLE_NUM CHILD_NUM]\n\n");
-      fprintf(fp, "0\t1\t%u\n\n", this->aTree->child.size());
+      fprintf(fp, "0\t1\t%llu\n\n", this->aTree->child.size());
       fprintf(fp, "Port Node [ID TABLE_NUM CHILD_NUM]\n\n");
       for (auto node : this->portNodeList) {
         PortNode_static* n = (PortNode_static*)node;
-        fprintf(fp, "%u\t2\t%u\n", n->id, n->child.size());
+        fprintf(fp, "%u\t2\t%llu\n", n->id, n->child.size());
       }
       fclose(fp);
 
       std::cout
           << "|- Write aTree leaf node infomation to aLeafNode_info.txt...\n";
-      fp = fopen("aLeafNode_info.txt", "w");
+      fp = fopen("../info/aLeafNode_info.txt", "w");
       fprintf(fp,
               "Leaf Node [ID SIZE]\n|- Rule_5D [PRI SIP DIP SPORT DPORT "
               "PROTOCOL]\n");
       for (int i = 0; i < this->aLeafNodeList.size(); ++i) {
-        fprintf(fp, "\n%d\t%u\n", i, this->aLeafNodeList[i]->Rule_5D.size());
+        fprintf(fp, "\n%d\t%llu\n", i, this->aLeafNodeList[i]->Rule_5D.size());
         for (auto r : this->aLeafNodeList[i]->Rule_5D)
           fprintf(
               fp,
@@ -1779,7 +1779,7 @@ void PTtree::analyse_ruleset(std::vector<Rule_5D>& v) {
   for (int i = 0; i < 9; ++i) alpha[i] = pow(2, i) / 511;
 
   FILE* fp = NULL;
-  fp = fopen("ruleset_analyse.txt", "w");
+  fp = fopen("../info/ruleset_analyse.txt", "w");
   std::vector<std::vector<std::vector<int>>> counter;
   counter.resize(8);
   for (int i = 0; i < 8; ++i) {

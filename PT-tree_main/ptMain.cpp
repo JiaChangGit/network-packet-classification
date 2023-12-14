@@ -255,7 +255,7 @@ int main(int argc, char* argv[]) {
       fields.emplace_back(tmp_fields);
     }
     fclose(fp_l4);
-    // cout << fields.size() << "\n";
+    cout << " fields.size: " << fields.size() << "\n";
     double min_time = 100e9;
     double cur_time = 0;
     double best_time = 0;
@@ -273,7 +273,7 @@ int main(int argc, char* argv[]) {
       }
       clock_gettime(CLOCK_REALTIME, &t2);
       cur_time = get_nano_time(&t1, &t2);
-      // cout << cur_time / 1000000.0 << "\n";
+
       if (cur_time < min_time) {
         min_time = cur_time;
         best_config1 = i;
@@ -281,7 +281,6 @@ int main(int argc, char* argv[]) {
       }
     }
     {
-      // cout << best_time / 1000000.0 << "\n";
       PTtree tree(fields[best_config1], 0);
       for (auto&& r : rules) {
         tree.insert(r);
@@ -292,7 +291,7 @@ int main(int argc, char* argv[]) {
       }
       clock_gettime(CLOCK_REALTIME, &t2);
       cur_time = get_nano_time(&t1, &t2);
-      // cout << cur_time / 1000000.0 << "\n";
+
       if (cur_time < min_time) {
         min_time = cur_time;
         best_config2 = 0;
@@ -330,7 +329,7 @@ int main(int argc, char* argv[]) {
   clock_gettime(CLOCK_REALTIME, &t2);
   double build_time = get_milli_time(&t1, &t2);
   cout << "|- Construct time:   " << build_time << "ms\n";
-  // cout << tree.totalNodes << "\n";
+  cout << "tree.totalNodes: " << tree.totalNodes << "\n";
 
   cout << "|- Memory footprint: " << (double)tree.mem() / 1024.0 / 1024.0
        << "MB\n";
@@ -350,7 +349,7 @@ int main(int argc, char* argv[]) {
   cout << "\nstart search...\n";
   int res = 0;
   FILE* res_fp = NULL;
-  res_fp = fopen("results.txt", "w");
+  res_fp = fopen("../info/results.txt", "w");
   double search_time = 0;
   for (int i = 0; i < packets.size(); ++i) {
     clock_gettime(CLOCK_REALTIME, &t1);
@@ -383,7 +382,7 @@ int main(int argc, char* argv[]) {
     if (log_level > 1) {
       FILE* log_fp = NULL;
       if (log_level > 2) {
-        log_fp = fopen("search_info.txt", "w");
+        log_fp = fopen("../info/search_info.txt", "w");
         fprintf(log_fp,
                 "Search Log [PACKET_ID ACC_INNERNODE ACC_LEAFNODE ACC_TABLE "
                 "ACC_RULE ACC_IPNODE ACC_PORTNODE]\n\n");
