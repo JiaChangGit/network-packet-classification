@@ -68,8 +68,8 @@ bool InputFile5D::inputPacket5D(std::vector<Packet_5D>& packetV,
   unsigned int ip_src, ip_des;
   while (fscanf(fp, "%u\t%u\t%hu\t%hu\t%hhu\t%*u\t%*d\n", &ip_src, &ip_des,
                 &p.portS, &p.portD, &p.protocol) != EOF) {
-    memcpy(p.ipS, &ip_src, 4);
-    memcpy(p.ipD, &ip_des, 4);
+    reverseMemcpy(p.ipS, &ip_src, 4);
+    reverseMemcpy(p.ipD, &ip_des, 4);
 
     packetV.emplace_back(p);
   }
