@@ -8,6 +8,14 @@
 #define __IO_INPUT_V1_HPP__
 
 #include "../OBJECT/basis.hpp"
+void reverseMemcpy(void* dest, const void* src, size_t size) {
+  const char* srcBytes = static_cast<const char*>(src);
+  char* destBytes = static_cast<char*>(dest);
+
+  for (size_t i = 0; i < size; ++i) {
+    destBytes[i] = srcBytes[size - 1 - i];
+  }
+}
 class InputFile5D {
  public:
   bool inputRule5D(std::vector<Rule_5D>&, const char*);

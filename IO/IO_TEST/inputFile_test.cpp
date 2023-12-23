@@ -64,7 +64,7 @@ bool InputFile5D_test::inputPacket5D_test(std::vector<Packet_5D>& packetV,
     outFile << "Source Port: " << unsigned(packet.portS) << "\n";
     outFile << "Destination Port: " << unsigned(packet.portD) << "\n";
     outFile << "Protocol: 0x" << std::hex
-            << static_cast<unsigned>(packet.protocol) << "\n";
+            << static_cast<unsigned>(packet.protocol) << std::dec << "\n";
     outFile << "\n";
   }
   //   std::cout << "Time taken: " << t_inputPacket5D_test.elapsed_ns() << " ns"
@@ -132,7 +132,7 @@ bool InputFile5D_test::inputPacket5D_merge_test(std::vector<Packet_5D>& packetV,
     outFile << "Source Port: " << unsigned(packet.portS) << "\n";
     outFile << "Destination Port: " << unsigned(packet.portD) << "\n";
     outFile << "Protocol: 0x" << std::hex
-            << static_cast<unsigned>(packet.protocol) << "\n";
+            << static_cast<unsigned>(packet.protocol) << std::dec << "\n";
     outFile << "\n";
   }
   //   std::cout << "Time taken: " << inputPacket5D_merge_test.elapsed_ns() << "
