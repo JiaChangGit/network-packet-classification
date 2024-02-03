@@ -1,0 +1,18 @@
+#-type:
+#fix:
+#style:
+#docs:
+#feat:
+#test:
+#chore:
+
+# - scope: 影響範圍
+#(Scope):
+
+# - subject: 代表此 commit 的簡短描述
+#(Subject):
+
+#{body}:
+
+# - foot: 填寫任務編號
+#{foot}:
