@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,c,c++,python,cmake
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,c,c++,python,cmake
+# Created by https://www.toptal.com/developers/gitignore/api/c,c++,cmake,vim,git,visualstudiocode,python,windows,linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=c,c++,cmake,vim,git,visualstudiocode,python,windows,linux
 
 ### C ###
 # Prerequisites
@@ -74,11 +74,52 @@ dkms.conf
 
 # Executables
 
-
+### CMake ###
+#CMakeLists.txt.user
+#CMakeCache.txt
+#CMakeFiles
+#CMakeScripts
+Testing
+#Makefile
+#cmake_install.cmake
+#install_manifest.txt
+#compile_commands.json
+#CTestTestfile.cmake
+_deps
 
 ### CMake Patch ###
 # External projects
 *-prefix/
+
+### Git ###
+# Created by git for backups. To disable backups in Git:
+# $ git config --global mergetool.keepBackup false
+*.orig
+
+# Created by git when using merge tools for conflicts
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -251,6 +292,26 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+Sessionx.vim
+
+# Temporary
+.netrwhist
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -270,6 +331,30 @@ pyrightconfig.json
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,c,c++,python,cmake
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
 
+# Dump file
+*.stackdump
 
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/c,c++,cmake,vim,git,visualstudiocode,python,windows,linux
