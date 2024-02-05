@@ -2,7 +2,7 @@
  * @file basis.hpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.0
+ * @version 1.1
  * @date 2024-02-03
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -10,15 +10,35 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-03 <td>1.0     <td>jiachang     <td>basic data structures
+ * <tr><td>2024-02-03 <td>1.1     <td>jiachang     <td>basic data structures
  * </table>
  */
 
-#ifndef __LIBRARY_BASIS_HPP__
-#define __LIBRARY_BASIS_HPP__
+#ifndef __LIB_BASIS_HPP__
+#define __LIB_BASIS_HPP__
 
 #include <chrono>
 #include <iostream>
+
+class Packet5D
+{
+public:
+  uint16_t portS;
+  uint16_t portD;
+  union
+  {
+    uint8_t ipS[4];
+    uint32_t ipS32;
+  };
+  uint8_t protocol;
+  union
+  {
+    uint8_t ipD[4];
+    uint32_t ipD32;
+  };
+
+  void ip_merge();
+};
 
 class Rule5D
 {
@@ -41,26 +61,7 @@ public:
   uint8_t protocol[2];
 
   void ip_merge();
-};
-
-class Packet5D
-{
-public:
-  uint16_t portS;
-  uint16_t portD;
-  union
-  {
-    uint8_t ipS[4];
-    uint32_t ipS32;
-  };
-  uint8_t protocol;
-  union
-  {
-    uint8_t ipD[4];
-    uint32_t ipD32;
-  };
-
-  void ip_merge();
+  bool isMatch(const Packet5D &);
 };
 
 class Timer

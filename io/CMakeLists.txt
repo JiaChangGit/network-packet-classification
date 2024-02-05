@@ -1,7 +1,7 @@
 # 新增一個 CMake 目標，目標型態為靜態函式庫。
-add_library(IO STATIC)
+add_library(io-s STATIC)
 
-target_sources(IO
+target_sources(io-s
     PRIVATE
         "input.cpp"
         "inputFile_test.cpp"
