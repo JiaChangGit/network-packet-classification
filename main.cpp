@@ -2,7 +2,7 @@
  * @file main.cpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.0
+ * @version 1.1
  * @date 2024-02-03
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -10,12 +10,13 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-03 <td>1.0     <td>jiachang     <td>main
+ * <tr><td>2024-02-03 <td>1.1     <td>jiachang     <td>main
  * </table>
  */
 
-#include "./IO/inputFile_test.hpp"
-#include "./IO/input.hpp"
+#include "inputFile_test.hpp"
+#include "input.hpp"
+#include "linearSearch.hpp"
 #include <getopt.h>
 #include <fstream>
 #include <vector>
@@ -77,7 +78,7 @@ int main(int argc, char *argv[])
                // Don't need argument
                timer.timeReset();
                if (inputFile5D_test.loadRule5D_test(rule5V,
-                                                    "./test/loadRule5D_test.txt"))
+                                                    "./INFO/loadRule5D_test.txt"))
                {
                     cout << "Input Rule test ERROR!!\n";
                     return -1;
@@ -89,7 +90,7 @@ int main(int argc, char *argv[])
 
                timer.timeReset();
                if (inputFile5D_test.loadPacket5D_test(
-                       packet5V, "./test/loadPacket5D_test.txt"))
+                       packet5V, "./INFO/loadPacket5D_test.txt"))
                {
                     cout << "Input Packet test ERROR!!\n";
                     return -1;
@@ -119,7 +120,7 @@ int main(int argc, char *argv[])
           }
      }
 
-     ////////
+     //// === ip_merge === ////
      timer.timeReset();
      for (auto &rule : rule5V)
      {
@@ -129,66 +130,19 @@ int main(int argc, char *argv[])
      {
           packet.ip_merge();
      }
-     cout << "Merge ip time(ns): " << timer.elapsed_ns()
-          << "\n";
+     cout << "Merge ip time(ns): " << timer.elapsed_ns() << "\n";
      cout << "Merge ip time(s): " << timer.elapsed_s() << "\n";
-     ofstream oRuleMerge("./test/loadRule5D_merge_test.txt");
-     if (!oRuleMerge.is_open())
-     {
-          cerr << "Input Rule merge test ERROR!!\n";
-     }
-     else
-     {
-          timer.timeReset();
-          // Write extracted data to the output file
-          for (const auto &rule : rule5V)
-          {
-               oRuleMerge << "Priority: " << rule.pri << "\n";
-               oRuleMerge << "Source IP: " << unsigned(rule.ipS32) << "/"
-                          << unsigned(rule.ipSMask) << "\n";
-               oRuleMerge << "Destination IP: " << unsigned(rule.ipD32) << "/"
-                          << unsigned(rule.ipDMask) << "\n";
-               oRuleMerge << "Source Port: " << unsigned(rule.portS[0]) << " : "
-                          << unsigned(rule.portS[1]) << "\n";
-               oRuleMerge << "Destination Port: " << unsigned(rule.portD[0]) << " : "
-                          << unsigned(rule.portD[1]) << "\n";
-               oRuleMerge << "Protocol: 0x" << std::hex
-                          << static_cast<unsigned>(rule.protocol[0]) << " / 0x"
-                          << static_cast<unsigned>(rule.protocol[1]) << std::dec << "\n";
-               oRuleMerge << "\n";
-          }
-          cout << "Input rule merge test time(ns): "
-               << timer.elapsed_ns() << "\n";
-          cout << "Input rule merge test time(s): "
-               << timer.elapsed_s() << "\n";
-     }
-     oRuleMerge.close();
-     ofstream oPacketMerge("./test/loadPacket5D_merge_test.txt");
-     if (!oPacketMerge.is_open())
-     {
-          cerr << "Input Packet merge test ERROR!!\n";
-     }
-     else
-     {
-          timer.timeReset();
-          // Write extracted data to the output file
-          for (const auto &packet : packet5V)
-          {
-               oPacketMerge << "Source IP: " << unsigned(packet.ipS32) << "\n";
-               oPacketMerge << "Destination IP: " << unsigned(packet.ipD32) << "\n";
-               oPacketMerge << "Source Port: " << unsigned(packet.portS) << "\n";
-               oPacketMerge << "Destination Port: " << unsigned(packet.portD) << "\n";
-               oPacketMerge << "Protocol: 0x" << std::hex
-                            << static_cast<unsigned>(packet.protocol) << std::dec << "\n";
-               oPacketMerge << "\n";
-          }
-          cout << "Input packet merge test time(ns): "
-               << timer.elapsed_ns() << "\n";
-          cout << "Input packet merge test time(s): "
-               << timer.elapsed_s() << "\n";
-     }
-     oPacketMerge.close();
-     ////////
+     inputFile5D_test.loadRule5D_ip_merge_test(rule5V, "./INFO/loadRule5D_merge_test.txt");
+     inputFile5D_test.loadPacket5D_ip_merge_test(packet5V, "./INFO/loadPacket5D_merge_test.txt");
+     //// === ip_merge === ////
 
+     //// === LinearSearch === ////
+     LinearSearch linearSearch;
+     int packetNum = packet5V.size();
+     timer.timeReset();
+     linearSearch.search(rule5V, packet5V);
+     cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() / packetNum) << "\n";
+     cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packetNum) << "\n";
+     //// === LinearSearch === ////
      return 0;
 }

@@ -2,7 +2,7 @@
  * @file input.cpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.0
+ * @version 1.1
  * @date 2024-02-03
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -10,7 +10,7 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-03 <td>1.0     <td>jiachang     <td>load rule-set and trace-set
+ * <tr><td>2024-02-03 <td>1.1     <td>jiachang     <td>load rule-set and trace-set
  * </table>
  */
 /*
@@ -21,7 +21,7 @@
 
 #include "input.hpp"
 
-bool InputFile5D::loadRule5D(std::vector<Rule5D> &ruleV,
+bool InputFile5D::loadRule5D(std::vector<Rule5D> &rule5V,
                              const char *fileName)
 {
   FILE *fp = NULL;
@@ -62,7 +62,7 @@ bool InputFile5D::loadRule5D(std::vector<Rule5D> &ruleV,
     r.portS[1] = (uint16_t)portS_fscan[1];
     r.portD[0] = (uint16_t)portD_fscan[0];
     r.portD[1] = (uint16_t)portD_fscan[1];
-    ruleV.emplace_back(r);
+    rule5V.emplace_back(r);
   }
   // std::cout << "Time taken: " << t_loadRule5D.elapsed_ns() << " ns"
   //           << "\n";
@@ -75,7 +75,7 @@ bool InputFile5D::loadRule5D(std::vector<Rule5D> &ruleV,
   return false; // argv correct
 };
 
-bool InputFile5D::loadPacket5D(std::vector<Packet5D> &packetV,
+bool InputFile5D::loadPacket5D(std::vector<Packet5D> &packet5V,
                                const char *fileName)
 {
   FILE *fp = NULL;
@@ -86,15 +86,15 @@ bool InputFile5D::loadPacket5D(std::vector<Packet5D> &packetV,
     return true; // error
   }
   // Timer t_loadPacket5D;
-  Packet5D p;
+  Packet5D p5D;
   unsigned int ip_src, ip_des;
   while (fscanf(fp, "%u\t%u\t%hu\t%hu\t%hhu\t%*u\t%*d\n", &ip_src, &ip_des,
-                &p.portS, &p.portD, &p.protocol) != EOF)
+                &p5D.portS, &p5D.portD, &p5D.protocol) != EOF)
   {
-    reverseMemcpy(p.ipS, &ip_src, 4);
-    reverseMemcpy(p.ipD, &ip_des, 4);
+    reverseMemcpy(p5D.ipS, &ip_src, 4);
+    reverseMemcpy(p5D.ipD, &ip_des, 4);
 
-    packetV.emplace_back(p);
+    packet5V.emplace_back(p5D);
   }
   // std::cout << "Time taken: " << t_loadPacket5D.elapsed_ns() << " ns"
   //           << "\n";
