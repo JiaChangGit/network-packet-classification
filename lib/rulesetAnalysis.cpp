@@ -21,7 +21,6 @@ RulesetAnalysis::RulesetAnalysis(const std::vector<Rule5D> &rule5V)
   // 0 -> not range
   int isSportRange = 0;
   int isDportRange = 0;
-  int isprotocolRange = 0;
 
   for (const auto &rule : rule5V)
   {
@@ -33,16 +32,11 @@ RulesetAnalysis::RulesetAnalysis(const std::vector<Rule5D> &rule5V)
     {
       isDportRange = 1;
     }
-    if (rule.protocol[0] != rule.protocol[1])
-    {
-      isprotocolRange = 1;
-    }
     unsigned int ipSMask = unsigned(rule.ipSMask);
     unsigned int ipDMask = unsigned(rule.ipSMask);
-    rule5V_arr[ipSMask][ipSMask][isSportRange][isDportRange][isprotocolRange].push_back(rule.pri);
+    rule5V_arr[ipSMask][ipSMask][isSportRange][isDportRange].push_back(rule.pri);
     isSportRange = 0;
     isDportRange = 0;
-    isprotocolRange = 0;
     // std::cout << "pri: " << rule.pri << "\n";
   }
 };
@@ -58,7 +52,7 @@ void RulesetAnalysis::printRule5VV(size_t rule5V_num)
     return;
   }
   outputFile << "rule numbers: " << rule5V_num << "\n";
-  outputFile << "sIp_prefixLength, dIp_prefixLength, port isRange? 0-> not range [src, dst, protocol]: rule.priority\n";
+  outputFile << "sIp_prefixLength, dIp_prefixLength, port isRange? 0-> not range [src, dst]: rule.priority\n\n";
   for (int i = 0; i < 33; ++i)
   {
     for (int j = 0; j < 33; ++j)
@@ -67,26 +61,27 @@ void RulesetAnalysis::printRule5VV(size_t rule5V_num)
       {
         for (int l = 0; l < 2; ++l)
         {
-          for (int m = 0; m < 2; ++m)
+          if (!rule5V_arr[i][j][k][l].empty())
           {
             // Print the index
-            outputFile << "rule5V_arr[" << i << "][" << j << "][" << k << "][" << l << "][" << m << "]: ";
-            if (!rule5V_arr[i][j][k][l][m].empty())
+            outputFile << "rule5V_arr[" << i << "][" << j << "][" << k << "][" << l << "]: ";
+            // Print the rule.pri
+            float rule5V_arrSize = rule5V_arr[i][j][k][l].size();
+            for (const auto &element : rule5V_arr[i][j][k][l])
             {
-              // Print the rule.pri
-              for (const auto &element : rule5V_arr[i][j][k][l][m])
-              {
-                outputFile << element << " ";
-                ruleNum++;
-              }
-              outputFile << "\n==========================\n"
-                         << "=== number of element: ===\n"
-                         << rule5V_arr[i][j][k][l][m].size() << "\n==========================\n";
+              outputFile << element << " ";
+              ruleNum++;
             }
-            else
-            {
-              outputFile << "NULL\n";
-            }
+            outputFile << "\n==========================\n"
+                       << "=== number of elements: ===\n"
+                       << rule5V_arrSize << "\n=== Ratio: ===\n"
+                       << rule5V_arrSize / rule5V_num << "\n==========================\n\n";
+          }
+          else
+          {
+            // Print the index
+            // outputFile << "rule5V_arr[" << i << "][" << j << "][" << k << "][" << l <<  "]: ";
+            // outputFile << "NULL\n";
           }
         }
       }
