@@ -39,7 +39,7 @@ RulesetAnalysis::RulesetAnalysis(const std::vector<Rule5D> &rule5V)
     }
     unsigned int ipSMask = unsigned(rule.ipSMask);
     unsigned int ipDMask = unsigned(rule.ipSMask);
-    rule5VV[ipSMask][ipSMask][isSportRange][isDportRange][isprotocolRange].push_back(rule.pri);
+    rule5V_arr[ipSMask][ipSMask][isSportRange][isDportRange][isprotocolRange].push_back(rule.pri);
     isSportRange = 0;
     isDportRange = 0;
     isprotocolRange = 0;
@@ -70,18 +70,18 @@ void RulesetAnalysis::printRule5VV(size_t rule5V_num)
           for (int m = 0; m < 2; ++m)
           {
             // Print the index
-            outputFile << "rule5VV[" << i << "][" << j << "][" << k << "][" << l << "][" << m << "]: ";
-            if (!rule5VV[i][j][k][l][m].empty())
+            outputFile << "rule5V_arr[" << i << "][" << j << "][" << k << "][" << l << "][" << m << "]: ";
+            if (!rule5V_arr[i][j][k][l][m].empty())
             {
               // Print the rule.pri
-              for (const auto &element : rule5VV[i][j][k][l][m])
+              for (const auto &element : rule5V_arr[i][j][k][l][m])
               {
                 outputFile << element << " ";
                 ruleNum++;
               }
               outputFile << "\n==========================\n"
                          << "=== number of element: ===\n"
-                         << rule5VV[i][j][k][l][m].size() << "\n==========================\n";
+                         << rule5V_arr[i][j][k][l][m].size() << "\n==========================\n";
             }
             else
             {
