@@ -2,7 +2,7 @@
  * @file inputFile_test.hpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.1
+ * @version 1.2
  * @date 2024-02-03
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
