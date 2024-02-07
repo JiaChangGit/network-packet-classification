@@ -29,8 +29,8 @@ public:
   void printRule5VV(size_t);
 
 private:
-  // sIp_prefixLength, dIp_prefixLength, port isRange 0-> not range [src, dst, protocol]
-  std::vector<unsigned int> rule5V_arr[33][33][2][2][2];
+  // sIp_prefixLength, dIp_prefixLength, port isRange 0-> not range [src, dst]
+  std::vector<unsigned int> rule5V_arr[33][33][2][2];
 };
 
 #endif
