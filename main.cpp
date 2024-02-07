@@ -2,7 +2,7 @@
  * @file main.cpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.1
+ * @version 1.2
  * @date 2024-02-03
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -17,6 +17,7 @@
 #include "inputFile_test.hpp"
 #include "input.hpp"
 #include "linearSearch.hpp"
+#include "rulesetAnalysis.hpp"
 #include <getopt.h>
 #include <fstream>
 #include <vector>
@@ -34,6 +35,10 @@ int main(int argc, char *argv[])
      InputFile5D inputFile5D;
      InputFile5D_test inputFile5D_test;
      Timer timer;
+     const char *loadRule5D_test_path = "./INFO/loadRule5D_test.txt";
+     const char *loadPacket5D_test_path = "./INFO/loadPacket5D_test.txt";
+     const char *loadRule5D_ip_merge_test_path = "./INFO/loadRule5D_merge_test.txt";
+     const char *loadPacket5D_ip_merge_test_path = "./INFO/loadPacket5D_merge_test.txt";
 
      static struct option long_options[] = {
          {"ruleset", required_argument, NULL, 'r'},
@@ -78,7 +83,7 @@ int main(int argc, char *argv[])
                // Don't need argument
                timer.timeReset();
                if (inputFile5D_test.loadRule5D_test(rule5V,
-                                                    "./INFO/loadRule5D_test.txt"))
+                                                    loadRule5D_test_path))
                {
                     cout << "Input Rule test ERROR!!\n";
                     return -1;
@@ -90,7 +95,7 @@ int main(int argc, char *argv[])
 
                timer.timeReset();
                if (inputFile5D_test.loadPacket5D_test(
-                       packet5V, "./INFO/loadPacket5D_test.txt"))
+                       packet5V, loadPacket5D_test_path))
                {
                     cout << "Input Packet test ERROR!!\n";
                     return -1;
@@ -132,17 +137,24 @@ int main(int argc, char *argv[])
      }
      cout << "Merge ip time(ns): " << timer.elapsed_ns() << "\n";
      cout << "Merge ip time(s): " << timer.elapsed_s() << "\n";
-     inputFile5D_test.loadRule5D_ip_merge_test(rule5V, "./INFO/loadRule5D_merge_test.txt");
-     inputFile5D_test.loadPacket5D_ip_merge_test(packet5V, "./INFO/loadPacket5D_merge_test.txt");
+     inputFile5D_test.loadRule5D_ip_merge_test(rule5V, loadRule5D_ip_merge_test_path);
+     inputFile5D_test.loadPacket5D_ip_merge_test(packet5V, loadPacket5D_ip_merge_test_path);
      //// === ip_merge === ////
 
+     //// === rulesetAnalysis === ////
+     cout << "rulesetAnalysis\n";
+     size_t rule5V_num = rule5V.size();
+     RulesetAnalysis rulesetAnalysis(rule5V);
+     rulesetAnalysis.printRule5VV(rule5V_num);
+     //// === rulesetAnalysis === ////
+
      //// === LinearSearch === ////
-     LinearSearch linearSearch;
-     int packetNum = packet5V.size();
-     timer.timeReset();
-     linearSearch.search(rule5V, packet5V);
-     cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() / packetNum) << "\n";
-     cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packetNum) << "\n";
+     // LinearSearch linearSearch;
+     // int packet5V_num = packet5V.size();
+     // timer.timeReset();
+     // linearSearch.search(rule5V, packet5V);
+     // cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() / packet5V_num) << "\n";
+     // cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packet5V_num) << "\n";
      //// === LinearSearch === ////
      return 0;
 }
