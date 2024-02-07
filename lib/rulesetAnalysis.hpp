@@ -30,7 +30,7 @@ public:
 
 private:
   // sIp_prefixLength, dIp_prefixLength, port isRange 0-> not range [src, dst, protocol]
-  std::vector<unsigned int> rule5VV[33][33][2][2][2];
+  std::vector<unsigned int> rule5V_arr[33][33][2][2][2];
 };
 
 #endif

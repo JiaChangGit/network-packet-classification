@@ -24,7 +24,8 @@ network-packet-classification                                                  /
 │  ├─ loadPacket5D_merge_test.txt                                              //
 │  ├─ loadPacket5D_test.txt                                                    //
 │  ├─ loadRule5D_merge_test.txt                                                //
-│  └─ loadRule5D_test.txt                                                      //
+│  ├─ loadRule5D_test.txt                                                      //
+│  └─ rulesetAnalysis.txt                                                      //
 ├─ LICENSE                                                                     //
 ├─ README.md                                                                   //
 ├─ classbench_set                                                              //
@@ -49,7 +50,9 @@ network-packet-classification                                                  /
 ├─ lib                                                                         //
 │  ├─ CMakeLists.txt                                                           //
 │  ├─ basis.cpp                                                                //
-│  └─ basis.hpp                                                                //
+│  ├─ basis.hpp                                                                //
+│  ├─ rulesetAnalysis.cpp                                                      //
+│  └─ rulesetAnalysis.hpp                                                      //
 └─ main.cpp                                                                    //
 
 ```
