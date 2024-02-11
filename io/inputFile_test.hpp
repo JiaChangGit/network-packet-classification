@@ -2,15 +2,15 @@
  * @file inputFile_test.hpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.3
- * @date 2024-02-03
+ * @version 1.4
+ * @date 2024-02-11
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
  *
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-03 <td>1.3     <td>jiachang     <td>test loading rule-set and loading trace-set
+ * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>test loading rule-set and loading trace-set
  * </table>
  */
 

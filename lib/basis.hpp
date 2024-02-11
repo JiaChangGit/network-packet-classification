@@ -2,15 +2,15 @@
  * @file basis.hpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.2
- * @date 2024-02-03
+ * @version 1.4
+ * @date 2024-02-11
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
  *
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-03 <td>1.1     <td>jiachang     <td>basic data structures
+ * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>basic data structures
  * </table>
  */
 
@@ -90,7 +90,5 @@ public:
 //     std::cout << "Time taken: " << t.elapsed_s() << " seconds\n";
 //     return 0;
 // }
-
-// void reverseMemCpy(void *dest, const void *src, size_t size);
 
 #endif
