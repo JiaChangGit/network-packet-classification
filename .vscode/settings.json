@@ -51,6 +51,7 @@
         "ctime": "cpp",
         "ratio": "cpp",
         "set": "cpp",
-        "numbers": "cpp"
+        "numbers": "cpp",
+        "cstring": "cpp"
     }
 }

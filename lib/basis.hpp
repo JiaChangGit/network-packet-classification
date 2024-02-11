@@ -37,7 +37,7 @@ public:
     uint32_t ipD32;
   };
 
-  void ip_merge();
+  void eightBitsGroup_ip_merge();
 };
 
 class Rule5D
@@ -60,7 +60,7 @@ public:
   uint8_t ipDMask;
   uint8_t protocol[2];
 
-  void ip_merge();
+  void eightBitsGroup_ip_merge();
   bool isMatch(const Packet5D &);
 };
 
@@ -91,6 +91,6 @@ public:
 //     return 0;
 // }
 
-void reverseMemcpy(void *dest, const void *src, size_t size);
+// void reverseMemCpy(void *dest, const void *src, size_t size);
 
 #endif
