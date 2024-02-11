@@ -1,8 +1,8 @@
 ## Origin:
 
 ### rule:
-@194.186.113.175/32	86.247.120.60/32	0 : 65535	31000 : 31000	0x06/0xFF	0x0000/0x0200	
-@194.186.113.234/32	85.92.108.225/32	0 : 65535	5555 : 5555	0x06/0xFF	0x0000/0x0200	
+@194.186.113.175/32	86.247.120.60/32	0 : 65535	31000 : 31000	0x06/0xFF	0x0000/0x0200
+@194.186.113.234/32	85.92.108.225/32	0 : 65535	5555 : 5555	0x06/0xFF	0x0000/0x0200
 
 ### packet:
 3266998700	1458994818	0	1521	6	268439552	214
@@ -10,7 +10,7 @@
 
 ---
 
-### rule copy with arr[0~3] and ip_merge once: Correct
+### rule copy with arr[0~3] and eightBitsGroup_ip_merge once: Correct
 Priority: 1
 Source IP: 3266998703/32    11000010 10111010 01110001 10101111 => 194.186.113.175
 Destination IP: 1459058748/32    01010110 11110111 01111000 00111100 => 86.247.120.60
@@ -41,7 +41,7 @@ Destination Port: 5555 : 5555
 Protocol: 0x6 / 0xff
 
 
-### packet reverse copy number and ip_merge once: Correct
+### packet reverse copy number and eightBitsGroup_ip_merge once: Correct
 Source IP: 3266998700        11000010 10111010 01110001 10101100 => 194.186.113.172
 Destination IP: 1458994818        01010110 11110110 01111110 10000010 => 86.246.126.130
 Source Port: 0
@@ -69,7 +69,7 @@ Protocol: 0x6
 
 ---
 
-### rule copy with arr[0~3] and ip_merge twice: Error 8bits-a-group reverse
+### rule copy with arr[0~3] and eightBitsGroup_ip_merge twice: Error 8bits-a-group reverse
 Priority: 1
 Source IP: 2943466178/32    10101111 01110001 10111010 11000010 => 175.113.186.194
 Destination IP: 1014560598/32    00111100 01111000 11110111 01010110 => 60.120.247.86
@@ -85,7 +85,7 @@ Destination Port: 5555 : 5555
 Protocol: 0x6 / 0xff
 
 
-### packet reverse copy number and ip_merge twice: Error 8bits-a-group reverse
+### packet reverse copy number and eightBitsGroup_ip_merge twice: Error 8bits-a-group reverse
 Source IP: 2893134530        10101100 01110001 10111010 11000010 => 172.113.186.194
 Destination IP: 2189358678        10000010 01111110 11110110 01010110 => 130.126.246.86
 Source Port: 0
@@ -100,7 +100,7 @@ Protocol: 0x6
 
 ---
 
-### rule copy with arr[0~3] and ip_merge three times: Correct
+### rule copy with arr[0~3] and eightBitsGroup_ip_merge three times: Correct
 Priority: 1
 Source IP: 3266998703/32
 Destination IP: 1459058748/32
@@ -116,7 +116,7 @@ Destination Port: 5555 : 5555
 Protocol: 0x6 / 0xff
 
 
-### packet reverse copy number and ip_merge three times: Correct
+### packet reverse copy number and eightBitsGroup_ip_merge three times: Correct
 Source IP: 3266998700
 Destination IP: 1458994818
 Source Port: 0

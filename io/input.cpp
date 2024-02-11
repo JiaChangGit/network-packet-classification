@@ -2,7 +2,7 @@
  * @file input.cpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.2
+ * @version 1.3
  * @date 2024-02-03
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -10,7 +10,7 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-03 <td>1.1     <td>jiachang     <td>load rule-set and trace-set
+ * <tr><td>2024-02-03 <td>1.3     <td>jiachang     <td>load rule-set and trace-set
  * </table>
  */
 /*
@@ -21,7 +21,7 @@
 
 #include "input.hpp"
 
-bool InputFile5D::loadRule5D(std::vector<Rule5D> &rule5V,
+void InputFile5D::loadRule5D(std::vector<Rule5D> &rule5V,
                              const char *fileName)
 {
   FILE *fp = NULL;
@@ -29,11 +29,13 @@ bool InputFile5D::loadRule5D(std::vector<Rule5D> &rule5V,
   if (fp == NULL)
   {
     fprintf(stderr, "error - can not open rules file\n");
-    return true; // error
+    exit(1); // error
   }
   // Timer t_loadRule5D;
-  unsigned int ipS_fscan[5];
-  unsigned int ipD_fscan[5];
+  unsigned int ipS_fscan[4];
+  unsigned int ipSmask_fscan;
+  unsigned int ipD_fscan[4];
+  unsigned int ipDmask_fscan;
   unsigned int portS_fscan[2];
   unsigned int portD_fscan[2];
   unsigned int protocol[2];
@@ -41,17 +43,17 @@ bool InputFile5D::loadRule5D(std::vector<Rule5D> &rule5V,
   while (fscanf(fp,
                 "@%u.%u.%u.%u/%u\t%u.%u.%u.%u/%u\t%u : %u\t%u : "
                 "%u\t%x/%x\t%*x/%*x\t\n",
-                &ipS_fscan[0], &ipS_fscan[1], &ipS_fscan[2], &ipS_fscan[3],
-                &ipS_fscan[4], &ipD_fscan[0], &ipD_fscan[1], &ipD_fscan[2],
-                &ipD_fscan[3], &ipD_fscan[4], &portS_fscan[0], &portS_fscan[1],
+                &ipS_fscan[3], &ipS_fscan[2], &ipS_fscan[1], &ipS_fscan[0],
+                &ipSmask_fscan, &ipD_fscan[3], &ipD_fscan[2], &ipD_fscan[1],
+                &ipD_fscan[0], &ipDmask_fscan, &portS_fscan[0], &portS_fscan[1],
                 &portD_fscan[0], &portD_fscan[1], &protocol[0],
                 &protocol[1]) != EOF)
   {
     r.pri++;
     r.protocol[0] = (uint8_t)protocol[0];
     r.protocol[1] = (uint8_t)protocol[1];
-    r.ipSMask = (uint8_t)ipS_fscan[4];
-    r.ipDMask = (uint8_t)ipD_fscan[4];
+    r.ipSMask = (uint8_t)ipSmask_fscan;
+    r.ipDMask = (uint8_t)ipDmask_fscan;
 
     for (int j = 0; j < 4; j++)
     {
@@ -71,11 +73,9 @@ bool InputFile5D::loadRule5D(std::vector<Rule5D> &rule5V,
   std::cout << "Leave loadRule5D"
             << "\n";
   fclose(fp);
-
-  return false; // argv correct
 };
 
-bool InputFile5D::loadPacket5D(std::vector<Packet5D> &packet5V,
+void InputFile5D::loadPacket5D(std::vector<Packet5D> &packet5V,
                                const char *fileName)
 {
   FILE *fp = NULL;
@@ -83,7 +83,7 @@ bool InputFile5D::loadPacket5D(std::vector<Packet5D> &packet5V,
   if (fp == NULL)
   {
     fprintf(stderr, "error - can not open trace file\n");
-    return true; // error
+    exit(1); // error
   }
   // Timer t_loadPacket5D;
   Packet5D p5D;
@@ -91,8 +91,8 @@ bool InputFile5D::loadPacket5D(std::vector<Packet5D> &packet5V,
   while (fscanf(fp, "%u\t%u\t%hu\t%hu\t%hhu\t%*u\t%*d\n", &ip_src, &ip_des,
                 &p5D.portS, &p5D.portD, &p5D.protocol) != EOF)
   {
-    reverseMemcpy(p5D.ipS, &ip_src, 4);
-    reverseMemcpy(p5D.ipD, &ip_des, 4);
+    memcpy(p5D.ipS, &ip_src, 4);
+    memcpy(p5D.ipD, &ip_des, 4);
 
     packet5V.emplace_back(p5D);
   }
@@ -103,8 +103,6 @@ bool InputFile5D::loadPacket5D(std::vector<Packet5D> &packet5V,
   std::cout << "Leave loadPacket5D"
             << "\n";
   fclose(fp);
-
-  return false; // argv correct
 };
 
 // <Source Address>	<Destination Address>	<Source Port>	<Destination

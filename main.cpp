@@ -2,7 +2,7 @@
  * @file main.cpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.2
+ * @version 1.3
  * @date 2024-02-03
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -10,7 +10,7 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-03 <td>1.1     <td>jiachang     <td>main
+ * <tr><td>2024-02-03 <td>1.3     <td>jiachang     <td>main
  * </table>
  */
 
@@ -37,8 +37,8 @@ int main(int argc, char *argv[])
      Timer timer;
      const char *loadRule5D_test_path = "./INFO/loadRule5D_test.txt";
      const char *loadPacket5D_test_path = "./INFO/loadPacket5D_test.txt";
-     const char *loadRule5D_ip_merge_test_path = "./INFO/loadRule5D_merge_test.txt";
-     const char *loadPacket5D_ip_merge_test_path = "./INFO/loadPacket5D_merge_test.txt";
+     const char *loadRule5D_ip_test_path = "./INFO/loadRule5D_merge_test.txt";
+     const char *loadPacket5D_ip_test_path = "./INFO/loadPacket5D_merge_test.txt";
 
      static struct option long_options[] = {
          {"ruleset", required_argument, NULL, 'r'},
@@ -56,11 +56,8 @@ int main(int argc, char *argv[])
           case 'r':
                cout << "Read ruleset:  " << optarg << "\n";
                timer.timeReset();
-               if (inputFile5D.loadRule5D(rule5V, optarg))
-               {
-                    cout << "Read ruleset ERROR!!\n";
-                    return -1;
-               }
+               inputFile5D.loadRule5D(rule5V, optarg);
+
                cout << "Read ruleset time(ns): " << timer.elapsed_ns()
                     << "\n";
                cout << "Read ruleset time(s): " << timer.elapsed_s()
@@ -69,11 +66,8 @@ int main(int argc, char *argv[])
           case 'p':
                cout << "Rread trace: " << optarg << "\n";
                timer.timeReset();
-               if (inputFile5D.loadPacket5D(packet5V, optarg))
-               {
-                    cout << "Read trace ERROR!!\n";
-                    return -1;
-               }
+               inputFile5D.loadPacket5D(packet5V, optarg);
+
                cout << "Read trace time(ns): " << timer.elapsed_ns()
                     << "\n";
                cout << "Read trace time(s): " << timer.elapsed_s()
@@ -82,24 +76,18 @@ int main(int argc, char *argv[])
           case 't':
                // Don't need argument
                timer.timeReset();
-               if (inputFile5D_test.loadRule5D_test(rule5V,
-                                                    loadRule5D_test_path))
-               {
-                    cout << "Input Rule test ERROR!!\n";
-                    return -1;
-               }
+               inputFile5D_test.loadRule5D_test(rule5V,
+                                                loadRule5D_test_path);
+
                cout << "Input rule test time(ns): " << timer.elapsed_ns()
                     << "\n";
                cout << "Input rule test time(s): " << timer.elapsed_s()
                     << "\n";
 
                timer.timeReset();
-               if (inputFile5D_test.loadPacket5D_test(
-                       packet5V, loadPacket5D_test_path))
-               {
-                    cout << "Input Packet test ERROR!!\n";
-                    return -1;
-               }
+               inputFile5D_test.loadPacket5D_test(
+                   packet5V, loadPacket5D_test_path);
+
                cout << "Input packet test time(ns): "
                     << timer.elapsed_ns() << "\n";
                cout << "Input packet test time(s): " << timer.elapsed_s()
@@ -125,36 +113,24 @@ int main(int argc, char *argv[])
           }
      }
 
-     //// === ip_merge === ////
-     timer.timeReset();
-     for (auto &rule : rule5V)
-     {
-          rule.ip_merge();
-     }
-     for (auto &packet : packet5V)
-     {
-          packet.ip_merge();
-     }
-     cout << "Merge ip time(ns): " << timer.elapsed_ns() << "\n";
-     cout << "Merge ip time(s): " << timer.elapsed_s() << "\n";
-     inputFile5D_test.loadRule5D_ip_merge_test(rule5V, loadRule5D_ip_merge_test_path);
-     inputFile5D_test.loadPacket5D_ip_merge_test(packet5V, loadPacket5D_ip_merge_test_path);
-     //// === ip_merge === ////
+     inputFile5D_test.loadRule5D_ip_test(rule5V, loadRule5D_ip_test_path);
+     inputFile5D_test.loadPacket5D_ip_test(packet5V, loadPacket5D_ip_test_path);
 
      //// === rulesetAnalysis === ////
      cout << "rulesetAnalysis\n";
      size_t rule5V_num = rule5V.size();
      RulesetAnalysis rulesetAnalysis(rule5V);
-     rulesetAnalysis.printRule5VV(rule5V_num);
+     rulesetAnalysis.printRule5V_arr(rule5V_num);
      //// === rulesetAnalysis === ////
 
      //// === LinearSearch === ////
-     // LinearSearch linearSearch;
-     // int packet5V_num = packet5V.size();
-     // timer.timeReset();
-     // linearSearch.search(rule5V, packet5V);
-     // cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() / packet5V_num) << "\n";
-     // cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packet5V_num) << "\n";
+     LinearSearch linearSearch;
+     int packet5V_num = packet5V.size();
+     timer.timeReset();
+     linearSearch.search(rule5V, packet5V);
+     cout << "packet5V_num: " << packet5V_num << "\n";
+     cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() / packet5V_num) << "\n";
+     cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packet5V_num) << "\n";
      //// === LinearSearch === ////
      return 0;
 }

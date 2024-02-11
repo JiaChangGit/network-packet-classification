@@ -2,7 +2,7 @@
  * @file rulesetAnalysis.cpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.2
+ * @version 1.3
  * @date 2024-02-07
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -10,7 +10,7 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-07 <td>1.1     <td>jiachang     <td>analyze ruleset distribution
+ * <tr><td>2024-02-07 <td>1.3     <td>jiachang     <td>analyze ruleset distribution
  * </table>
  */
 
@@ -41,7 +41,7 @@ RulesetAnalysis::RulesetAnalysis(const std::vector<Rule5D> &rule5V)
   }
 };
 
-void RulesetAnalysis::printRule5VV(size_t rule5V_num)
+void RulesetAnalysis::printRule5V_arr(size_t rule5V_num)
 {
   const char *RulesetAnalysisPrint_path = "./INFO/rulesetAnalysis.txt";
   size_t ruleNum = 0;
