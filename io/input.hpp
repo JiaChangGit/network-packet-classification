@@ -10,20 +10,21 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>load rule-set and trace-set
+ * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>load rule-set and
+ * trace-set
  * </table>
  */
 
 #ifndef __IO_INPUT_HPP__
 #define __IO_INPUT_HPP__
 
-#include "../lib/basis.hpp"
-#include <vector>
 #include <cstring>
+#include <vector>
 
-class InputFile5D
-{
-public:
+#include "../lib/basis.hpp"
+
+class InputFile5D {
+ public:
   void loadRule5D(std::vector<Rule5D> &, const char *);
   void loadPacket5D(std::vector<Packet5D> &, const char *);
 };

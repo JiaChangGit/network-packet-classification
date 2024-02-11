@@ -10,25 +10,25 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>analyze ruleset distribution
+ * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>analyze ruleset
+ * distribution
  * </table>
  */
 
 #ifndef __LIB_RULESETANALYSIS_HPP__
 #define __LIB_RULESETANALYSIS_HPP__
 
-#include "basis.hpp"
-#include <vector>
 #include <fstream>
+#include <vector>
 
-class RulesetAnalysis
-{
+#include "basis.hpp"
 
-public:
+class RulesetAnalysis {
+ public:
   RulesetAnalysis(const std::vector<Rule5D> &);
   void printRule5V_arr(size_t);
 
-private:
+ private:
   // sIp_prefixLength, dIp_prefixLength, port isRange 0-> not range [src, dst]
   std::vector<unsigned int> rule5V_arr[33][33][2][2];
 };
