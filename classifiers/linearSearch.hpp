@@ -17,17 +17,17 @@
 #ifndef _CLASSIFIERS_LINEARSEARCH_HPP_
 #define _CLASSIFIERS_LINEARSEARCH_HPP_
 
-#include "../lib/basis.hpp"
-#include <vector>
 #include <fstream>
+#include <vector>
 
-class LinearSearch
-{
-public:
+#include "../lib/basis.hpp"
+
+class LinearSearch {
+ public:
   LinearSearch() : memorySize(0), packetCounter(0){};
   void search(std::vector<Rule5D> &, const std::vector<Packet5D> &);
 
-private:
+ private:
   unsigned long long memorySize;
   unsigned long long packetCounter;
 };

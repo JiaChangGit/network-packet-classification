@@ -20,19 +20,16 @@
 #include <chrono>
 #include <iostream>
 
-class Packet5D
-{
-public:
+class Packet5D {
+ public:
   uint16_t portS;
   uint16_t portD;
-  union
-  {
+  union {
     uint8_t ipS[4];
     uint32_t ipS32;
   };
   uint8_t protocol;
-  union
-  {
+  union {
     uint8_t ipD[4];
     uint32_t ipD32;
   };
@@ -40,17 +37,14 @@ public:
   void eightBitsGroup_ip_merge();
 };
 
-class Rule5D
-{
-public:
+class Rule5D {
+ public:
   unsigned int pri = 0;
-  union
-  {
+  union {
     uint8_t ipS[4];
     uint32_t ipS32;
   };
-  union
-  {
+  union {
     uint8_t ipD[4];
     uint32_t ipD32;
   };
@@ -64,16 +58,15 @@ public:
   bool isMatch(const Packet5D &);
 };
 
-class Timer
-{
-private:
+class Timer {
+ private:
   // Type aliases to make accessing nested type easier
   using Clock = std::chrono::steady_clock;
   using Second = std::chrono::duration<double, std::ratio<1>>;
 
   std::chrono::time_point<Clock> m_beg{Clock::now()};
 
-public:
+ public:
   void timeReset();
   double elapsed_s() const;
   unsigned long long elapsed_ns() const;

@@ -16,25 +16,21 @@
 
 #include "linearSearch.hpp"
 
-void LinearSearch::search(std::vector<Rule5D> &rule5V, const std::vector<Packet5D> &packet5V)
-{
+void LinearSearch::search(std::vector<Rule5D> &rule5V,
+                          const std::vector<Packet5D> &packet5V) {
   const char *search_path = "./INFO/LinearSearch_FaultPacket5D_test.txt";
   std::ofstream outFile(search_path);
   bool isBreak = false;
-  for (const auto &packet : packet5V)
-  {
-    for (auto &rule : rule5V)
-    {
-      if (rule.isMatch(packet))
-      {
+  for (const auto &packet : packet5V) {
+    for (auto &rule : rule5V) {
+      if (rule.isMatch(packet)) {
         ++packetCounter;
         isBreak = true;
         // std::cout << "match: " << rule.pri << "\n";
         break;
       }
     }
-    if (!isBreak)
-    {
+    if (!isBreak) {
       outFile << "Source IP: " << unsigned(packet.ipS32) << "\n";
       outFile << "Destination IP: " << unsigned(packet.ipD32) << "\n";
       outFile << "Source Port: " << unsigned(packet.portS) << "\n";
