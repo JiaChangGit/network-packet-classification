@@ -2,15 +2,15 @@
  * @file rulesetAnalysis.hpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.3
- * @date 2024-02-07
+ * @version 1.4
+ * @date 2024-02-11
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
  *
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-07 <td>1.3     <td>jiachang     <td>analyze ruleset distribution
+ * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>analyze ruleset distribution
  * </table>
  */
 
