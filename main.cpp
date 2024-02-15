@@ -38,8 +38,8 @@ int main(int argc, char *argv[]) {
   Timer timer;
   const char *loadRule5D_test_path = "./INFO/loadRule5D_test.txt";
   const char *loadPacket5D_test_path = "./INFO/loadPacket5D_test.txt";
-  const char *loadRule5D_ip_test_path = "./INFO/loadRule5D_merge_test.txt";
-  const char *loadPacket5D_ip_test_path = "./INFO/loadPacket5D_merge_test.txt";
+  const char *loadRule5D_ip_test_path = "./INFO/loadRule5D_ipSD_test.txt";
+  const char *loadPacket5D_ip_test_path = "./INFO/loadPacket5D_ipSD_test.txt";
 
   static struct option long_options[] = {
       {"ruleset", required_argument, NULL, 'r'},
@@ -96,25 +96,34 @@ int main(int argc, char *argv[]) {
         // Invalid option or missing argument
         cerr << "Usage: " << argv[0] << " -h   to get help\n";
 
-        return 1;
+        exit(1);
       default:
         break;
     }
   }
 
-  inputFile5D_test.loadRule5D_ip_test(rule5V, loadRule5D_ip_test_path);
-  inputFile5D_test.loadPacket5D_ip_test(packet5V, loadPacket5D_ip_test_path);
+  inputFile5D_test.loadRule5D_ipSD_test(rule5V, loadRule5D_ip_test_path);
+  inputFile5D_test.loadPacket5D_ipSD_test(packet5V, loadPacket5D_ip_test_path);
 
   //// === rulesetAnalysis === ////
   cout << "rulesetAnalysis\n";
   size_t rule5V_num = rule5V.size();
+  if (rule5V_num <= 0) {
+    cerr << "rule5V_num: " << rule5V_num << " <= 0\n";
+    exit(1);
+  }
   RulesetAnalysis rulesetAnalysis(rule5V);
   rulesetAnalysis.printRule5V_arr(rule5V_num);
+  rulesetAnalysis.printUniqRule5V();
   //// === rulesetAnalysis === ////
 
   //// === LinearSearch === ////
   LinearSearch linearSearch;
   int packet5V_num = packet5V.size();
+  if (packet5V_num <= 0) {
+    cerr << "packet5V_num: " << packet5V_num << " <= 0\n";
+    exit(1);
+  }
   timer.timeReset();
   linearSearch.search(rule5V, packet5V);
   cout << "packet5V_num: " << packet5V_num << "\n";

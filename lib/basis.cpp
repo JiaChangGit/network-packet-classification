@@ -16,7 +16,7 @@
 
 #include "basis.hpp"
 
-void Packet5D::eightBitsGroup_ip_merge() {
+void Packet5D::eightBitsGroup_ipSD() {
   this->ipS32 = ((uint32_t)this->ipS[0] << 24) |
                 ((uint32_t)this->ipS[1] << 16) | ((uint32_t)this->ipS[2] << 8) |
                 ((uint32_t)this->ipS[3]);
@@ -25,7 +25,7 @@ void Packet5D::eightBitsGroup_ip_merge() {
                 ((uint32_t)this->ipD[3]);
 };
 
-void Rule5D::eightBitsGroup_ip_merge() {
+void Rule5D::eightBitsGroup_ipSD() {
   this->ipS32 = ((uint32_t)this->ipS[0] << 24) |
                 ((uint32_t)this->ipS[1] << 16) | ((uint32_t)this->ipS[2] << 8) |
                 ((uint32_t)this->ipS[3]);

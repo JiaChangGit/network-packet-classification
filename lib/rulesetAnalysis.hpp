@@ -27,10 +27,16 @@ class RulesetAnalysis {
  public:
   RulesetAnalysis(const std::vector<Rule5D> &);
   void printRule5V_arr(size_t);
+  void printUniqRule5V();
 
  private:
   // sIp_prefixLength, dIp_prefixLength, port isRange 0-> not range [src, dst]
   std::vector<unsigned int> rule5V_arr[33][33][2][2];
+  struct analysisRule5D {
+    int matchField = 0;
+    Rule5D rule5D;
+  };
+  std::vector<analysisRule5D> uniqRule5V;
 };
 
 #endif
