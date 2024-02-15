@@ -21,7 +21,7 @@ void InputFile5D_test::loadRule5D_test(const std::vector<Rule5D> &rule5V,
                                        const char *fileName) {
   std::ofstream outFile(fileName);
   if (!outFile.is_open()) {
-    std::cerr << "Error opening output file: " << fileName << std::endl;
+    std::cerr << "Error opening output file: " << fileName << "\n";
     exit(1);  // error
   }
   // Timer t_loadRule5D_test;
@@ -38,9 +38,8 @@ void InputFile5D_test::loadRule5D_test(const std::vector<Rule5D> &rule5V,
             << unsigned(rule.portS[1]) << "\n";
     outFile << "Destination Port: " << unsigned(rule.portD[0]) << " : "
             << unsigned(rule.portD[1]) << "\n";
-    outFile << "Protocol: 0x" << std::hex
-            << static_cast<unsigned>(rule.protocol[0]) << " / 0x"
-            << static_cast<unsigned>(rule.protocol[1]) << std::dec << "\n";
+    outFile << "Protocol: 0x" << std::hex << unsigned(rule.protocol[0])
+            << " / 0x" << unsigned(rule.protocol[1]) << std::dec << "\n";
     outFile << "\n";
   }
   //   std::cout << "Time taken: " << t_loadRule5D_test.elapsed_ns() << " ns"
@@ -57,7 +56,7 @@ void InputFile5D_test::loadPacket5D_test(const std::vector<Packet5D> &packet5V,
                                          const char *fileName) {
   std::ofstream outFile(fileName);
   if (!outFile.is_open()) {
-    std::cerr << "Error opening output file: " << fileName << std::endl;
+    std::cerr << "Error opening output file: " << fileName << "\n";
     exit(1);  // error
   }
   // Timer t_loadPacket5D_test;
@@ -72,8 +71,8 @@ void InputFile5D_test::loadPacket5D_test(const std::vector<Packet5D> &packet5V,
             << unsigned(packet.ipD[0]) << "\n";
     outFile << "Source Port: " << unsigned(packet.portS) << "\n";
     outFile << "Destination Port: " << unsigned(packet.portD) << "\n";
-    outFile << "Protocol: 0x" << std::hex
-            << static_cast<unsigned>(packet.protocol) << std::dec << "\n";
+    outFile << "Protocol: 0x" << std::hex << unsigned(packet.protocol)
+            << std::dec << "\n";
     outFile << "\n";
   }
   //   std::cout << "Time taken: " << t_loadPacket5D_test.elapsed_ns() << " ns"
@@ -85,11 +84,11 @@ void InputFile5D_test::loadPacket5D_test(const std::vector<Packet5D> &packet5V,
             << "\n";
   outFile.close();
 };
-void InputFile5D_test::loadRule5D_ip_test(const std::vector<Rule5D> &rule5V,
-                                          const char *fileName) {
+void InputFile5D_test::loadRule5D_ipSD_test(const std::vector<Rule5D> &rule5V,
+                                            const char *fileName) {
   std::ofstream outFile(fileName);
   if (!outFile.is_open()) {
-    std::cerr << "Input Rule merge test ERROR: " << fileName << "\n";
+    std::cerr << "Input Rule ipSD test ERROR: " << fileName << "\n";
     exit(1);  // error
   }
   // Write extracted data to the output file
@@ -103,19 +102,18 @@ void InputFile5D_test::loadRule5D_ip_test(const std::vector<Rule5D> &rule5V,
             << unsigned(rule.portS[1]) << "\n";
     outFile << "Destination Port: " << unsigned(rule.portD[0]) << " : "
             << unsigned(rule.portD[1]) << "\n";
-    outFile << "Protocol: 0x" << std::hex
-            << static_cast<unsigned>(rule.protocol[0]) << " / 0x"
-            << static_cast<unsigned>(rule.protocol[1]) << std::dec << "\n";
+    outFile << "Protocol: 0x" << std::hex << unsigned(rule.protocol[0])
+            << " / 0x" << unsigned(rule.protocol[1]) << std::dec << "\n";
     outFile << "\n";
   }
 
   outFile.close();
 };
-void InputFile5D_test::loadPacket5D_ip_test(
+void InputFile5D_test::loadPacket5D_ipSD_test(
     const std::vector<Packet5D> &packet5V, const char *fileName) {
   std::ofstream outFile(fileName);
   if (!outFile.is_open()) {
-    std::cerr << "Input Packet merge test ERROR: " << fileName << "\n";
+    std::cerr << "Input Packet ipSD test ERROR: " << fileName << "\n";
     exit(1);  // error
   }
   // Write extracted data to the output file
@@ -124,8 +122,8 @@ void InputFile5D_test::loadPacket5D_ip_test(
     outFile << "Destination IP: " << unsigned(packet.ipD32) << "\n";
     outFile << "Source Port: " << unsigned(packet.portS) << "\n";
     outFile << "Destination Port: " << unsigned(packet.portD) << "\n";
-    outFile << "Protocol: 0x" << std::hex
-            << static_cast<unsigned>(packet.protocol) << std::dec << "\n";
+    outFile << "Protocol: 0x" << std::hex << unsigned(packet.protocol)
+            << std::dec << "\n";
     outFile << "\n";
   }
 

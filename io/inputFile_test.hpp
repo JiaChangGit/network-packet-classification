@@ -27,7 +27,7 @@ class InputFile5D_test {
  public:
   void loadRule5D_test(const std::vector<Rule5D> &, const char *);
   void loadPacket5D_test(const std::vector<Packet5D> &, const char *);
-  void loadRule5D_ip_test(const std::vector<Rule5D> &, const char *);
-  void loadPacket5D_ip_test(const std::vector<Packet5D> &, const char *);
+  void loadRule5D_ipSD_test(const std::vector<Rule5D> &, const char *);
+  void loadPacket5D_ipSD_test(const std::vector<Packet5D> &, const char *);
 };
 #endif

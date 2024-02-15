@@ -36,7 +36,7 @@ void LinearSearch::search(std::vector<Rule5D> &rule5V,
       outFile << "Source Port: " << unsigned(packet.portS) << "\n";
       outFile << "Destination Port: " << unsigned(packet.portD) << "\n";
       outFile << "Protocol: 0x" << std::hex
-              << static_cast<unsigned>(packet.protocol) << std::dec << "\n";
+              << unsigned(packet.protocol) << std::dec << "\n";
       outFile << "\n";
     }
     isBreak = false;

@@ -34,7 +34,7 @@ class Packet5D {
     uint32_t ipD32;
   };
 
-  void eightBitsGroup_ip_merge();
+  void eightBitsGroup_ipSD();
 };
 
 class Rule5D {
@@ -54,7 +54,7 @@ class Rule5D {
   uint8_t ipDMask;
   uint8_t protocol[2];
 
-  void eightBitsGroup_ip_merge();
+  void eightBitsGroup_ipSD();
   bool isMatch(const Packet5D &);
 };
 
