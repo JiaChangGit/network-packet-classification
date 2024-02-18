@@ -289,7 +289,7 @@ void RulesetAnalysis ::printUniqRule5V() {
   exactCounter = 0;
 
   for (const auto &exact : analysisRule5D_protocol) {
-    if (exact.rule5D.protocol[0] == exact.rule5D.protocol[1]) {
+    if (exact.rule5D.protocol[1] == 0xFF) {
       ++exactCounter;
       outputExact << "pri: " << exact.rule5D.pri << "\n";
       outputExact << "protocol: " << unsigned(exact.rule5D.protocol[0]) << ":"
