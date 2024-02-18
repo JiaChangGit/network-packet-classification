@@ -384,8 +384,12 @@ portD: 2051:2051
 exact portD: 66
 ========
 
-pri: 755
-protocol: 0:0
+pri: 1
+protocol: 6:255
+pri: 50
+protocol: 17:255
+pri: 695
+protocol: 1:255
 ========
-exact protocol: 1
+exact protocol: 3
 ========
