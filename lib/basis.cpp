@@ -34,28 +34,6 @@ void Rule5D::eightBitsGroup_ipSD() {
                 ((uint32_t)this->ipD[3]);
 };
 
-bool Rule5D::isMatch(const Packet5D &p5D) {
-  uint8_t ipNotCare = (32 - ipSMask);
-  if (ipNotCare != 32) {
-    if ((ipS32 >> ipNotCare) != (p5D.ipS32 >> ipNotCare)) {
-      return false;
-    }
-    ipNotCare = (32 - ipDMask);
-  } else if (ipNotCare != 32) {
-    if ((ipD32 >> ipNotCare) != (p5D.ipD32 >> ipNotCare)) {
-      return false;
-    }
-  } else if ((portD[0] > p5D.portD) || (portD[1] < p5D.portD)) {
-    return false;
-  } else if ((portS[0] > p5D.portS) || (portS[1] < p5D.portS)) {
-    return false;
-  } else if (((protocol[0] & protocol[1]) != p5D.protocol) &&
-             (protocol[1] != 0x00)) {
-    return false;
-  }
-  return true;
-};
-
 void Timer::timeReset() { m_beg = Clock::now(); };
 
 double Timer::elapsed_s() const {
