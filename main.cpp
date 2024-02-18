@@ -21,8 +21,10 @@
 
 #include "input.hpp"
 #include "inputFile_test.hpp"
+#include "ksetSearch.hpp"
 #include "linearSearch.hpp"
 #include "rulesetAnalysis.hpp"
+#include "tSearch.hpp"
 
 using std::cerr;
 using std::cin;
@@ -102,16 +104,17 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  inputFile5D_test.loadRule5D_ipSD_test(rule5V, loadRule5D_ip_test_path);
-  inputFile5D_test.loadPacket5D_ipSD_test(packet5V, loadPacket5D_ip_test_path);
+  // inputFile5D_test.loadRule5D_ipSD_test(rule5V, loadRule5D_ip_test_path);
+  // inputFile5D_test.loadPacket5D_ipSD_test(packet5V,
+  // loadPacket5D_ip_test_path);
 
-  //// === rulesetAnalysis === ////
-  cout << "rulesetAnalysis\n";
   size_t rule5V_num = rule5V.size();
   if (rule5V_num <= 0) {
     cerr << "rule5V_num: " << rule5V_num << " <= 0\n";
     exit(1);
   }
+
+  //// === rulesetAnalysis === ////
   RulesetAnalysis rulesetAnalysis(rule5V);
   rulesetAnalysis.printRule5V_arr(rule5V_num);
   rulesetAnalysis.printUniqRule5V();
@@ -132,5 +135,15 @@ int main(int argc, char *argv[]) {
   cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packet5V_num)
        << "\n";
   //// === LinearSearch === ////
+
+  // //// === KsetSearch === ////
+  // KsetSearch ksetSearch;
+  // ksetSearch.partition(rule5V, rule5V_num, 16);
+  // //// === KsetSearch === ////
+
+  //// === tSearch === ////
+  TSearch tSearch(8, 17);
+  tSearch.partition(rule5V, rule5V_num);
+  //// === tSearch === ////
   return 0;
 }

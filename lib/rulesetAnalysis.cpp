@@ -134,7 +134,7 @@ void RulesetAnalysis::printRule5V_arr(size_t rule5V_num) {
                        << rule5V_arrSize / rule5V_num
                        << "\n==========================\n\n";
           } else {
-            // Print the index
+            // Print the NULL
             // outputFile << "rule5V_arr[" << i << "][" << j << "][" << k <<
             // "][" << l <<  "]: "; outputFile << "NULL\n";
           }
@@ -148,6 +148,7 @@ void RulesetAnalysis::printRule5V_arr(size_t rule5V_num) {
 
 void RulesetAnalysis ::printUniqRule5V() {
   const char *UniqRule5VPrint_path = "./INFO/uniqRule5V.txt";
+  const char *ExactRule5VPrint_path = "./INFO/exactRule5V.txt";
   std::ofstream outputFile(UniqRule5VPrint_path);
   if (!outputFile.is_open()) {
     std::cerr << "Unable to open file! uniqRule5V.txt\n";
@@ -221,4 +222,83 @@ void RulesetAnalysis ::printUniqRule5V() {
                << unsigned(uniq.rule5D.protocol[1]) << "\n";
   }
   outputFile.close();
+  // ==== exact ==== //
+  std::ofstream outputExact(ExactRule5VPrint_path);
+  if (!outputExact.is_open()) {
+    std::cerr << "Unable to open file! exactRule5V.txt\n";
+    exit(1);
+  }
+  size_t exactCounter = 0;
+
+  for (const auto &exact : analysisRule5D_ipS) {
+    if (exact.rule5D.ipSMask == 32) {
+      ++exactCounter;
+      outputExact << "pri: " << exact.rule5D.pri << "\n";
+      outputExact << "ipS32: " << unsigned(exact.rule5D.ipS[3]) << "."
+                  << unsigned(exact.rule5D.ipS[2]) << "."
+                  << unsigned(exact.rule5D.ipS[1]) << "."
+                  << unsigned(exact.rule5D.ipS[0]) << "/"
+                  << unsigned(exact.rule5D.ipSMask) << "\n";
+    }
+  }
+  outputExact << "========\n";
+  outputExact << "exact ipS: " << exactCounter << "\n";
+  outputExact << "========\n\n";
+  exactCounter = 0;
+
+  for (const auto &exact : analysisRule5D_ipD) {
+    if (exact.rule5D.ipDMask == 32) {
+      ++exactCounter;
+      outputExact << "pri: " << exact.rule5D.pri << "\n";
+      outputExact << "ipD32: " << unsigned(exact.rule5D.ipD[3]) << "."
+                  << unsigned(exact.rule5D.ipD[2]) << "."
+                  << unsigned(exact.rule5D.ipD[1]) << "."
+                  << unsigned(exact.rule5D.ipD[0]) << "/"
+                  << unsigned(exact.rule5D.ipDMask) << "\n";
+    }
+  }
+  outputExact << "========\n";
+  outputExact << "exact ipD: " << exactCounter << "\n";
+  outputExact << "========\n\n";
+  exactCounter = 0;
+
+  for (const auto &exact : analysisRule5D_portS) {
+    if (exact.rule5D.portS[0] == exact.rule5D.portS[1]) {
+      ++exactCounter;
+      outputExact << "pri: " << exact.rule5D.pri << "\n";
+      outputExact << "portS: " << unsigned(exact.rule5D.portS[0]) << ":"
+                  << unsigned(exact.rule5D.portS[1]) << "\n";
+    }
+  }
+  outputExact << "========\n";
+  outputExact << "exact portS: " << exactCounter << "\n";
+  outputExact << "========\n\n";
+  exactCounter = 0;
+
+  for (const auto &exact : analysisRule5D_portD) {
+    if (exact.rule5D.portD[0] == exact.rule5D.portD[1]) {
+      ++exactCounter;
+      outputExact << "pri: " << exact.rule5D.pri << "\n";
+      outputExact << "portD: " << unsigned(exact.rule5D.portD[0]) << ":"
+                  << unsigned(exact.rule5D.portD[1]) << "\n";
+    }
+  }
+  outputExact << "========\n";
+  outputExact << "exact portD: " << exactCounter << "\n";
+  outputExact << "========\n\n";
+  exactCounter = 0;
+
+  for (const auto &exact : analysisRule5D_protocol) {
+    if (exact.rule5D.protocol[0] == exact.rule5D.protocol[1]) {
+      ++exactCounter;
+      outputExact << "pri: " << exact.rule5D.pri << "\n";
+      outputExact << "protocol: " << unsigned(exact.rule5D.protocol[0]) << ":"
+                  << unsigned(exact.rule5D.protocol[1]) << "\n";
+    }
+  }
+  outputExact << "========\n";
+  outputExact << "exact protocol: " << exactCounter << "\n";
+  outputExact << "========\n";
+  outputExact.close();
+  // ==== exact ==== //
 };
