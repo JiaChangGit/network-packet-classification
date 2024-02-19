@@ -1,0 +1,14 @@
+Priority: 943
+Source IP: 128.0.0.0/1
+Destination IP: 44.0.0.0/7
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x1 / 0xff
+
+Priority: 944
+Source IP: 128.0.0.0/1
+Destination IP: 44.0.0.0/7
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+

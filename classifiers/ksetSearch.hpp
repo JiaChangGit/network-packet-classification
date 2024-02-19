@@ -14,8 +14,8 @@ class KsetSearch {
         packetCounter(0),
         subsetNum{0},
         usedBits{0},
-        threshold1(0),
-        threshold2(0){};
+        Threshold1(0),
+        Threshold2(0){};
   void partition(std::vector<Rule5D> &, const size_t, const size_t);
   void search(std::vector<Rule5D> &, const std::vector<Packet5D> &);
 
@@ -28,8 +28,8 @@ class KsetSearch {
   std::vector<Rule5D> subset3;
   size_t subsetNum[4];
   int usedBits[3];
-  const size_t threshold1;
-  const size_t threshold2;
+  const size_t Threshold1;
+  const size_t Threshold2;
 
   struct BigSegment {
     int uf = -1;      // used exact field

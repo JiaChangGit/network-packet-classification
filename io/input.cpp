@@ -23,9 +23,9 @@
 #include "input.hpp"
 
 void InputFile5D::loadRule5D(std::vector<Rule5D> &rule5V,
-                             const char *fileName) {
+                             const char *FileName) {
   FILE *fp = NULL;
-  fp = fopen(fileName, "r");
+  fp = fopen(FileName, "r");
   if (fp == NULL) {
     fprintf(stderr, "error - can not open rules file\n");
     exit(1);  // error
@@ -73,9 +73,9 @@ void InputFile5D::loadRule5D(std::vector<Rule5D> &rule5V,
 };
 
 void InputFile5D::loadPacket5D(std::vector<Packet5D> &packet5V,
-                               const char *fileName) {
+                               const char *FileName) {
   FILE *fp = NULL;
-  fp = fopen(fileName, "r");
+  fp = fopen(FileName, "r");
   if (fp == NULL) {
     fprintf(stderr, "error - can not open trace file\n");
     exit(1);  // error

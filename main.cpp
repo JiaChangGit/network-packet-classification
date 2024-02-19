@@ -38,10 +38,10 @@ int main(int argc, char *argv[]) {
   InputFile5D inputFile5D;
   InputFile5D_test inputFile5D_test;
   Timer timer;
-  const char *loadRule5D_test_path = "./INFO/loadRule5D_test.txt";
-  const char *loadPacket5D_test_path = "./INFO/loadPacket5D_test.txt";
-  const char *loadRule5D_ip_test_path = "./INFO/loadRule5D_ipSD_test.txt";
-  const char *loadPacket5D_ip_test_path = "./INFO/loadPacket5D_ipSD_test.txt";
+  const char *LoadRule5D_test_path = "./INFO/loadRule5D_test.txt";
+  const char *LoadPacket5D_test_path = "./INFO/loadPacket5D_test.txt";
+  const char *LoadRule5D_ip_test_path = "./INFO/loadRule5D_ipSD_test.txt";
+  const char *LoadPacket5D_ip_test_path = "./INFO/loadPacket5D_ipSD_test.txt";
 
   static struct option long_options[] = {
       {"ruleset", required_argument, NULL, 'r'},
@@ -73,13 +73,13 @@ int main(int argc, char *argv[]) {
       case 't':
         // Don't need argument
         timer.timeReset();
-        inputFile5D_test.loadRule5D_test(rule5V, loadRule5D_test_path);
+        inputFile5D_test.loadRule5D_test(rule5V, LoadRule5D_test_path);
 
         cout << "Input rule test time(ns): " << timer.elapsed_ns() << "\n";
         cout << "Input rule test time(s): " << timer.elapsed_s() << "\n";
 
         timer.timeReset();
-        inputFile5D_test.loadPacket5D_test(packet5V, loadPacket5D_test_path);
+        inputFile5D_test.loadPacket5D_test(packet5V, LoadPacket5D_test_path);
 
         cout << "Input packet test time(ns): " << timer.elapsed_ns() << "\n";
         cout << "Input packet test time(s): " << timer.elapsed_s() << "\n";
@@ -104,9 +104,9 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  // inputFile5D_test.loadRule5D_ipSD_test(rule5V, loadRule5D_ip_test_path);
+  // inputFile5D_test.loadRule5D_ipSD_test(rule5V, LoadRule5D_ip_test_path);
   // inputFile5D_test.loadPacket5D_ipSD_test(packet5V,
-  // loadPacket5D_ip_test_path);
+  // LoadPacket5D_ip_test_path);
 
   size_t rule5V_num = rule5V.size();
   if (rule5V_num <= 0) {
@@ -120,21 +120,22 @@ int main(int argc, char *argv[]) {
   rulesetAnalysis.printUniqRule5V();
   //// === rulesetAnalysis === ////
 
-  //// === LinearSearch === ////
-  LinearSearch linearSearch;
-  int packet5V_num = packet5V.size();
-  if (packet5V_num <= 0) {
-    cerr << "packet5V_num: " << packet5V_num << " <= 0\n";
-    exit(1);
-  }
-  timer.timeReset();
-  linearSearch.search(rule5V, packet5V);
-  cout << "packet5V_num: " << packet5V_num << "\n";
-  cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() / packet5V_num)
-       << "\n";
-  cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packet5V_num)
-       << "\n";
-  //// === LinearSearch === ////
+  // //// === LinearSearch === ////
+  // LinearSearch linearSearch;
+  // int packet5V_num = packet5V.size();
+  // if (packet5V_num <= 0) {
+  //   cerr << "packet5V_num: " << packet5V_num << " <= 0\n";
+  //   exit(1);
+  // }
+  // timer.timeReset();
+  // linearSearch.search(rule5V, packet5V);
+  // cout << "packet5V_num: " << packet5V_num << "\n";
+  // cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() /
+  // packet5V_num)
+  //      << "\n";
+  // cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packet5V_num)
+  //      << "\n";
+  // //// === LinearSearch === ////
 
   // //// === KsetSearch === ////
   // KsetSearch ksetSearch;

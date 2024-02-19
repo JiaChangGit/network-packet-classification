@@ -1,0 +1,1554 @@
+Priority: 193
+Source IP: 194.186.113.147/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 1712 : 1712
+Protocol: 0x6 / 0xff
+
+Priority: 194
+Source IP: 194.186.113.235/32
+Destination IP: 11.12.85.140/31
+Source Port: 0 : 65535
+Destination Port: 65500 : 65500
+Protocol: 0x6 / 0xff
+
+Priority: 195
+Source IP: 194.186.113.235/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 5541 : 5541
+Protocol: 0x6 / 0xff
+
+Priority: 196
+Source IP: 194.186.113.219/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 5555 : 5555
+Protocol: 0x6 / 0xff
+
+Priority: 197
+Source IP: 194.186.113.197/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1525 : 1525
+Protocol: 0x6 / 0xff
+
+Priority: 198
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 199
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 2115 : 2115
+Protocol: 0x6 / 0xff
+
+Priority: 200
+Source IP: 194.186.113.206/32
+Destination IP: 198.173.109.196/31
+Source Port: 0 : 65535
+Destination Port: 1489 : 1489
+Protocol: 0x6 / 0xff
+
+Priority: 201
+Source IP: 85.89.152.29/32
+Destination IP: 239.20.214.166/31
+Source Port: 0 : 65535
+Destination Port: 1526 : 1526
+Protocol: 0x6 / 0xff
+
+Priority: 202
+Source IP: 85.89.152.29/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 203
+Source IP: 85.89.152.108/32
+Destination IP: 85.89.147.108/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 204
+Source IP: 85.89.152.108/32
+Destination IP: 165.118.152.238/31
+Source Port: 0 : 65535
+Destination Port: 1712 : 1712
+Protocol: 0x6 / 0xff
+
+Priority: 205
+Source IP: 85.89.152.108/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 5540 : 5540
+Protocol: 0x6 / 0xff
+
+Priority: 206
+Source IP: 85.89.152.77/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 32200 : 32200
+Protocol: 0x6 / 0xff
+
+Priority: 207
+Source IP: 85.89.152.94/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1433 : 1433
+Protocol: 0x6 / 0xff
+
+Priority: 208
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1717 : 1717
+Protocol: 0x6 / 0xff
+
+Priority: 209
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 30899 : 30899
+Protocol: 0x6 / 0xff
+
+Priority: 210
+Source IP: 85.89.152.94/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1221 : 1221
+Protocol: 0x6 / 0xff
+
+Priority: 211
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1526 : 1526
+Protocol: 0x6 / 0xff
+
+Priority: 212
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 3745 : 3745
+Protocol: 0x6 / 0xff
+
+Priority: 324
+Source IP: 194.186.113.147/32
+Destination IP: 163.47.111.164/30
+Source Port: 0 : 65535
+Destination Port: 1490 : 1490
+Protocol: 0x6 / 0xff
+
+Priority: 325
+Source IP: 194.186.113.235/32
+Destination IP: 163.47.111.164/30
+Source Port: 0 : 65535
+Destination Port: 1526 : 1526
+Protocol: 0x6 / 0xff
+
+Priority: 326
+Source IP: 194.186.113.206/32
+Destination IP: 209.96.58.168/30
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 327
+Source IP: 85.89.152.29/32
+Destination IP: 81.123.26.236/30
+Source Port: 0 : 65535
+Destination Port: 1525 : 1525
+Protocol: 0x6 / 0xff
+
+Priority: 328
+Source IP: 85.89.152.77/32
+Destination IP: 163.142.123.8/30
+Source Port: 0 : 65535
+Destination Port: 20 : 20
+Protocol: 0x6 / 0xff
+
+Priority: 333
+Source IP: 194.186.113.146/32
+Destination IP: 86.186.43.148/31
+Source Port: 0 : 65535
+Destination Port: 20 : 20
+Protocol: 0x6 / 0xff
+
+Priority: 334
+Source IP: 194.186.113.171/32
+Destination IP: 86.243.19.238/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 335
+Source IP: 194.186.113.183/32
+Destination IP: 86.247.120.62/31
+Source Port: 0 : 65535
+Destination Port: 5632 : 5632
+Protocol: 0x6 / 0xff
+
+Priority: 336
+Source IP: 194.186.113.183/32
+Destination IP: 85.64.140.4/31
+Source Port: 0 : 65535
+Destination Port: 3031 : 3031
+Protocol: 0x6 / 0xff
+
+Priority: 337
+Source IP: 194.186.113.184/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 338
+Source IP: 194.186.113.234/32
+Destination IP: 11.15.32.194/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 339
+Source IP: 194.186.113.234/32
+Destination IP: 198.173.109.196/31
+Source Port: 0 : 65535
+Destination Port: 1221 : 1221
+Protocol: 0x6 / 0xff
+
+Priority: 340
+Source IP: 194.186.113.235/32
+Destination IP: 11.12.85.140/31
+Source Port: 0 : 65535
+Destination Port: 30899 : 30899
+Protocol: 0x6 / 0xff
+
+Priority: 341
+Source IP: 194.186.113.235/32
+Destination IP: 11.12.85.140/31
+Source Port: 0 : 65535
+Destination Port: 1433 : 1433
+Protocol: 0x6 / 0xff
+
+Priority: 342
+Source IP: 194.186.113.235/32
+Destination IP: 11.12.85.140/31
+Source Port: 0 : 65535
+Destination Port: 1705 : 1705
+Protocol: 0x6 / 0xff
+
+Priority: 343
+Source IP: 194.186.113.235/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 5542 : 5542
+Protocol: 0x6 / 0xff
+
+Priority: 344
+Source IP: 194.186.113.218/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1711 : 1711
+Protocol: 0x6 / 0xff
+
+Priority: 345
+Source IP: 194.186.113.218/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 346
+Source IP: 194.186.113.219/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1711 : 1711
+Protocol: 0x6 / 0xff
+
+Priority: 347
+Source IP: 194.186.113.219/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 30211 : 30211
+Protocol: 0x6 / 0xff
+
+Priority: 348
+Source IP: 194.186.113.219/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 6000 : 6000
+Protocol: 0x6 / 0xff
+
+Priority: 349
+Source IP: 194.186.113.219/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1526 : 1526
+Protocol: 0x6 / 0xff
+
+Priority: 350
+Source IP: 194.186.113.219/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 351
+Source IP: 194.186.113.219/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1733 : 1733
+Protocol: 0x6 / 0xff
+
+Priority: 352
+Source IP: 194.186.113.197/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 6789 : 6789
+Protocol: 0x6 / 0xff
+
+Priority: 353
+Source IP: 194.186.113.197/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 19856 : 19856
+Protocol: 0x6 / 0xff
+
+Priority: 354
+Source IP: 194.186.113.197/32
+Destination IP: 208.154.13.146/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 355
+Source IP: 194.186.113.197/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1221 : 1221
+Protocol: 0x6 / 0xff
+
+Priority: 356
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1526 : 1526
+Protocol: 0x6 / 0xff
+
+Priority: 357
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 6790 : 6790
+Protocol: 0x6 / 0xff
+
+Priority: 358
+Source IP: 194.186.113.206/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 1711 : 1711
+Protocol: 0x6 / 0xff
+
+Priority: 359
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1724 : 1724
+Protocol: 0x6 / 0xff
+
+Priority: 360
+Source IP: 194.186.113.206/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1733 : 1733
+Protocol: 0x6 / 0xff
+
+Priority: 361
+Source IP: 85.89.152.29/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1717 : 1717
+Protocol: 0x6 / 0xff
+
+Priority: 362
+Source IP: 85.89.152.29/32
+Destination IP: 251.189.208.178/31
+Source Port: 0 : 65535
+Destination Port: 21 : 21
+Protocol: 0x6 / 0xff
+
+Priority: 363
+Source IP: 85.89.152.29/32
+Destination IP: 211.33.154.22/31
+Source Port: 0 : 65535
+Destination Port: 6789 : 6789
+Protocol: 0x6 / 0xff
+
+Priority: 364
+Source IP: 85.89.152.29/32
+Destination IP: 201.223.141.22/31
+Source Port: 0 : 65535
+Destination Port: 1708 : 1708
+Protocol: 0x6 / 0xff
+
+Priority: 365
+Source IP: 85.89.152.29/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 366
+Source IP: 85.89.152.29/32
+Destination IP: 198.173.108.106/31
+Source Port: 0 : 65535
+Destination Port: 14753 : 14753
+Protocol: 0x6 / 0xff
+
+Priority: 367
+Source IP: 85.89.152.29/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 368
+Source IP: 85.89.152.29/32
+Destination IP: 85.89.147.108/31
+Source Port: 0 : 65535
+Destination Port: 1221 : 1221
+Protocol: 0x6 / 0xff
+
+Priority: 369
+Source IP: 85.89.152.108/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 3745 : 3745
+Protocol: 0x6 / 0xff
+
+Priority: 370
+Source IP: 85.89.152.108/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 135 : 135
+Protocol: 0x6 / 0xff
+
+Priority: 371
+Source IP: 85.89.152.108/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 1526 : 1526
+Protocol: 0x6 / 0xff
+
+Priority: 372
+Source IP: 85.89.152.108/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 21 : 21
+Protocol: 0x6 / 0xff
+
+Priority: 373
+Source IP: 85.89.152.108/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1433 : 1433
+Protocol: 0x6 / 0xff
+
+Priority: 374
+Source IP: 85.89.152.108/32
+Destination IP: 132.26.30.148/31
+Source Port: 0 : 65535
+Destination Port: 6000 : 6000
+Protocol: 0x6 / 0xff
+
+Priority: 375
+Source IP: 85.89.152.108/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 3031 : 3031
+Protocol: 0x6 / 0xff
+
+Priority: 376
+Source IP: 85.89.152.108/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 1733 : 1733
+Protocol: 0x6 / 0xff
+
+Priority: 377
+Source IP: 85.89.152.108/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 21 : 21
+Protocol: 0x6 / 0xff
+
+Priority: 378
+Source IP: 85.89.152.108/32
+Destination IP: 163.157.109.118/31
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 379
+Source IP: 85.89.152.77/32
+Destination IP: 163.143.204.176/31
+Source Port: 0 : 65535
+Destination Port: 5541 : 5541
+Protocol: 0x6 / 0xff
+
+Priority: 380
+Source IP: 85.89.152.77/32
+Destination IP: 163.143.204.176/31
+Source Port: 0 : 65535
+Destination Port: 1601 : 1601
+Protocol: 0x6 / 0xff
+
+Priority: 381
+Source IP: 85.89.152.77/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1708 : 1708
+Protocol: 0x6 / 0xff
+
+Priority: 382
+Source IP: 85.89.152.77/32
+Destination IP: 85.89.147.108/31
+Source Port: 0 : 65535
+Destination Port: 32201 : 32201
+Protocol: 0x6 / 0xff
+
+Priority: 383
+Source IP: 85.89.152.77/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 2121 : 2121
+Protocol: 0x6 / 0xff
+
+Priority: 384
+Source IP: 85.89.152.77/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1540 : 1540
+Protocol: 0x6 / 0xff
+
+Priority: 385
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1433 : 1433
+Protocol: 0x6 / 0xff
+
+Priority: 386
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1221 : 1221
+Protocol: 0x6 / 0xff
+
+Priority: 387
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 27000 : 27000
+Protocol: 0x6 / 0xff
+
+Priority: 388
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 6000 : 6000
+Protocol: 0x6 / 0xff
+
+Priority: 389
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 5632 : 5632
+Protocol: 0x6 / 0xff
+
+Priority: 390
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1708 : 1708
+Protocol: 0x6 / 0xff
+
+Priority: 391
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1489 : 1489
+Protocol: 0x6 / 0xff
+
+Priority: 416
+Source IP: 194.186.113.174/32
+Destination IP: 86.243.19.232/30
+Source Port: 0 : 65535
+Destination Port: 1221 : 1221
+Protocol: 0x6 / 0xff
+
+Priority: 417
+Source IP: 194.186.113.184/32
+Destination IP: 85.68.66.32/30
+Source Port: 0 : 65535
+Destination Port: 1724 : 1724
+Protocol: 0x6 / 0xff
+
+Priority: 418
+Source IP: 194.186.113.234/32
+Destination IP: 11.5.163.244/30
+Source Port: 0 : 65535
+Destination Port: 20 : 20
+Protocol: 0x6 / 0xff
+
+Priority: 419
+Source IP: 194.186.113.235/32
+Destination IP: 47.232.216.236/30
+Source Port: 0 : 65535
+Destination Port: 1708 : 1708
+Protocol: 0x6 / 0xff
+
+Priority: 420
+Source IP: 194.186.113.197/32
+Destination IP: 47.232.216.236/30
+Source Port: 0 : 65535
+Destination Port: 135 : 135
+Protocol: 0x6 / 0xff
+
+Priority: 421
+Source IP: 194.186.113.197/32
+Destination IP: 47.232.216.236/30
+Source Port: 0 : 65535
+Destination Port: 1712 : 1712
+Protocol: 0x6 / 0xff
+
+Priority: 422
+Source IP: 194.186.113.197/32
+Destination IP: 194.186.116.72/30
+Source Port: 0 : 65535
+Destination Port: 5540 : 5540
+Protocol: 0x6 / 0xff
+
+Priority: 423
+Source IP: 194.186.113.197/32
+Destination IP: 47.232.216.236/30
+Source Port: 0 : 65535
+Destination Port: 6000 : 6000
+Protocol: 0x6 / 0xff
+
+Priority: 424
+Source IP: 85.89.152.29/32
+Destination IP: 251.53.206.168/30
+Source Port: 0 : 65535
+Destination Port: 1733 : 1733
+Protocol: 0x6 / 0xff
+
+Priority: 425
+Source IP: 85.89.152.29/32
+Destination IP: 251.239.79.144/30
+Source Port: 0 : 65535
+Destination Port: 512 : 512
+Protocol: 0x6 / 0xff
+
+Priority: 426
+Source IP: 85.89.152.29/32
+Destination IP: 47.232.216.236/30
+Source Port: 0 : 65535
+Destination Port: 1221 : 1221
+Protocol: 0x6 / 0xff
+
+Priority: 427
+Source IP: 85.89.152.29/32
+Destination IP: 214.16.57.96/30
+Source Port: 0 : 65535
+Destination Port: 3031 : 3031
+Protocol: 0x6 / 0xff
+
+Priority: 428
+Source IP: 85.89.152.29/32
+Destination IP: 205.143.223.144/30
+Source Port: 0 : 65535
+Destination Port: 1433 : 1433
+Protocol: 0x6 / 0xff
+
+Priority: 429
+Source IP: 85.89.152.29/32
+Destination IP: 47.232.216.236/30
+Source Port: 0 : 65535
+Destination Port: 135 : 135
+Protocol: 0x6 / 0xff
+
+Priority: 430
+Source IP: 85.89.152.108/32
+Destination IP: 140.151.41.36/30
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 431
+Source IP: 85.89.152.108/32
+Destination IP: 143.22.112.16/30
+Source Port: 0 : 65535
+Destination Port: 5632 : 5632
+Protocol: 0x6 / 0xff
+
+Priority: 432
+Source IP: 85.89.152.108/32
+Destination IP: 163.157.109.112/30
+Source Port: 0 : 65535
+Destination Port: 5543 : 5543
+Protocol: 0x6 / 0xff
+
+Priority: 433
+Source IP: 85.89.152.77/32
+Destination IP: 163.143.204.180/30
+Source Port: 0 : 65535
+Destination Port: 5631 : 5631
+Protocol: 0x6 / 0xff
+
+Priority: 434
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.164/30
+Source Port: 0 : 65535
+Destination Port: 1526 : 1526
+Protocol: 0x6 / 0xff
+
+Priority: 435
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.164/30
+Source Port: 0 : 65535
+Destination Port: 1221 : 1221
+Protocol: 0x6 / 0xff
+
+Priority: 436
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.164/30
+Source Port: 0 : 65535
+Destination Port: 1724 : 1724
+Protocol: 0x6 / 0xff
+
+Priority: 437
+Source IP: 85.89.152.94/32
+Destination IP: 85.89.147.104/30
+Source Port: 0 : 65535
+Destination Port: 1525 : 1525
+Protocol: 0x6 / 0xff
+
+Priority: 472
+Source IP: 85.89.152.108/32
+Destination IP: 143.22.112.22/31
+Source Port: 0 : 65535
+Destination Port: 62100 : 62109
+Protocol: 0x6 / 0xff
+
+Priority: 486
+Source IP: 194.186.113.235/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 61200 : 61209
+Protocol: 0x6 / 0xff
+
+Priority: 487
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 61000 : 61009
+Protocol: 0x6 / 0xff
+
+Priority: 488
+Source IP: 85.89.152.29/32
+Destination IP: 251.53.206.66/31
+Source Port: 0 : 65535
+Destination Port: 62000 : 62009
+Protocol: 0x6 / 0xff
+
+Priority: 489
+Source IP: 85.89.152.108/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 61500 : 61509
+Protocol: 0x6 / 0xff
+
+Priority: 490
+Source IP: 85.89.152.77/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 62100 : 62109
+Protocol: 0x6 / 0xff
+
+Priority: 491
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 62400 : 62409
+Protocol: 0x6 / 0xff
+
+Priority: 492
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 62600 : 62609
+Protocol: 0x6 / 0xff
+
+Priority: 493
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 61700 : 61709
+Protocol: 0x6 / 0xff
+
+Priority: 497
+Source IP: 85.89.152.108/32
+Destination IP: 143.22.112.22/31
+Source Port: 0 : 65535
+Destination Port: 2200 : 2210
+Protocol: 0x6 / 0xff
+
+Priority: 505
+Source IP: 194.186.113.234/32
+Destination IP: 11.5.163.244/30
+Source Port: 0 : 65535
+Destination Port: 2200 : 2210
+Protocol: 0x6 / 0xff
+
+Priority: 506
+Source IP: 194.186.113.235/32
+Destination IP: 11.12.85.136/30
+Source Port: 0 : 65535
+Destination Port: 20000 : 20010
+Protocol: 0x6 / 0xff
+
+Priority: 507
+Source IP: 194.186.113.235/32
+Destination IP: 11.12.85.140/31
+Source Port: 0 : 65535
+Destination Port: 1300 : 1349
+Protocol: 0x6 / 0xff
+
+Priority: 508
+Source IP: 85.89.152.29/32
+Destination IP: 216.175.129.122/31
+Source Port: 0 : 65535
+Destination Port: 1300 : 1349
+Protocol: 0x6 / 0xff
+
+Priority: 514
+Source IP: 194.186.113.219/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 61100 : 61119
+Protocol: 0x6 / 0xff
+
+Priority: 515
+Source IP: 85.89.152.77/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 61100 : 61119
+Protocol: 0x6 / 0xff
+
+Priority: 519
+Source IP: 85.89.152.29/32
+Destination IP: 194.186.116.72/30
+Source Port: 0 : 65535
+Destination Port: 62000 : 62009
+Protocol: 0x6 / 0xff
+
+Priority: 520
+Source IP: 85.89.152.77/32
+Destination IP: 163.142.123.112/30
+Source Port: 0 : 65535
+Destination Port: 61700 : 61709
+Protocol: 0x6 / 0xff
+
+Priority: 522
+Source IP: 85.89.152.108/32
+Destination IP: 163.211.223.96/30
+Source Port: 0 : 65535
+Destination Port: 61100 : 61119
+Protocol: 0x6 / 0xff
+
+Priority: 525
+Source IP: 194.186.113.146/32
+Destination IP: 82.226.103.32/31
+Source Port: 0 : 65535
+Destination Port: 8000 : 8100
+Protocol: 0x6 / 0xff
+
+Priority: 529
+Source IP: 194.186.113.234/32
+Destination IP: 11.5.163.240/31
+Source Port: 0 : 65535
+Destination Port: 1300 : 1350
+Protocol: 0x6 / 0xff
+
+Priority: 536
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.216.236/30
+Source Port: 0 : 65535
+Destination Port: 1700 : 1720
+Protocol: 0x6 / 0xff
+
+Priority: 542
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1600 : 1649
+Protocol: 0x6 / 0xff
+
+Priority: 543
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 1300 : 1349
+Protocol: 0x6 / 0xff
+
+Priority: 544
+Source IP: 194.186.113.235/32
+Destination IP: 11.12.85.140/31
+Source Port: 0 : 65535
+Destination Port: 1300 : 1399
+Protocol: 0x6 / 0xff
+
+Priority: 545
+Source IP: 194.186.113.235/32
+Destination IP: 47.232.216.236/30
+Source Port: 0 : 65535
+Destination Port: 1300 : 1350
+Protocol: 0x6 / 0xff
+
+Priority: 547
+Source IP: 194.186.113.197/32
+Destination IP: 194.186.117.0/24
+Source Port: 0 : 65535
+Destination Port: 443 : 443
+Protocol: 0x6 / 0xff
+
+Priority: 557
+Source IP: 194.186.113.197/32
+Destination IP: 47.232.217.0/24
+Source Port: 0 : 65535
+Destination Port: 5631 : 5631
+Protocol: 0x6 / 0xff
+
+Priority: 558
+Source IP: 85.89.152.108/32
+Destination IP: 140.151.40.0/24
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 565
+Source IP: 194.186.113.234/32
+Destination IP: 11.5.164.0/22
+Source Port: 0 : 65535
+Destination Port: 5632 : 5632
+Protocol: 0x6 / 0xff
+
+Priority: 566
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.220.0/22
+Source Port: 0 : 65535
+Destination Port: 5632 : 5632
+Protocol: 0x6 / 0xff
+
+Priority: 581
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.218.0/23
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 606
+Source IP: 194.186.113.235/32
+Destination IP: 11.12.80.0/22
+Source Port: 0 : 65535
+Destination Port: 1650 : 1650
+Protocol: 0x6 / 0xff
+
+Priority: 607
+Source IP: 194.186.113.235/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 15126 : 15126
+Protocol: 0x6 / 0xff
+
+Priority: 608
+Source IP: 194.186.113.197/32
+Destination IP: 47.232.220.0/22
+Source Port: 0 : 65535
+Destination Port: 30804 : 30804
+Protocol: 0x6 / 0xff
+
+Priority: 609
+Source IP: 194.186.113.206/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 80 : 80
+Protocol: 0x6 / 0xff
+
+Priority: 610
+Source IP: 85.89.152.29/32
+Destination IP: 251.169.84.0/22
+Source Port: 0 : 65535
+Destination Port: 1526 : 1526
+Protocol: 0x6 / 0xff
+
+Priority: 611
+Source IP: 85.89.152.29/32
+Destination IP: 205.143.216.0/22
+Source Port: 0 : 65535
+Destination Port: 5540 : 5540
+Protocol: 0x6 / 0xff
+
+Priority: 612
+Source IP: 85.89.152.29/32
+Destination IP: 205.143.216.0/22
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 613
+Source IP: 85.89.152.108/32
+Destination IP: 194.186.112.0/22
+Source Port: 0 : 65535
+Destination Port: 5540 : 5540
+Protocol: 0x6 / 0xff
+
+Priority: 614
+Source IP: 85.89.152.108/32
+Destination IP: 194.186.112.0/22
+Source Port: 0 : 65535
+Destination Port: 20 : 20
+Protocol: 0x6 / 0xff
+
+Priority: 615
+Source IP: 85.89.152.108/32
+Destination IP: 143.22.116.0/22
+Source Port: 0 : 65535
+Destination Port: 5541 : 5541
+Protocol: 0x6 / 0xff
+
+Priority: 616
+Source IP: 85.89.152.108/32
+Destination IP: 47.232.220.0/22
+Source Port: 0 : 65535
+Destination Port: 1550 : 1550
+Protocol: 0x6 / 0xff
+
+Priority: 617
+Source IP: 85.89.152.77/32
+Destination IP: 163.154.248.0/22
+Source Port: 0 : 65535
+Destination Port: 6000 : 6000
+Protocol: 0x6 / 0xff
+
+Priority: 618
+Source IP: 85.89.152.77/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 32201 : 32201
+Protocol: 0x6 / 0xff
+
+Priority: 619
+Source IP: 85.89.152.77/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 1525 : 1525
+Protocol: 0x6 / 0xff
+
+Priority: 620
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 5555 : 5555
+Protocol: 0x6 / 0xff
+
+Priority: 621
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 1521 : 1521
+Protocol: 0x6 / 0xff
+
+Priority: 622
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 1526 : 1526
+Protocol: 0x6 / 0xff
+
+Priority: 631
+Source IP: 194.186.113.146/32
+Destination IP: 91.111.48.0/21
+Source Port: 0 : 65535
+Destination Port: 32201 : 32201
+Protocol: 0x6 / 0xff
+
+Priority: 632
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.208.0/21
+Source Port: 0 : 65535
+Destination Port: 1706 : 1706
+Protocol: 0x6 / 0xff
+
+Priority: 633
+Source IP: 85.89.152.29/32
+Destination IP: 251.169.80.0/21
+Source Port: 0 : 65535
+Destination Port: 1724 : 1724
+Protocol: 0x6 / 0xff
+
+Priority: 634
+Source IP: 85.89.152.108/32
+Destination IP: 47.232.208.0/21
+Source Port: 0 : 65535
+Destination Port: 1734 : 1734
+Protocol: 0x6 / 0xff
+
+Priority: 720
+Source IP: 194.186.113.184/32
+Destination IP: 85.68.67.192/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 721
+Source IP: 194.186.113.218/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 722
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 723
+Source IP: 85.89.152.29/32
+Destination IP: 205.143.223.150/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 724
+Source IP: 85.89.152.108/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 725
+Source IP: 85.89.152.94/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x1 / 0xff
+
+Priority: 726
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.162/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 742
+Source IP: 85.89.152.108/32
+Destination IP: 165.114.37.36/30
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 746
+Source IP: 194.186.113.141/32
+Destination IP: 91.105.4.192/26
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x1 / 0xff
+
+Priority: 749
+Source IP: 85.89.152.29/32
+Destination IP: 194.186.116.128/25
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x1 / 0xff
+
+Priority: 750
+Source IP: 85.89.152.108/32
+Destination IP: 194.186.116.128/25
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x1 / 0xff
+
+Priority: 751
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.0/25
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 752
+Source IP: 85.89.152.108/32
+Destination IP: 143.22.113.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 753
+Source IP: 85.89.152.77/32
+Destination IP: 163.143.205.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 754
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.110.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 769
+Source IP: 194.186.113.175/32
+Destination IP: 86.247.121.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 770
+Source IP: 194.186.113.234/32
+Destination IP: 163.47.110.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 771
+Source IP: 194.186.113.197/32
+Destination IP: 163.47.110.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 772
+Source IP: 85.89.152.77/32
+Destination IP: 163.47.110.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 773
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.110.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x1 / 0xff
+
+Priority: 774
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.110.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 775
+Source IP: 194.186.113.234/32
+Destination IP: 11.5.160.0/23
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 776
+Source IP: 85.89.152.108/32
+Destination IP: 140.151.42.0/23
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 800
+Source IP: 194.186.113.175/32
+Destination IP: 86.247.110.0/23
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 801
+Source IP: 194.186.113.206/32
+Destination IP: 194.186.118.0/23
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 802
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.108.0/23
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 804
+Source IP: 85.89.152.29/32
+Destination IP: 47.232.216.232/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 805
+Source IP: 85.89.152.29/32
+Destination IP: 194.186.116.76/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 806
+Source IP: 85.89.152.108/32
+Destination IP: 143.22.112.22/31
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 808
+Source IP: 194.186.113.141/32
+Destination IP: 91.119.76.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 809
+Source IP: 194.186.113.235/32
+Destination IP: 47.232.220.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 810
+Source IP: 194.186.113.235/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 811
+Source IP: 194.186.113.235/32
+Destination IP: 194.186.112.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 812
+Source IP: 194.186.113.218/32
+Destination IP: 47.232.220.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x1 / 0xff
+
+Priority: 813
+Source IP: 194.186.113.218/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 814
+Source IP: 194.186.113.197/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 815
+Source IP: 194.186.113.206/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 816
+Source IP: 194.186.113.206/32
+Destination IP: 47.232.220.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 817
+Source IP: 85.89.152.29/32
+Destination IP: 205.143.216.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 818
+Source IP: 85.89.152.108/32
+Destination IP: 81.98.84.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 819
+Source IP: 85.89.152.108/32
+Destination IP: 47.232.220.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 826
+Source IP: 85.89.152.108/32
+Destination IP: 194.186.120.0/21
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 832
+Source IP: 194.186.113.235/32
+Destination IP: 163.47.96.0/21
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 833
+Source IP: 194.186.113.235/32
+Destination IP: 47.232.208.0/21
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 837
+Source IP: 194.186.113.184/32
+Destination IP: 163.47.112.0/20
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x1 / 0xff
+
+Priority: 841
+Source IP: 194.186.113.234/32
+Destination IP: 163.47.111.192/26
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 842
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.111.192/26
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 846
+Source IP: 194.186.113.197/32
+Destination IP: 209.96.33.0/25
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 847
+Source IP: 85.89.152.108/32
+Destination IP: 140.151.41.128/25
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 849
+Source IP: 194.186.113.235/32
+Destination IP: 11.12.84.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 850
+Source IP: 194.186.113.235/32
+Destination IP: 163.47.110.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 851
+Source IP: 85.89.152.77/32
+Destination IP: 47.232.217.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 852
+Source IP: 85.89.152.77/32
+Destination IP: 163.142.122.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 853
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.110.0/24
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 861
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.108.0/23
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 863
+Source IP: 194.186.113.234/32
+Destination IP: 194.186.112.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 864
+Source IP: 194.186.113.235/32
+Destination IP: 47.232.220.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 865
+Source IP: 194.186.113.219/32
+Destination IP: 47.232.220.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 866
+Source IP: 85.89.152.108/32
+Destination IP: 165.118.156.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 867
+Source IP: 85.89.152.77/32
+Destination IP: 163.142.124.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 868
+Source IP: 85.89.152.77/32
+Destination IP: 163.143.200.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 869
+Source IP: 85.89.152.77/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 870
+Source IP: 85.89.152.94/32
+Destination IP: 163.47.104.0/22
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+

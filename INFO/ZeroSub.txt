@@ -1,0 +1,126 @@
+Priority: 930
+Source IP: 85.89.154.0/23
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 931
+Source IP: 194.186.116.0/22
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x1 / 0xff
+
+Priority: 932
+Source IP: 194.186.116.0/22
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 936
+Source IP: 85.89.153.0/24
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 937
+Source IP: 85.89.154.0/23
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 938
+Source IP: 0.0.0.0/0
+Destination IP: 77.80.0.0/12
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 939
+Source IP: 0.0.0.0/0
+Destination IP: 68.192.0.0/12
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 940
+Source IP: 194.0.0.0/9
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 941
+Source IP: 0.0.0.0/0
+Destination IP: 76.0.0.0/7
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 942
+Source IP: 195.0.0.0/8
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 945
+Source IP: 0.0.0.0/0
+Destination IP: 76.0.0.0/8
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 946
+Source IP: 0.0.0.0/0
+Destination IP: 0.0.0.0/1
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 947
+Source IP: 64.0.0.0/2
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 948
+Source IP: 0.0.0.0/0
+Destination IP: 0.0.0.0/1
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x6 / 0xff
+
+Priority: 950
+Source IP: 194.0.0.0/7
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 951
+Source IP: 0.0.0.0/0
+Destination IP: 76.0.0.0/7
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 952
+Source IP: 128.0.0.0/1
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
+Priority: 953
+Source IP: 0.0.0.0/0
+Destination IP: 0.0.0.0/0
+Source Port: 0 : 65535
+Destination Port: 0 : 65535
+Protocol: 0x0 / 0x0
+
