@@ -114,11 +114,11 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  //// === rulesetAnalysis === ////
-  RulesetAnalysis rulesetAnalysis(rule5V);
-  rulesetAnalysis.printRule5V_arr(rule5V_num);
-  rulesetAnalysis.printUniqRule5V();
-  //// === rulesetAnalysis === ////
+  // //// === rulesetAnalysis === ////
+  // RulesetAnalysis rulesetAnalysis(rule5V);
+  // rulesetAnalysis.printRule5V_arr(rule5V_num);
+  // rulesetAnalysis.printUniqRule5V();
+  // //// === rulesetAnalysis === ////
 
   // //// === LinearSearch === ////
   // LinearSearch linearSearch;
