@@ -166,7 +166,7 @@ void TSearch::partitionExactSub(std::vector<Rule5D>& rule5V) {
   }
   // // === //
   exactGroupNum = exactGroup.size();
-  std::cout << "size: " << exactGroup.size()
+  std::cout << "size: " << exactGroupNum
             << ", [0]size: " << exactGroup[0].size()
             << ", [1]size: " << exactGroup[1].size() << std::endl;
 
@@ -233,7 +233,7 @@ void TSearch::partitionExactSub_ipS(std::vector<Rule5D>& rule5V) {
   }
   // // === //
   exactGroup_ipSNum = exactGroup_ipS.size();
-  std::cout << "size: " << exactGroup_ipS.size()
+  std::cout << "size: " << exactGroup_ipSNum
             << ", [0]size: " << exactGroup_ipS[0].size()
             << ", [1]size: " << exactGroup_ipS[1].size() << std::endl;
 
@@ -300,7 +300,7 @@ void TSearch::partitionExactSub_ipD(std::vector<Rule5D>& rule5V) {
   }
   // // === //
   exactGroup_ipDNum = exactGroup_ipD.size();
-  std::cout << "size: " << exactGroup_ipD.size()
+  std::cout << "size: " << exactGroup_ipDNum
             << ", [0]size: " << exactGroup_ipD[0].size()
             << ", [1]size: " << exactGroup_ipD[1].size() << std::endl;
 
@@ -361,7 +361,7 @@ void TSearch::partitionExactSub_portD(std::vector<Rule5D>& rule5V) {
   }
   // // === //
   exactGroup_portDNum = exactGroup_portD.size();
-  std::cout << "size: " << exactGroup_portD.size()
+  std::cout << "size: " << exactGroup_portDNum
             << ", [0]size: " << exactGroup_portD[0].size()
             << ", [1]size: " << exactGroup_portD[1].size() << std::endl;
 
