@@ -7,7 +7,7 @@
 
 #include "../io/inputFile_test.hpp"
 #include "../lib/basis.hpp"
-
+#include "../lib/rulesetAnalysis.hpp"
 class TSearch {
  public:
   TSearch(const size_t _Threshold1, const size_t _BucketNum)
@@ -27,6 +27,11 @@ class TSearch {
 
         };
   void partition(std::vector<Rule5D> &, const size_t);
+  void partitionExactSub(std::vector<Rule5D> &);
+  void partitionExactSub_ipS(std::vector<Rule5D> &);
+  void partitionExactSub_ipD(std::vector<Rule5D> &);
+  void partitionExactSub_portD(std::vector<Rule5D> &);
+
   inline bool comparePri(const Rule5D &a, const Rule5D &b) {
     return a.pri < b.pri;
   }
@@ -77,6 +82,15 @@ class TSearch {
   // === //
   std::vector<Rule5D> bigSub;
   size_t bigSubNum;
+  // === //
+  std::vector<std::vector<Rule5D>> exactGroup;
+  size_t exactGroupNum;
+  std::vector<std::vector<Rule5D>> exactGroup_ipS;
+  size_t exactGroup_ipSNum;
+  std::vector<std::vector<Rule5D>> exactGroup_ipD;
+  size_t exactGroup_ipDNum;
+  std::vector<std::vector<Rule5D>> exactGroup_portD;
+  size_t exactGroup_portDNum;
   // === //
   struct ExactNode {
     Rule5D rule;
