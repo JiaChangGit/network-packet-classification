@@ -18,8 +18,8 @@
 
 void LinearSearch::search(std::vector<Rule5D> &rule5V,
                           const std::vector<Packet5D> &packet5V) {
-  const char *search_path = "./INFO/LinearSearch_FaultPacket5D_test.txt";
-  std::ofstream outFile(search_path);
+  const char *LinearSearch_path = "./INFO/LinearSearch_FaultPacket5D_test.txt";
+  std::ofstream outFile(LinearSearch_path);
   bool isBreak = false;
   for (const auto &packet : packet5V) {
     for (auto &rule : rule5V) {
@@ -35,8 +35,8 @@ void LinearSearch::search(std::vector<Rule5D> &rule5V,
       outFile << "Destination IP: " << unsigned(packet.ipD32) << "\n";
       outFile << "Source Port: " << unsigned(packet.portS) << "\n";
       outFile << "Destination Port: " << unsigned(packet.portD) << "\n";
-      outFile << "Protocol: 0x" << std::hex
-              << unsigned(packet.protocol) << std::dec << "\n";
+      outFile << "Protocol: 0x" << std::hex << unsigned(packet.protocol)
+              << std::dec << "\n";
       outFile << "\n";
     }
     isBreak = false;

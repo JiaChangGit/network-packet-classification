@@ -18,10 +18,10 @@
 #include "inputFile_test.hpp"
 
 void InputFile5D_test::loadRule5D_test(const std::vector<Rule5D> &rule5V,
-                                       const char *fileName) {
-  std::ofstream outFile(fileName);
+                                       const char *FileName) {
+  std::ofstream outFile(FileName);
   if (!outFile.is_open()) {
-    std::cerr << "Error opening output file: " << fileName << "\n";
+    std::cerr << "Error opening output file: " << FileName << "\n";
     exit(1);  // error
   }
   // Timer t_loadRule5D_test;
@@ -47,16 +47,14 @@ void InputFile5D_test::loadRule5D_test(const std::vector<Rule5D> &rule5V,
   //   std::cout << "Time taken: " << t_loadRule5D_test.elapsed_s() << " s"
   //             << "\n";
 
-  std::cout << "Leave inputRule_test"
-            << "\n";
   outFile.close();
 };
 
 void InputFile5D_test::loadPacket5D_test(const std::vector<Packet5D> &packet5V,
-                                         const char *fileName) {
-  std::ofstream outFile(fileName);
+                                         const char *FileName) {
+  std::ofstream outFile(FileName);
   if (!outFile.is_open()) {
-    std::cerr << "Error opening output file: " << fileName << "\n";
+    std::cerr << "Error opening output file: " << FileName << "\n";
     exit(1);  // error
   }
   // Timer t_loadPacket5D_test;
@@ -85,10 +83,10 @@ void InputFile5D_test::loadPacket5D_test(const std::vector<Packet5D> &packet5V,
   outFile.close();
 };
 void InputFile5D_test::loadRule5D_ipSD_test(const std::vector<Rule5D> &rule5V,
-                                            const char *fileName) {
-  std::ofstream outFile(fileName);
+                                            const char *FileName) {
+  std::ofstream outFile(FileName);
   if (!outFile.is_open()) {
-    std::cerr << "Input Rule ipSD test ERROR: " << fileName << "\n";
+    std::cerr << "Input Rule ipSD test ERROR: " << FileName << "\n";
     exit(1);  // error
   }
   // Write extracted data to the output file
@@ -110,10 +108,10 @@ void InputFile5D_test::loadRule5D_ipSD_test(const std::vector<Rule5D> &rule5V,
   outFile.close();
 };
 void InputFile5D_test::loadPacket5D_ipSD_test(
-    const std::vector<Packet5D> &packet5V, const char *fileName) {
-  std::ofstream outFile(fileName);
+    const std::vector<Packet5D> &packet5V, const char *FileName) {
+  std::ofstream outFile(FileName);
   if (!outFile.is_open()) {
-    std::cerr << "Input Packet ipSD test ERROR: " << fileName << "\n";
+    std::cerr << "Input Packet ipSD test ERROR: " << FileName << "\n";
     exit(1);  // error
   }
   // Write extracted data to the output file

@@ -1,5 +1,5 @@
 #include "tSearch.hpp"
-void TSearch::partition(std::vector<Rule5D>& rule5V, const size_t rule5V_num) {
+void TSearch::partition(std::vector<Rule5D>& rule5V, const size_t Rule5V_num) {
   for (const auto& rule : rule5V) {
     if ((rule.ipSMask == 32) && (rule.ipDMask == 32)) {
       exactSub.emplace_back(rule);
@@ -55,14 +55,37 @@ void TSearch::partition(std::vector<Rule5D>& rule5V, const size_t rule5V_num) {
     smallSubNum = smallSubNum + smallSubListNum[i];
   }
 
-  if (rule5V_num !=
+  if (Rule5V_num !=
       (exactSubNum + exactSub_ipSNum + exactSub_ipDNum + exactSub_portDNum +
        zeroSubNum + smallSubNum + bigSubNum)) {
     std::cerr << "Wrong partition!!\n";
     exit(1);
   }
-  insertU16HashTable(exactSub_portD);
-  std::vector<Rule5D>().swap(exactSub_portD);
+
+  InputFile5D_test inputFile5D_test;
+  const char* ExactSub_path = "./INFO/ExactSub.txt";
+  const char* ExactSub_ipS_path = "./INFO/ExactSub_ipS.txt";
+  const char* ExactSub_ipD_path = "./INFO/ExactSub_ipD.txt";
+  const char* ExactSub_portD_path = "./INFO/ExactSub_portD.txt";
+  const char* ZeroSub_path = "./INFO/ZeroSub.txt";
+  const char* SmallSubList0_path = "./INFO/SmallSubList0.txt";
+  const char* SmallSubList1_path = "./INFO/SmallSubList1.txt";
+  const char* SmallSubList2_path = "./INFO/SmallSubList2.txt";
+  const char* SmallSubList3_path = "./INFO/SmallSubList3.txt";
+  const char* BigSub_path = "./INFO/BigSub.txt";
+
+  inputFile5D_test.loadRule5D_test(exactSub, ExactSub_path);
+  inputFile5D_test.loadRule5D_test(exactSub_ipS, ExactSub_ipS_path);
+  inputFile5D_test.loadRule5D_test(exactSub_ipD, ExactSub_ipD_path);
+  inputFile5D_test.loadRule5D_test(exactSub_portD, ExactSub_portD_path);
+  inputFile5D_test.loadRule5D_test(zeroSub, ZeroSub_path);
+  inputFile5D_test.loadRule5D_test(smallSubList0, SmallSubList0_path);
+  inputFile5D_test.loadRule5D_test(smallSubList1, SmallSubList1_path);
+  inputFile5D_test.loadRule5D_test(smallSubList2, SmallSubList2_path);
+  inputFile5D_test.loadRule5D_test(smallSubList3, SmallSubList3_path);
+  inputFile5D_test.loadRule5D_test(bigSub, BigSub_path);
+  // insertU16HashTable(exactSub_portD);
+  // std::vector<Rule5D>().swap(exactSub_portD);
 };
 
 inline void TSearch::insertU16HashTable(std::vector<Rule5D>& rule5V){};

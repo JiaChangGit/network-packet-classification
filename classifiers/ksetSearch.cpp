@@ -1,6 +1,6 @@
 #include "ksetSearch.hpp"
-void KsetSearch::partition(std::vector<Rule5D>& rule5V, const size_t rule5V_num,
-                           const size_t prefixPartition) {
+void KsetSearch::partition(std::vector<Rule5D>& rule5V, const size_t Rule5V_num,
+                           const size_t PrefixPartition) {
   for (const auto& rule : rule5V) {
     if ((rule.ipSMask >= 16) && (rule.ipDMask >= 16)) {
       subset0.emplace_back(rule);
@@ -31,11 +31,11 @@ void KsetSearch::partition(std::vector<Rule5D>& rule5V, const size_t rule5V_num,
     }
     std::cout << "usedBits[ " << i << " ]: " << usedBits[i] << "\n";
   }
-  std::cout << "rule5V_num: " << rule5V_num << "\n";
+  std::cout << "Rule5V_num: " << Rule5V_num << "\n";
   std::cout << "subsetNum: " << subsetNum[0] << ", " << subsetNum[1] << ", "
             << subsetNum[2] << ", " << subsetNum[3] << "\n";
 
-  if (rule5V_num !=
+  if (Rule5V_num !=
       (subsetNum[0] + subsetNum[1] + subsetNum[2] + subsetNum[3])) {
     std::cerr << "Wrong prePartition!!\n";
     exit(1);
@@ -62,7 +62,7 @@ void KsetSearch::partition(std::vector<Rule5D>& rule5V, const size_t rule5V_num,
   subsetNum[3] = subset3.size();
   std::cout << "subsetNum: " << subsetNum[0] << ", " << subsetNum[1] << ", "
             << subsetNum[2] << ", " << subsetNum[3] << "\n";
-  if (rule5V_num !=
+  if (Rule5V_num !=
       (subsetNum[0] + subsetNum[1] + subsetNum[2] + subsetNum[3])) {
     std::cerr << "Wrong partition !!\n";
     exit(1);

@@ -5,11 +5,12 @@
 #include <fstream>
 #include <vector>
 
+#include "../io/inputFile_test.hpp"
 #include "../lib/basis.hpp"
 
 class TSearch {
  public:
-  TSearch(const size_t _threshold1, const size_t _bucketNum)
+  TSearch(const size_t _Threshold1, const size_t _BucketNum)
       : memorySize(0),
         packetCounter(0),
         exactSubNum(0),
@@ -20,9 +21,9 @@ class TSearch {
         zeroSubNum(0),
         smallSubListNum{0},
         bigSubNum(0),
-        threshold1(_threshold1),
-        bucketNum(_bucketNum),
-        exactHashTable(bucketNum){
+        Threshold1(_Threshold1),
+        BucketNum(_BucketNum),
+        exactHashTable(BucketNum){
 
         };
   void partition(std::vector<Rule5D> &, const size_t);
@@ -38,9 +39,9 @@ class TSearch {
   inline bool comparePortD(const Rule5D &a, const Rule5D &b) {
     return a.portD[0] < b.portD[0];
   }
-  inline size_t u64Hash(const uint64_t);
-  inline size_t u32Hash(const uint32_t);
-  inline size_t u16Hash(const uint16_t);
+  inline size_t u64Hash(const uint64_t Val) { return Val % BucketNum; };
+  inline size_t u32Hash(const uint32_t Val) { return Val % BucketNum; };
+  inline size_t u16Hash(const uint16_t Val) { return Val % BucketNum; };
 
   inline void insertU64HashTable(std::vector<Rule5D> &);
   inline void insertU32HashTable(std::vector<Rule5D> &);
@@ -50,8 +51,8 @@ class TSearch {
  private:
   unsigned long long memorySize;
   unsigned long long packetCounter;
-  const size_t threshold1;
-  const size_t bucketNum;
+  const size_t Threshold1;
+  const size_t BucketNum;
   // === //
   std::vector<Rule5D> exactSub;
   size_t exactSubNum;
@@ -93,7 +94,5 @@ class TSearch {
   };
   ExactHashTable exactHashTable;
 };
-inline size_t TSearch::u64Hash(const uint64_t val) { return val % bucketNum; };
-inline size_t TSearch::u32Hash(const uint32_t val) { return val % bucketNum; };
-inline size_t TSearch::u16Hash(const uint16_t val) { return val % bucketNum; };
+
 #endif
