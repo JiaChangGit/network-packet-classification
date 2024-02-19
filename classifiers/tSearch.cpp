@@ -87,7 +87,7 @@ void TSearch::partition(std::vector<Rule5D>& rule5V, const size_t Rule5V_num) {
   inputFile5D_test.loadRule5D_test(bigSub, BigSub_path);
   // ==== test txt ==== //
 
-  // ==== partitionSub ==== //
+  // ==== partitionSub to group ==== //
   partitionExactSub(exactSub);
   std::vector<Rule5D>().swap(exactSub);
   partitionExactSub_ipS(exactSub_ipS);
@@ -96,7 +96,7 @@ void TSearch::partition(std::vector<Rule5D>& rule5V, const size_t Rule5V_num) {
   std::vector<Rule5D>().swap(exactSub_ipD);
   partitionExactSub_portD(exactSub_portD);
   std::vector<Rule5D>().swap(exactSub_portD);
-  // ==== partitionSub ==== //
+  // ==== partitionSub to group ==== //
 
   // insertU16HashTable(exactSub_portD);
   // std::vector<Rule5D>().swap(exactSub_portD);
@@ -165,112 +165,225 @@ void TSearch::partitionExactSub(std::vector<Rule5D>& rule5V) {
     }
   }
   // // === //
+  exactGroupNum = exactGroup.size();
   std::cout << "size: " << exactGroup.size()
             << ", [0]size: " << exactGroup[0].size()
             << ", [1]size: " << exactGroup[1].size() << std::endl;
-  // // 印出exactGroup
-  // size_t counter = 0;
-  // for (const auto& innerVec : exactGroup) {
-  //   for (const auto& val : innerVec) {
-  //     std::cout << val.ipS32 << " ";
-  //     ++counter;
-  //   }
-  //   std::cout << std::endl;
-  // }
+
+  size_t counter = 0;
+  for (const auto& innerVec : exactGroup) {
+    for (const auto& val : innerVec) {
+      // std::cout << val.ipS32 << " ";
+      ++counter;
+    }
+    // std::cout << std::endl;
+  }
   // std::cout << "counter: " << counter << std::endl;
-  // // === //
-  size_t uniq_ipSD_num = uniq_ipSD.size();
-  if (uniq_ipSD_num <= 0) {
-    std::cerr << "uniq_ipSD_num: " << uniq_ipSD_num << " <= 0\n";
+  //  // === //
+  if (counter != exactSubNum) {
+    std::cerr << "counter != exactSubNum\n";
     exit(1);
   }
-  std::cout << "uniq_ipSD: " << uniq_ipSD_num << "\n";
+  if (exactGroupNum <= 0) {
+    std::cerr << "exactGroupNum: " << exactGroupNum << " <= 0\n";
+    exit(1);
+  }
+  std::cout << "exactGroupNum: " << exactGroupNum << "\n";
 };
 
 void TSearch::partitionExactSub_ipS(std::vector<Rule5D>& rule5V) {
   bool isUniqField = true;
   std::vector<Rule5D> uniq_ipS;
   uniq_ipS.emplace_back(rule5V[0]);
+  exactGroup_ipS.emplace_back(uniq_ipS);
+  if (!rule5V.empty()) {
+    rule5V.erase(rule5V.begin());
+  }
+
   for (const auto& rule : rule5V) {
     // std::cout << "pri: " << rule.pri << "\n";
+    for (size_t gNum = 0; gNum < exactGroup_ipS.size(); ++gNum) {
+      for (const auto& analysisV : exactGroup_ipS[gNum]) {
+        if ((unsigned(rule.ipSMask) == 0) &&
+            (unsigned(analysisV.ipSMask) == 0)) {
+          isUniqField = false;
 
-    for (const auto& analysisV : uniq_ipS) {
-      if ((unsigned(rule.ipSMask) == 0) && (unsigned(analysisV.ipSMask) == 0)) {
-        isUniqField = false;
-
-      } else if (((unsigned(rule.ipSMask)) == (unsigned(analysisV.ipSMask))) &&
-                 ((rule.ipS32 >> (32 - unsigned(rule.ipSMask))) ==
-                  (analysisV.ipS32 >> (32 - unsigned(analysisV.ipSMask))))) {
-        isUniqField = false;
+        } else if (((unsigned(rule.ipSMask)) ==
+                    (unsigned(analysisV.ipSMask))) &&
+                   ((rule.ipS32 >> (32 - unsigned(rule.ipSMask))) ==
+                    (analysisV.ipS32 >> (32 - unsigned(analysisV.ipSMask))))) {
+          isUniqField = false;
+        }
       }
+      if (isUniqField) {
+        exactGroup_ipS[gNum].emplace_back(rule);
+        gNum = 0;
+        isUniqField = true;
+        break;
+      } else if (gNum >= exactGroup_ipS.size() - 1) {
+        std::vector<Rule5D> tmp;
+        tmp.emplace_back(rule);
+        exactGroup_ipS.emplace_back(tmp);
+        gNum = 0;
+        isUniqField = true;
+        break;
+      }
+      isUniqField = true;
     }
-    if (isUniqField) {
-      uniq_ipS.emplace_back(rule);
-    }
-    isUniqField = true;
   }
-  size_t uniq_ipS_num = uniq_ipS.size();
-  if (uniq_ipS_num <= 0) {
-    std::cerr << "uniq_ipS_num: " << uniq_ipS_num << " <= 0\n";
+  // // === //
+  exactGroup_ipSNum = exactGroup_ipS.size();
+  std::cout << "size: " << exactGroup_ipS.size()
+            << ", [0]size: " << exactGroup_ipS[0].size()
+            << ", [1]size: " << exactGroup_ipS[1].size() << std::endl;
+
+  size_t counter = 0;
+  for (const auto& innerVec : exactGroup_ipS) {
+    for (const auto& val : innerVec) {
+      // std::cout << val.ipS32 << " ";
+      ++counter;
+    }
+    // std::cout << std::endl;
+  }
+  // std::cout << "counter: " << counter << std::endl;
+  //  // === //
+  if (counter != exactSub_ipSNum) {
+    std::cerr << "counter != exactSub_ipSNum\n";
     exit(1);
   }
-  std::cout << "uniq_ipS_num: " << uniq_ipS_num << "\n";
+  if (exactGroup_ipSNum <= 0) {
+    std::cerr << "exactGroup_ipSNum: " << exactGroup_ipSNum << " <= 0\n";
+    exit(1);
+  }
+  std::cout << "exactGroup_ipSNum: " << exactGroup_ipSNum << "\n";
 };
 
 void TSearch::partitionExactSub_ipD(std::vector<Rule5D>& rule5V) {
   bool isUniqField = true;
   std::vector<Rule5D> uniq_ipD;
   uniq_ipD.emplace_back(rule5V[0]);
+  exactGroup_ipD.emplace_back(uniq_ipD);
+  if (!rule5V.empty()) {
+    rule5V.erase(rule5V.begin());
+  }
+
   for (const auto& rule : rule5V) {
     // std::cout << "pri: " << rule.pri << "\n";
+    for (size_t gNum = 0; gNum < exactGroup_ipD.size(); ++gNum) {
+      for (const auto& analysisV : exactGroup_ipD[gNum]) {
+        if ((unsigned(rule.ipDMask) == 0) &&
+            (unsigned(analysisV.ipDMask) == 0)) {
+          isUniqField = false;
 
-    for (const auto& analysisV : uniq_ipD) {
-      if ((unsigned(rule.ipDMask) == 0) && (unsigned(analysisV.ipDMask) == 0)) {
-        isUniqField = false;
-
-      } else if (((unsigned(rule.ipDMask)) == (unsigned(analysisV.ipDMask))) &&
-                 ((rule.ipD32 >> (32 - unsigned(rule.ipDMask))) ==
-                  (analysisV.ipD32 >> (32 - unsigned(analysisV.ipDMask))))) {
-        isUniqField = false;
+        } else if (((unsigned(rule.ipDMask)) ==
+                    (unsigned(analysisV.ipDMask))) &&
+                   ((rule.ipD32 >> (32 - unsigned(rule.ipDMask))) ==
+                    (analysisV.ipD32 >> (32 - unsigned(analysisV.ipDMask))))) {
+          isUniqField = false;
+        }
       }
+      if (isUniqField) {
+        exactGroup_ipD[gNum].emplace_back(rule);
+        gNum = 0;
+        isUniqField = true;
+        break;
+      } else if (gNum >= exactGroup_ipD.size() - 1) {
+        std::vector<Rule5D> tmp;
+        tmp.emplace_back(rule);
+        exactGroup_ipD.emplace_back(tmp);
+        gNum = 0;
+        isUniqField = true;
+        break;
+      }
+      isUniqField = true;
     }
-    if (isUniqField) {
-      uniq_ipD.emplace_back(rule);
-    }
-    isUniqField = true;
   }
-  size_t uniq_ipD_num = uniq_ipD.size();
-  if (uniq_ipD_num <= 0) {
-    std::cerr << "uniq_ipD_num: " << uniq_ipD_num << " <= 0\n";
+  // // === //
+  exactGroup_ipDNum = exactGroup_ipD.size();
+  std::cout << "size: " << exactGroup_ipD.size()
+            << ", [0]size: " << exactGroup_ipD[0].size()
+            << ", [1]size: " << exactGroup_ipD[1].size() << std::endl;
+
+  size_t counter = 0;
+  for (const auto& innerVec : exactGroup_ipD) {
+    for (const auto& val : innerVec) {
+      // std::cout << val.ipS32 << " ";
+      ++counter;
+    }
+    // std::cout << std::endl;
+  }
+  // std::cout << "counter: " << counter << std::endl;
+  //  // === //
+  if (counter != exactSub_ipDNum) {
+    std::cerr << "counter != exactSub_ipDNum\n";
     exit(1);
   }
-  std::cout << "uniq_ipD_num: " << uniq_ipD_num << "\n";
+  if (exactGroup_ipDNum <= 0) {
+    std::cerr << "exactGroup_ipDNum: " << exactGroup_ipDNum << " <= 0\n";
+    exit(1);
+  }
+  std::cout << "exactGroup_ipDNum: " << exactGroup_ipDNum << "\n";
 };
 
 void TSearch::partitionExactSub_portD(std::vector<Rule5D>& rule5V) {
   bool isUniqField = true;
   std::vector<Rule5D> uniq_portD;
   uniq_portD.emplace_back(rule5V[0]);
+  exactGroup_portD.emplace_back(uniq_portD);
+  if (!rule5V.empty()) {
+    rule5V.erase(rule5V.begin());
+  }
+
   for (const auto& rule : rule5V) {
     // std::cout << "pri: " << rule.pri << "\n";
-
-    for (const auto& analysisV : uniq_portD) {
-      if ((rule.portD[0] == analysisV.portD[0]) &&
-          (rule.portD[1] == analysisV.portD[1])) {
-        isUniqField = false;
+    for (size_t gNum = 0; gNum < exactGroup_portD.size(); ++gNum) {
+      for (const auto& analysisV : uniq_portD) {
+        if ((rule.portD[0] == analysisV.portD[0]) &&
+            (rule.portD[1] == analysisV.portD[1])) {
+          isUniqField = false;
+        }
       }
+      if (isUniqField) {
+        exactGroup_portD[gNum].emplace_back(rule);
+        gNum = 0;
+        isUniqField = true;
+        break;
+      } else if (gNum >= exactGroup_portD.size() - 1) {
+        std::vector<Rule5D> tmp;
+        tmp.emplace_back(rule);
+        exactGroup_portD.emplace_back(tmp);
+        gNum = 0;
+        isUniqField = true;
+        break;
+      }
+      isUniqField = true;
     }
-    if (isUniqField) {
-      uniq_portD.emplace_back(rule);
-    }
-    isUniqField = true;
   }
-  size_t uniq_portD_num = uniq_portD.size();
-  if (uniq_portD_num <= 0) {
-    std::cerr << "uniq_portD_num: " << uniq_portD_num << " <= 0\n";
+  // // === //
+  exactGroup_portDNum = exactGroup_portD.size();
+  std::cout << "size: " << exactGroup_portD.size()
+            << ", [0]size: " << exactGroup_portD[0].size()
+            << ", [1]size: " << exactGroup_portD[1].size() << std::endl;
+
+  size_t counter = 0;
+  for (const auto& innerVec : exactGroup_portD) {
+    for (const auto& val : innerVec) {
+      // std::cout << val.ipS32 << " ";
+      ++counter;
+    }
+    // std::cout << std::endl;
+  }
+  // std::cout << "counter: " << counter << std::endl;
+  //  // === //
+  if (counter != exactSub_portDNum) {
+    std::cerr << "counter != exactSub_portDNum\n";
     exit(1);
   }
-  std::cout << "uniq_portD_num: " << uniq_portD_num << "\n";
+  if (exactGroup_portDNum <= 0) {
+    std::cerr << "exactGroup_portDNum: " << exactGroup_portDNum << " <= 0\n";
+    exit(1);
+  }
+  std::cout << "exactGroup_portDNum: " << exactGroup_portDNum << "\n";
 };
 
 inline void TSearch::insertU16HashTable(std::vector<Rule5D>& rule5V){};
