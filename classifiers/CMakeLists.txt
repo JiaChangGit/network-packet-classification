@@ -3,7 +3,6 @@ add_library(classifiers-s STATIC)
 
 target_sources(classifiers-s
     PRIVATE
-    "linearSearch.cpp"
     "tSearch.cpp"
 
 )

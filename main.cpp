@@ -21,6 +21,7 @@
 #include "input.hpp"
 #include "inputFile_test.hpp"
 #include "linearSearch.hpp"
+#include "segmentTree.hpp"
 #include "tSearch.hpp"
 
 using std::cerr;
@@ -112,19 +113,18 @@ int main(int argc, char* argv[]) {
   }
   cout << "packet5V_num: " << packet5V_num << "\n";
 
-  // //// === LinearSearch === ////
-  // LinearSearch linearSearch;
-  // timer.timeReset();
-  // linearSearch.search(rule5V, packet5V);
-  // cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() /
-  // packet5V_num)
-  //      << "\n";
-  // cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packet5V_num)
-  //      << "\n";
-  // //// === LinearSearch === ////
+  //// === LinearSearch === ////
+  LinearSearch linearSearch;
+  timer.timeReset();
+  linearSearch.search(rule5V, packet5V);
+  cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() / packet5V_num)
+       << "\n";
+  cout << "LinearSearch time avg (s): " << (timer.elapsed_s() / packet5V_num)
+       << "\n";
+  //// === LinearSearch === ////
 
   //// === tSearch === ////
-  TSearch tSearch(8, 17);
+  TSearch tSearch;
   tSearch.partition(rule5V, rule5V_num);
   //// === tSearch === ////
 

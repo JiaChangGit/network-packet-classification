@@ -1,4 +1,64 @@
 #include "tSearch.hpp"
+void TSearch::printHashTableToFile64(
+    const std::vector<google::dense_hash_map<uint64_t, Rule5D, HashUint64>>&
+        hashTable_U64V,
+    const char* FileName) {
+  std::ofstream outfile(FileName);
+  if (!outfile.is_open()) {
+    std::cerr << "Failed to open file: " << FileName << "\n";
+    return;
+  }
+
+  for (size_t i = 0; i < hashTable_U64V.size(); ++i) {
+    outfile << "Bucket " << i << "\n";
+    const auto& dense_hash_map = hashTable_U64V[i];
+    for (const auto& pair : dense_hash_map) {
+      outfile << "Key: " << pair.first << "\n";
+      const Rule5D& rule = pair.second;
+      outfile << "Priority: " << rule.priority << "\n";
+      outfile << "Dimensions: " << rule.dim << "\n";
+      for (size_t j = 0; j < rule.dim; ++j) {
+        outfile << "Range " << j << ": " << rule.range[j][0] << " - "
+                << rule.range[j][1] << "\n";
+      }
+      outfile << "\n";
+    }
+    outfile << "\n";
+  }
+
+  outfile.close();
+};
+
+void TSearch::printHashTableToFile32(
+    const std::vector<google::dense_hash_map<uint32_t, Rule5D, HashUint32>>&
+        hashTable_U32V,
+    const char* FileName) {
+  std::ofstream outfile(FileName);
+  if (!outfile.is_open()) {
+    std::cerr << "Failed to open file: " << FileName << "\n";
+    return;
+  }
+
+  for (size_t i = 0; i < hashTable_U32V.size(); ++i) {
+    outfile << "Bucket " << i << "\n";
+    const auto& dense_hash_map = hashTable_U32V[i];
+    for (const auto& pair : dense_hash_map) {
+      outfile << "Key: " << pair.first << "\n";
+      const Rule5D& rule = pair.second;
+      outfile << "Priority: " << rule.priority << "\n";
+      outfile << "Dimensions: " << rule.dim << "\n";
+      for (size_t j = 0; j < rule.dim; ++j) {
+        outfile << "Range " << j << ": " << rule.range[j][0] << " - "
+                << rule.range[j][1] << "\n";
+      }
+      outfile << "\n";
+    }
+    outfile << "\n";
+  }
+
+  outfile.close();
+};
+
 void TSearch::partition(std::vector<Rule5D>& rule5V, const size_t Rule5V_num) {
   for (const auto& rule : rule5V) {
     if ((rule.prefix_length[0] == 32) && (rule.prefix_length[1] == 32)) {
@@ -101,8 +161,32 @@ void TSearch::partition(std::vector<Rule5D>& rule5V, const size_t Rule5V_num) {
   std::vector<Rule5D>().swap(exactSub_portD);
   // ==== partitionSub to group ==== //
 
-  // insertU16HashTable(exactSub_portD);
-  // std::vector<Rule5D>().swap(exactSub_portD);
+  // ==== hash group to hashTable ==== //
+  insertHT(exactGroup);
+  std::vector<std::vector<Rule5D>>().swap(exactGroup);
+  insertHT_ipS(exactGroup_ipS);
+  std::vector<std::vector<Rule5D>>().swap(exactGroup_ipS);
+  insertHT_ipD(exactGroup_ipD);
+  std::vector<std::vector<Rule5D>>().swap(exactGroup_ipD);
+  insertHT_portD(exactGroup_portD);
+  std::vector<std::vector<Rule5D>>().swap(exactGroup_portD);
+  // ==== hash group to hashTable ==== //
+  // ==== hash test txt ==== //
+  const char* HashTableV_path = "./INFO/hashTableV.txt";
+  const char* HashTableV_ipS_path = "./INFO/hashTableV_ipS.txt";
+  const char* HashTableV_ipD_path = "./INFO/hashTableV_ipD.txt";
+  const char* HashTableV_portD_path = "./INFO/hashTableV_portD.txt";
+  printHashTableToFile64(hashTableV, HashTableV_path);
+  printHashTableToFile32(hashTableV_ipS, HashTableV_ipS_path);
+  printHashTableToFile32(hashTableV_ipD, HashTableV_ipD_path);
+  printHashTableToFile32(hashTableV_portD, HashTableV_portD_path);
+  // ==== hash test txt ==== //
+
+  // ==== big pool ==== //
+  // ==== big pool ==== //
+
+  // ==== big pool test txt ==== //
+  // ==== big pool test txt ==== //
 };
 void TSearch::partitionExactSub(std::vector<Rule5D>& rule5V) {
   bool isUniqField[2] = {true};
@@ -152,12 +236,8 @@ void TSearch::partitionExactSub(std::vector<Rule5D>& rule5V) {
       isUniqField[1] = true;
     }
   }
-  // // === //
-  exactGroupNum = exactGroup.size();
-  std::cout << "size: " << exactGroupNum
-            << ", [0]size: " << exactGroup[0].size()
-            << ", [1]size: " << exactGroup[1].size() << "\n";
 
+  exactGroupNum = exactGroup.size();
   size_t counter = 0;
   for (const auto& innerVec : exactGroup) {
     for (const auto& val : innerVec) {
@@ -166,8 +246,6 @@ void TSearch::partitionExactSub(std::vector<Rule5D>& rule5V) {
     }
     // std::cout << "\n";
   }
-  // std::cout << "counter: " << counter << "\n";
-  //  // === //
   if (counter != exactSubNum) {
     std::cerr << "counter != exactSubNum\n";
     exit(1);
@@ -212,12 +290,8 @@ void TSearch::partitionExactSub_ipS(std::vector<Rule5D>& rule5V) {
       isUniqField = true;
     }
   }
-  // // === //
-  exactGroup_ipSNum = exactGroup_ipS.size();
-  std::cout << "size: " << exactGroup_ipSNum
-            << ", [0]size: " << exactGroup_ipS[0].size()
-            << ", [1]size: " << exactGroup_ipS[1].size() << "\n";
 
+  exactGroup_ipSNum = exactGroup_ipS.size();
   size_t counter = 0;
   for (const auto& innerVec : exactGroup_ipS) {
     for (const auto& val : innerVec) {
@@ -226,8 +300,6 @@ void TSearch::partitionExactSub_ipS(std::vector<Rule5D>& rule5V) {
     }
     // std::cout << "\n";
   }
-  // std::cout << "counter: " << counter << "\n";
-  //  // === //
   if (counter != exactSub_ipSNum) {
     std::cerr << "counter != exactSub_ipSNum\n";
     exit(1);
@@ -272,12 +344,8 @@ void TSearch::partitionExactSub_ipD(std::vector<Rule5D>& rule5V) {
       isUniqField = true;
     }
   }
-  // // === //
-  exactGroup_ipDNum = exactGroup_ipD.size();
-  std::cout << "size: " << exactGroup_ipDNum
-            << ", [0]size: " << exactGroup_ipD[0].size()
-            << ", [1]size: " << exactGroup_ipD[1].size() << "\n";
 
+  exactGroup_ipDNum = exactGroup_ipD.size();
   size_t counter = 0;
   for (const auto& innerVec : exactGroup_ipD) {
     for (const auto& val : innerVec) {
@@ -286,8 +354,6 @@ void TSearch::partitionExactSub_ipD(std::vector<Rule5D>& rule5V) {
     }
     // std::cout << "\n";
   }
-  // std::cout << "counter: " << counter << "\n";
-  //  // === //
   if (counter != exactSub_ipDNum) {
     std::cerr << "counter != exactSub_ipDNum\n";
     exit(1);
@@ -332,11 +398,8 @@ void TSearch::partitionExactSub_portD(std::vector<Rule5D>& rule5V) {
       isUniqField = true;
     }
   }
-  // // === //
+
   exactGroup_portDNum = exactGroup_portD.size();
-  std::cout << "size: " << exactGroup_portDNum
-            << ", [0]size: " << exactGroup_portD[0].size()
-            << ", [1]size: " << exactGroup_portD[1].size() << "\n";
 
   size_t counter = 0;
   for (const auto& innerVec : exactGroup_portD) {
@@ -346,8 +409,6 @@ void TSearch::partitionExactSub_portD(std::vector<Rule5D>& rule5V) {
     }
     // std::cout << "\n";
   }
-  // std::cout << "counter: " << counter << "\n";
-  //  // === //
   if (counter != exactSub_portDNum) {
     std::cerr << "counter != exactSub_portDNum\n";
     exit(1);
@@ -358,3 +419,77 @@ void TSearch::partitionExactSub_portD(std::vector<Rule5D>& rule5V) {
   }
   std::cout << "exactGroup_portDNum: " << exactGroup_portDNum << "\n";
 };
+
+// === hashTable === //
+void TSearch::insertHT(std::vector<std::vector<Rule5D>>& group) {
+  for (size_t i = 0; i < exactGroupNum; ++i) {
+    google::dense_hash_map<uint64_t, Rule5D, HashUint64> tmp;
+    tmp.set_empty_key(0);
+    tmp.set_deleted_key(-1);
+    hashTableV.emplace_back(tmp);
+    for (auto& rule : group[i]) {
+      hashTableV[i][((static_cast<uint64_t>(rule.range[0][0])) << 32) |
+                    (rule.range[1][0])] = rule;
+    }
+  }
+  hashTableV_Num = hashTableV.size();
+  if (hashTableV_Num != exactGroupNum) {
+    std::cerr << "Wrong hashTableV_Num\n";
+    exit(1);
+  }
+  std::cout << "HT size: " << hashTableV_Num << "\n";
+};
+void TSearch::insertHT_ipS(std::vector<std::vector<Rule5D>>& group) {
+  for (size_t i = 0; i < exactGroup_ipSNum; ++i) {
+    google::dense_hash_map<uint32_t, Rule5D, HashUint32> tmp;
+    tmp.set_empty_key(0);
+    tmp.set_deleted_key(-1);
+    hashTableV_ipS.emplace_back(tmp);
+    for (auto& rule : group[i]) {
+      hashTableV_ipS[i][rule.range[0][0]] = rule;
+    }
+  }
+  hashTableV_ipSNum = hashTableV_ipS.size();
+  if (hashTableV_ipSNum != exactGroup_ipSNum) {
+    std::cerr << "Wrong hashTableV_ipSNum\n";
+    exit(1);
+  }
+  std::cout << "HT_ipS size: " << hashTableV_ipSNum << "\n";
+};
+
+void TSearch::insertHT_ipD(std::vector<std::vector<Rule5D>>& group) {
+  for (size_t i = 0; i < exactGroup_ipDNum; ++i) {
+    google::dense_hash_map<uint32_t, Rule5D, HashUint32> tmp;
+    tmp.set_empty_key(0);
+    tmp.set_deleted_key(-1);
+    hashTableV_ipD.emplace_back(tmp);
+    for (auto& rule : group[i]) {
+      hashTableV_ipD[i][rule.range[1][0]] = rule;
+    }
+  }
+  hashTableV_ipDNum = hashTableV_ipD.size();
+  if (hashTableV_ipDNum != exactGroup_ipDNum) {
+    std::cerr << "Wrong hashTableV_ipDNum\n";
+    exit(1);
+  }
+  std::cout << "HT_ipD size: " << hashTableV_ipDNum << "\n";
+};
+
+void TSearch::insertHT_portD(std::vector<std::vector<Rule5D>>& group) {
+  for (size_t i = 0; i < exactGroup_portDNum; ++i) {
+    google::dense_hash_map<uint32_t, Rule5D, HashUint32> tmp;
+    tmp.set_empty_key(0);
+    tmp.set_deleted_key(-1);
+    hashTableV_portD.emplace_back(tmp);
+    for (auto& rule : group[i]) {
+      hashTableV_portD[i][rule.range[3][0]] = rule;
+    }
+  }
+  hashTableV_portDNum = hashTableV_portD.size();
+  if (hashTableV_portDNum != exactGroup_portDNum) {
+    std::cerr << "Wrong hashTableV_portDNum\n";
+    exit(1);
+  }
+  std::cout << "HT_portD size: " << hashTableV_portDNum << "\n";
+};
+// === hashTable === //

@@ -3,12 +3,14 @@
 
 #include <algorithm>
 #include <fstream>
+#include <sparsehash/dense_hash_map>
 
 #include "../io/inputFile_test.hpp"
 #include "../lib/basis.hpp"
+#include "linearSearch.hpp"
 class TSearch {
  public:
-  TSearch(const size_t _Threshold1, const size_t _BucketNum)
+  TSearch()
       : memorySize(0),
         packetCounter(0),
         exactSubNum(0),
@@ -18,44 +20,39 @@ class TSearch {
         smallSubNum(0),
         zeroSubNum(0),
         smallSubListNum{0},
-        bigSubNum(0),
-        Threshold1(_Threshold1),
-        BucketNum(_BucketNum),
-        exactHashTable(BucketNum){
+        bigSubNum(0){
 
         };
+  struct HashUint64 {
+    size_t operator()(uint64_t key) const { return key; }
+  };
+  struct HashUint32 {
+    size_t operator()(uint32_t key) const { return key; }
+  };
+
   void partition(std::vector<Rule5D> &, const size_t);
   void partitionExactSub(std::vector<Rule5D> &);
   void partitionExactSub_ipS(std::vector<Rule5D> &);
   void partitionExactSub_ipD(std::vector<Rule5D> &);
   void partitionExactSub_portD(std::vector<Rule5D> &);
 
-  inline bool comparePri(const Rule5D &a, const Rule5D &b) {
-    return a.priority < b.priority;
-  }
-  inline bool compareIpS(const Rule5D &a, const Rule5D &b) {
-    return a.range[0][0] < b.range[0][0];
-  }
-  inline bool compareIpD(const Rule5D &a, const Rule5D &b) {
-    return a.range[1][0] < b.range[1][0];
-  }
-  inline bool comparePortD(const Rule5D &a, const Rule5D &b) {
-    return a.range[3][0] < b.range[3][0];
-  }
-  inline size_t u64Hash(const uint64_t Val) { return Val % BucketNum; };
-  inline size_t u32Hash(const uint32_t Val) { return Val % BucketNum; };
-  inline size_t u16Hash(const uint16_t Val) { return Val % BucketNum; };
-
-  inline void insertU64HashTable(std::vector<Rule5D> &);
-  inline void insertU32HashTable(std::vector<Rule5D> &);
-  inline void insertU16HashTable(std::vector<Rule5D> &);
+  void insertHT(std::vector<std::vector<Rule5D>> &);
+  void insertHT_ipS(std::vector<std::vector<Rule5D>> &);
+  void insertHT_ipD(std::vector<std::vector<Rule5D>> &);
+  void insertHT_portD(std::vector<std::vector<Rule5D>> &);
+  void printHashTableToFile64(
+      const std::vector<google::dense_hash_map<uint64_t, Rule5D, HashUint64>> &,
+      const char *);
+  void printHashTableToFile32(
+      const std::vector<google::dense_hash_map<uint32_t, Rule5D, HashUint32>> &,
+      const char *);
   void search(std::vector<Rule5D> &, const std::vector<Packet5D> &);
 
  private:
   unsigned long long memorySize;
   unsigned long long packetCounter;
-  const size_t Threshold1;
-  const size_t BucketNum;
+  // const size_t Threshold1;
+  // const size_t BucketNum;
   // === //
   std::vector<Rule5D> exactSub;
   size_t exactSubNum;
@@ -90,21 +87,18 @@ class TSearch {
   std::vector<std::vector<Rule5D>> exactGroup_portD;
   size_t exactGroup_portDNum;
   // === //
-  struct ExactNode {
-    Rule5D rule;
-
-    ExactNode *left;
-    ExactNode *right;
-    ExactNode(Rule5D _rule) : rule(_rule), left(nullptr), right(nullptr) {}
-  };
-  struct ExactHashTable {
-    std::vector<ExactNode *> buckets;
-    size_t size;
-    ExactHashTable(size_t tableSize) : size(tableSize) {
-      buckets.resize(size, nullptr);
-    }
-  };
-  ExactHashTable exactHashTable;
+  std::vector<google::dense_hash_map<uint64_t, Rule5D, HashUint64>> hashTableV;
+  size_t hashTableV_Num;
+  std::vector<google::dense_hash_map<uint32_t, Rule5D, HashUint32>>
+      hashTableV_ipS;
+  size_t hashTableV_ipSNum;
+  std::vector<google::dense_hash_map<uint32_t, Rule5D, HashUint32>>
+      hashTableV_ipD;
+  size_t hashTableV_ipDNum;
+  std::vector<google::dense_hash_map<uint32_t, Rule5D, HashUint32>>
+      hashTableV_portD;
+  size_t hashTableV_portDNum;
+  // === //
 };
 
 #endif

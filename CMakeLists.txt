@@ -24,12 +24,12 @@ target_sources(m
 target_include_directories(m
     PRIVATE
         "io/"
-       # "lib/"
+        "lib/"
        "classifiers"
 )
 # 將指定資料夾的 CMake 專案（含有 CMakeLists.txt）一起加入建置。
 add_subdirectory("io/")
-#add_subdirectory("lib/")
+add_subdirectory("lib/")
 add_subdirectory("classifiers/")
 
 # 新增目標所連結的函式庫。函式庫名稱為其他 CMake 專案的目標名稱。通常來自
@@ -38,7 +38,7 @@ add_subdirectory("classifiers/")
 target_link_libraries(m
     PRIVATE
         io-s
-        #lib-s
+        lib-s
         classifiers-s
 )
 
