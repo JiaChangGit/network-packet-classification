@@ -3,5 +3,5 @@ add_library(lib-s STATIC)
 
 target_sources(lib-s
     PRIVATE
-
+    "segmentTree.cpp"
 )

@@ -52,6 +52,7 @@
         "ratio": "cpp",
         "set": "cpp",
         "numbers": "cpp",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "dense_hash_map": "cpp"
     }
 }
