@@ -1,17 +1,17 @@
 #include "tSearch.hpp"
 void TSearch::partition(std::vector<Rule5D>& rule5V, const size_t Rule5V_num) {
   for (const auto& rule : rule5V) {
-    if ((rule.ipSMask == 32) && (rule.ipDMask == 32)) {
+    if ((rule.prefix_length[0] == 32) && (rule.prefix_length[1] == 32)) {
       exactSub.emplace_back(rule);
-    } else if ((rule.ipSMask == 32) && (rule.ipDMask != 32)) {
+    } else if ((rule.prefix_length[0] == 32) && (rule.prefix_length[1] != 32)) {
       exactSub_ipS.emplace_back(rule);
-    } else if ((rule.ipSMask != 32) && (rule.ipDMask == 32)) {
+    } else if ((rule.prefix_length[0] != 32) && (rule.prefix_length[1] == 32)) {
       exactSub_ipD.emplace_back(rule);
-    } else if (rule.portD[0] == rule.portD[1]) {
+    } else if (rule.range[3][0] == rule.range[3][1]) {
       exactSub_portD.emplace_back(rule);
-    } else if ((rule.ipSMask == 0) || (rule.ipDMask == 0)) {
+    } else if ((rule.prefix_length[0] == 0) || (rule.prefix_length[1] == 0)) {
       zeroSub.emplace_back(rule);
-    } else if (16 > unsigned((rule.ipSMask + rule.ipDMask))) {
+    } else if (16 > unsigned((rule.prefix_length[0] + rule.prefix_length[1]))) {
       tmpSmallSub.emplace_back(rule);
     } else {
       bigSub.emplace_back(rule);
@@ -33,13 +33,16 @@ void TSearch::partition(std::vector<Rule5D>& rule5V, const size_t Rule5V_num) {
   std::cout << "smallSubNum: " << smallSubNum << "\n";
 
   for (const auto& smallRule : tmpSmallSub) {
-    if ((smallRule.ipSMask > 7) && (smallRule.ipDMask > 7)) {
+    if ((smallRule.prefix_length[0] > 7) && (smallRule.prefix_length[1] > 7)) {
       smallSubList0.emplace_back(smallRule);
-    } else if ((smallRule.ipSMask > 7) && (smallRule.ipDMask <= 7)) {
+    } else if ((smallRule.prefix_length[0] > 7) &&
+               (smallRule.prefix_length[1] <= 7)) {
       smallSubList1.emplace_back(smallRule);
-    } else if ((smallRule.ipSMask <= 7) && (smallRule.ipDMask > 7)) {
+    } else if ((smallRule.prefix_length[0] <= 7) &&
+               (smallRule.prefix_length[1] > 7)) {
       smallSubList2.emplace_back(smallRule);
-    } else if ((smallRule.ipSMask <= 7) && (smallRule.ipDMask <= 7)) {
+    } else if ((smallRule.prefix_length[0] <= 7) &&
+               (smallRule.prefix_length[1] <= 7)) {
       smallSubList3.emplace_back(smallRule);
     }
   }
@@ -107,7 +110,7 @@ void TSearch::partitionExactSub(std::vector<Rule5D>& rule5V) {
   std::vector<Rule5D> uniq_ipSD;
   uniq_ipSD.emplace_back(rule5V[0]);
   // std::cout << "uniq_ipSD size: " << uniq_ipSD.size()
-  //           << ", uniq_ipSD[0]: " << uniq_ipSD[0].ipS32 << std::endl;
+  //           << ", uniq_ipSD[0]: " << uniq_ipSD[0].ipS32 << "\n";
   exactGroup.emplace_back(uniq_ipSD);
   if (!rule5V.empty()) {
     rule5V.erase(rule5V.begin());
@@ -116,36 +119,21 @@ void TSearch::partitionExactSub(std::vector<Rule5D>& rule5V) {
   // std::cout << "size: " << exactGroup.size()
   //           << ", [0]size: " << exactGroup[0].size()
   //           << ", [1]size: " << exactGroup[1].size()
-  //           << ", exactGroup[0][0]: " << exactGroup[0][0].ipS32 << std::endl;
+  //           << ", exactGroup[0][0]: " << exactGroup[0][0].ipS32 << "\n";
 
   for (const auto& rule : rule5V) {
     // std::cout << "pri: " << rule.pri << "\n";
     for (size_t gNum = 0; gNum < exactGroup.size(); ++gNum) {
       for (const auto& analysisV : exactGroup[gNum]) {
-        if ((unsigned(rule.ipSMask) == 0) &&
-            (unsigned(analysisV.ipSMask) == 0)) {
-          isUniqField[0] = false;
-
-        } else if (((unsigned(rule.ipSMask)) ==
-                    (unsigned(analysisV.ipSMask))) &&
-                   ((rule.ipS32 >> (32 - unsigned(rule.ipSMask))) ==
-                    (analysisV.ipS32 >> (32 - unsigned(analysisV.ipSMask))))) {
+        if (rule.range[0][0] == analysisV.range[0][0]) {
           isUniqField[0] = false;
         }
-        if ((unsigned(rule.ipDMask) == 0) &&
-            (unsigned(analysisV.ipDMask) == 0)) {
-          isUniqField[1] = false;
-
-        } else if (((unsigned(rule.ipDMask)) ==
-                    (unsigned(analysisV.ipDMask))) &&
-                   ((rule.ipD32 >> (32 - unsigned(rule.ipDMask))) ==
-                    (analysisV.ipD32 >> (32 - unsigned(analysisV.ipDMask))))) {
+        if (rule.range[1][0] == analysisV.range[1][0]) {
           isUniqField[1] = false;
         }
       }
 
       if (isUniqField[0] || isUniqField[1]) {
-        // uniq_ipSD.emplace_back(rule);
         exactGroup[gNum].emplace_back(rule);
         gNum = 0;
         isUniqField[0] = true;
@@ -168,7 +156,7 @@ void TSearch::partitionExactSub(std::vector<Rule5D>& rule5V) {
   exactGroupNum = exactGroup.size();
   std::cout << "size: " << exactGroupNum
             << ", [0]size: " << exactGroup[0].size()
-            << ", [1]size: " << exactGroup[1].size() << std::endl;
+            << ", [1]size: " << exactGroup[1].size() << "\n";
 
   size_t counter = 0;
   for (const auto& innerVec : exactGroup) {
@@ -176,9 +164,9 @@ void TSearch::partitionExactSub(std::vector<Rule5D>& rule5V) {
       // std::cout << val.ipS32 << " ";
       ++counter;
     }
-    // std::cout << std::endl;
+    // std::cout << "\n";
   }
-  // std::cout << "counter: " << counter << std::endl;
+  // std::cout << "counter: " << counter << "\n";
   //  // === //
   if (counter != exactSubNum) {
     std::cerr << "counter != exactSubNum\n";
@@ -204,14 +192,7 @@ void TSearch::partitionExactSub_ipS(std::vector<Rule5D>& rule5V) {
     // std::cout << "pri: " << rule.pri << "\n";
     for (size_t gNum = 0; gNum < exactGroup_ipS.size(); ++gNum) {
       for (const auto& analysisV : exactGroup_ipS[gNum]) {
-        if ((unsigned(rule.ipSMask) == 0) &&
-            (unsigned(analysisV.ipSMask) == 0)) {
-          isUniqField = false;
-
-        } else if (((unsigned(rule.ipSMask)) ==
-                    (unsigned(analysisV.ipSMask))) &&
-                   ((rule.ipS32 >> (32 - unsigned(rule.ipSMask))) ==
-                    (analysisV.ipS32 >> (32 - unsigned(analysisV.ipSMask))))) {
+        if (rule.range[0][0] == analysisV.range[0][0]) {
           isUniqField = false;
         }
       }
@@ -235,7 +216,7 @@ void TSearch::partitionExactSub_ipS(std::vector<Rule5D>& rule5V) {
   exactGroup_ipSNum = exactGroup_ipS.size();
   std::cout << "size: " << exactGroup_ipSNum
             << ", [0]size: " << exactGroup_ipS[0].size()
-            << ", [1]size: " << exactGroup_ipS[1].size() << std::endl;
+            << ", [1]size: " << exactGroup_ipS[1].size() << "\n";
 
   size_t counter = 0;
   for (const auto& innerVec : exactGroup_ipS) {
@@ -243,9 +224,9 @@ void TSearch::partitionExactSub_ipS(std::vector<Rule5D>& rule5V) {
       // std::cout << val.ipS32 << " ";
       ++counter;
     }
-    // std::cout << std::endl;
+    // std::cout << "\n";
   }
-  // std::cout << "counter: " << counter << std::endl;
+  // std::cout << "counter: " << counter << "\n";
   //  // === //
   if (counter != exactSub_ipSNum) {
     std::cerr << "counter != exactSub_ipSNum\n";
@@ -271,14 +252,7 @@ void TSearch::partitionExactSub_ipD(std::vector<Rule5D>& rule5V) {
     // std::cout << "pri: " << rule.pri << "\n";
     for (size_t gNum = 0; gNum < exactGroup_ipD.size(); ++gNum) {
       for (const auto& analysisV : exactGroup_ipD[gNum]) {
-        if ((unsigned(rule.ipDMask) == 0) &&
-            (unsigned(analysisV.ipDMask) == 0)) {
-          isUniqField = false;
-
-        } else if (((unsigned(rule.ipDMask)) ==
-                    (unsigned(analysisV.ipDMask))) &&
-                   ((rule.ipD32 >> (32 - unsigned(rule.ipDMask))) ==
-                    (analysisV.ipD32 >> (32 - unsigned(analysisV.ipDMask))))) {
+        if (rule.range[1][0] == analysisV.range[1][0]) {
           isUniqField = false;
         }
       }
@@ -302,7 +276,7 @@ void TSearch::partitionExactSub_ipD(std::vector<Rule5D>& rule5V) {
   exactGroup_ipDNum = exactGroup_ipD.size();
   std::cout << "size: " << exactGroup_ipDNum
             << ", [0]size: " << exactGroup_ipD[0].size()
-            << ", [1]size: " << exactGroup_ipD[1].size() << std::endl;
+            << ", [1]size: " << exactGroup_ipD[1].size() << "\n";
 
   size_t counter = 0;
   for (const auto& innerVec : exactGroup_ipD) {
@@ -310,9 +284,9 @@ void TSearch::partitionExactSub_ipD(std::vector<Rule5D>& rule5V) {
       // std::cout << val.ipS32 << " ";
       ++counter;
     }
-    // std::cout << std::endl;
+    // std::cout << "\n";
   }
-  // std::cout << "counter: " << counter << std::endl;
+  // std::cout << "counter: " << counter << "\n";
   //  // === //
   if (counter != exactSub_ipDNum) {
     std::cerr << "counter != exactSub_ipDNum\n";
@@ -338,8 +312,7 @@ void TSearch::partitionExactSub_portD(std::vector<Rule5D>& rule5V) {
     // std::cout << "pri: " << rule.pri << "\n";
     for (size_t gNum = 0; gNum < exactGroup_portD.size(); ++gNum) {
       for (const auto& analysisV : uniq_portD) {
-        if ((rule.portD[0] == analysisV.portD[0]) &&
-            (rule.portD[1] == analysisV.portD[1])) {
+        if (rule.range[3][0] == analysisV.range[3][0]) {
           isUniqField = false;
         }
       }
@@ -363,7 +336,7 @@ void TSearch::partitionExactSub_portD(std::vector<Rule5D>& rule5V) {
   exactGroup_portDNum = exactGroup_portD.size();
   std::cout << "size: " << exactGroup_portDNum
             << ", [0]size: " << exactGroup_portD[0].size()
-            << ", [1]size: " << exactGroup_portD[1].size() << std::endl;
+            << ", [1]size: " << exactGroup_portD[1].size() << "\n";
 
   size_t counter = 0;
   for (const auto& innerVec : exactGroup_portD) {
@@ -371,9 +344,9 @@ void TSearch::partitionExactSub_portD(std::vector<Rule5D>& rule5V) {
       // std::cout << val.ipS32 << " ";
       ++counter;
     }
-    // std::cout << std::endl;
+    // std::cout << "\n";
   }
-  // std::cout << "counter: " << counter << std::endl;
+  // std::cout << "counter: " << counter << "\n";
   //  // === //
   if (counter != exactSub_portDNum) {
     std::cerr << "counter != exactSub_portDNum\n";
@@ -385,5 +358,3 @@ void TSearch::partitionExactSub_portD(std::vector<Rule5D>& rule5V) {
   }
   std::cout << "exactGroup_portDNum: " << exactGroup_portDNum << "\n";
 };
-
-inline void TSearch::insertU16HashTable(std::vector<Rule5D>& rule5V){};

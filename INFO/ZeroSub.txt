@@ -1,126 +1,72 @@
-Priority: 930
-Source IP: 85.89.154.0/23
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 930
+prefix_length: 23 0 0 0 0 
+range: [1431935488, 1431935999] [0, 4294967295] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 931
-Source IP: 194.186.116.0/22
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x1 / 0xff
+priority: 931
+prefix_length: 22 0 0 0 0 
+range: [3266999296, 3267000319] [0, 4294967295] [0, 65535] [0, 65535] [1, 1] 
 
-Priority: 932
-Source IP: 194.186.116.0/22
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 932
+prefix_length: 22 0 0 0 0 
+range: [3266999296, 3267000319] [0, 4294967295] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 936
-Source IP: 85.89.153.0/24
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x0 / 0x0
+priority: 936
+prefix_length: 24 0 0 0 0 
+range: [1431935232, 1431935487] [0, 4294967295] [0, 65535] [0, 65535] [0, 255] 
 
-Priority: 937
-Source IP: 85.89.154.0/23
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x0 / 0x0
+priority: 937
+prefix_length: 23 0 0 0 0 
+range: [1431935488, 1431935999] [0, 4294967295] [0, 65535] [0, 65535] [0, 255] 
 
-Priority: 938
-Source IP: 0.0.0.0/0
-Destination IP: 77.80.0.0/12
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 938
+prefix_length: 0 12 0 0 0 
+range: [0, 4294967295] [1297088512, 1298137087] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 939
-Source IP: 0.0.0.0/0
-Destination IP: 68.192.0.0/12
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 939
+prefix_length: 0 12 0 0 0 
+range: [0, 4294967295] [1153433600, 1154482175] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 940
-Source IP: 194.0.0.0/9
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 940
+prefix_length: 9 0 0 0 0 
+range: [3254779904, 3263168511] [0, 4294967295] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 941
-Source IP: 0.0.0.0/0
-Destination IP: 76.0.0.0/7
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 941
+prefix_length: 0 7 0 0 0 
+range: [0, 4294967295] [1275068416, 1308622847] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 942
-Source IP: 195.0.0.0/8
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 942
+prefix_length: 8 0 0 0 0 
+range: [3271557120, 3288334335] [0, 4294967295] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 945
-Source IP: 0.0.0.0/0
-Destination IP: 76.0.0.0/8
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 945
+prefix_length: 0 8 0 0 0 
+range: [0, 4294967295] [1275068416, 1291845631] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 946
-Source IP: 0.0.0.0/0
-Destination IP: 0.0.0.0/1
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 946
+prefix_length: 0 1 0 0 0 
+range: [0, 4294967295] [0, 2147483647] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 947
-Source IP: 64.0.0.0/2
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 947
+prefix_length: 2 0 0 0 0 
+range: [1073741824, 2147483647] [0, 4294967295] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 948
-Source IP: 0.0.0.0/0
-Destination IP: 0.0.0.0/1
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x6 / 0xff
+priority: 948
+prefix_length: 0 1 0 0 0 
+range: [0, 4294967295] [0, 2147483647] [0, 65535] [0, 65535] [6, 6] 
 
-Priority: 950
-Source IP: 194.0.0.0/7
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x0 / 0x0
+priority: 950
+prefix_length: 7 0 0 0 0 
+range: [3254779904, 3288334335] [0, 4294967295] [0, 65535] [0, 65535] [0, 255] 
 
-Priority: 951
-Source IP: 0.0.0.0/0
-Destination IP: 76.0.0.0/7
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x0 / 0x0
+priority: 951
+prefix_length: 0 7 0 0 0 
+range: [0, 4294967295] [1275068416, 1308622847] [0, 65535] [0, 65535] [0, 255] 
 
-Priority: 952
-Source IP: 128.0.0.0/1
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x0 / 0x0
+priority: 952
+prefix_length: 1 0 0 0 0 
+range: [2147483648, 4294967295] [0, 4294967295] [0, 65535] [0, 65535] [0, 255] 
 
-Priority: 953
-Source IP: 0.0.0.0/0
-Destination IP: 0.0.0.0/0
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x0 / 0x0
+priority: 953
+prefix_length: 0 0 0 0 0 
+range: [0, 4294967295] [0, 4294967295] [0, 65535] [0, 65535] [0, 255] 
 

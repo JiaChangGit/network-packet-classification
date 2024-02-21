@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
-project(classify VERSION 1.4)
+project(classify VERSION 1.5)
 message("===> start to build.... " ${PROJECT_NAME})
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 # set(CMAKE_CXX_STANDARD 11) # 將 C++ 標準設定為 C++ 11
 # set(CMAKE_CXX_STANDARD_REQUIRED ON) # C++ 11 是強制要求，不會衰退至低版本
 # flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pedantic -fpermissive -fopenmp -O3")
 set(CMAKE_CXX_EXTENSIONS OFF) # 禁止使用編譯器特有擴充套件
 
 # 新增一個 CMake 目標，目標型態為可執行檔。
@@ -24,12 +24,12 @@ target_sources(m
 target_include_directories(m
     PRIVATE
         "io/"
-        "lib/"
-        "classifiers"
+       # "lib/"
+       "classifiers"
 )
 # 將指定資料夾的 CMake 專案（含有 CMakeLists.txt）一起加入建置。
 add_subdirectory("io/")
-add_subdirectory("lib/")
+#add_subdirectory("lib/")
 add_subdirectory("classifiers/")
 
 # 新增目標所連結的函式庫。函式庫名稱為其他 CMake 專案的目標名稱。通常來自
@@ -38,7 +38,7 @@ add_subdirectory("classifiers/")
 target_link_libraries(m
     PRIVATE
         io-s
-        lib-s
+        #lib-s
         classifiers-s
 )
 

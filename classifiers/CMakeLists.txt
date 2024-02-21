@@ -5,5 +5,5 @@ target_sources(classifiers-s
     PRIVATE
     "linearSearch.cpp"
     "tSearch.cpp"
-    "ksetSearch.cpp"
+
 )

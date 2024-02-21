@@ -2,7 +2,7 @@
  * @file basis.hpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.4
+ * @version 1.5
  * @date 2024-02-11
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -10,74 +10,40 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>basic data structures
+ * <tr><td>2024-02-11 <td>1.5     <td>jiachang     <td>basic data structures
  * </table>
  */
 
 #ifndef __LIB_BASIS_HPP__
 #define __LIB_BASIS_HPP__
 
+#include <array>
 #include <chrono>
 #include <iostream>
+#include <vector>
+#define LowDim 0
+#define HighDim 1
+#define MAXDIMENSIONS 5
 
-class Packet5D {
- public:
-  uint16_t portS;
-  uint16_t portD;
-  union {
-    uint8_t ipS[4];
-    uint32_t ipS32;
-  };
-  uint8_t protocol;
-  union {
-    uint8_t ipD[4];
-    uint32_t ipD32;
-  };
+typedef std::vector<uint32_t> Packet5D;
 
-  void eightBitsGroup_ipSD();
-};
+struct Rule5D {
+  Rule5D(unsigned int dim = 5)
+      : dim(dim), range(dim, {{0, 0}}), prefix_length(dim, 0){};
 
-class Rule5D {
- public:
-  unsigned int pri = 0;
-  union {
-    uint8_t ipS[4];
-    uint32_t ipS32;
-  };
-  union {
-    uint8_t ipD[4];
-    uint32_t ipD32;
-  };
-  uint16_t portS[2];
-  uint16_t portD[2];
-  uint8_t ipSMask;
-  uint8_t ipDMask;
-  uint8_t protocol[2];
+  unsigned int dim;
+  unsigned int priority;
 
-  void eightBitsGroup_ipSD();
-  inline bool isMatch(const Packet5D&);
-  bool operator<(const Rule5D& a) const { return pri < a.pri; };
-};
-inline bool Rule5D::isMatch(const Packet5D& p5D) {
-  uint8_t ipNotCare = (32 - ipSMask);
-  if (ipNotCare != 32) {
-    if ((ipS32 >> ipNotCare) != (p5D.ipS32 >> ipNotCare)) {
-      return false;
+  std::vector<uint32_t> prefix_length;
+
+  std::vector<std::array<uint32_t, 2>> range;
+
+  bool inline isMatch(const Packet5D& p) const {
+    for (size_t i = 0; i < dim; i++) {
+      if (p[i] < range[i][LowDim] || p[i] > range[i][HighDim]) return false;
     }
-    ipNotCare = (32 - ipDMask);
-  } else if (ipNotCare != 32) {
-    if ((ipD32 >> ipNotCare) != (p5D.ipD32 >> ipNotCare)) {
-      return false;
-    }
-  } else if ((portD[0] > p5D.portD) || (portD[1] < p5D.portD)) {
-    return false;
-  } else if ((portS[0] > p5D.portS) || (portS[1] < p5D.portS)) {
-    return false;
-  } else if (((protocol[0] & protocol[1]) != p5D.protocol) &&
-             (protocol[1] != 0x00)) {
-    return false;
+    return true;
   }
-  return true;
 };
 
 class Timer {
@@ -89,9 +55,13 @@ class Timer {
   std::chrono::time_point<Clock> m_beg{Clock::now()};
 
  public:
-  void timeReset();
-  double elapsed_s() const;
-  unsigned long long elapsed_ns() const;
+  void inline timeReset() { m_beg = Clock::now(); };
+  double inline elapsed_s() const {
+    return std::chrono::duration_cast<Second>(Clock::now() - m_beg).count();
+  };
+  unsigned long long inline elapsed_ns() const {
+    return std::chrono::milliseconds((Clock::now() - m_beg).count()).count();
+  };
 };
 
 // https://www.learncpp.com/cpp-tutorial/timing-your-code/

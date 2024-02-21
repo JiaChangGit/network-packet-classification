@@ -1,7 +1,4 @@
-Priority: 949
-Source IP: 195.0.0.0/8
-Destination IP: 128.0.0.0/1
-Source Port: 0 : 65535
-Destination Port: 0 : 65535
-Protocol: 0x0 / 0x0
+priority: 949
+prefix_length: 8 1 0 0 0 
+range: [3271557120, 3288334335] [2147483648, 4294967295] [0, 65535] [0, 65535] [0, 255] 
 

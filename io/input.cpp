@@ -2,7 +2,7 @@
  * @file input.cpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.4
+ * @version 1.5
  * @date 2024-02-11
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -10,7 +10,7 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>load rule-set and
+ * <tr><td>2024-02-11 <td>1.5     <td>jiachang     <td>load rule-set and
  * trace-set
  * </table>
  */
@@ -22,83 +22,174 @@
 
 #include "input.hpp"
 
-void InputFile5D::loadRule5D(std::vector<Rule5D> &rule5V,
-                             const char *FileName) {
+void InputFile5D::loadRule5D(std::vector<Rule5D> &rule, const char *FileName) {
   FILE *fp = NULL;
   fp = fopen(FileName, "r");
   if (fp == NULL) {
     fprintf(stderr, "error - can not open rules file\n");
-    exit(1);  // error
+    exit(1);
   }
-  // Timer t_loadRule5D;
-  unsigned int ipS_fscan[4];
-  unsigned int ipSmask_fscan;
-  unsigned int ipD_fscan[4];
-  unsigned int ipDmask_fscan;
-  unsigned int portS_fscan[2];
-  unsigned int portD_fscan[2];
-  unsigned int protocol[2];
-  Rule5D r;
-  while (fscanf(fp,
-                "@%u.%u.%u.%u/%u\t%u.%u.%u.%u/%u\t%u : %u\t%u : "
-                "%u\t%x/%x\t%*x/%*x\t\n",
-                &ipS_fscan[3], &ipS_fscan[2], &ipS_fscan[1], &ipS_fscan[0],
-                &ipSmask_fscan, &ipD_fscan[3], &ipD_fscan[2], &ipD_fscan[1],
-                &ipD_fscan[0], &ipDmask_fscan, &portS_fscan[0], &portS_fscan[1],
-                &portD_fscan[0], &portD_fscan[1], &protocol[0],
-                &protocol[1]) != EOF) {
-    r.pri++;
-    r.protocol[0] = (uint8_t)protocol[0];
-    r.protocol[1] = (uint8_t)protocol[1];
-    r.ipSMask = (uint8_t)ipSmask_fscan;
-    r.ipDMask = (uint8_t)ipDmask_fscan;
+  int i;
+  uint32_t tmp;
+  uint32_t max_uint = 0xFFFFFFFF;
+  uint32_t mask;
+  uint32_t sip1, sip2, sip3, sip4, smask;
+  uint32_t dip1, dip2, dip3, dip4, dmask;
+  uint32_t sport1, sport2;
+  uint32_t dport1, dport2;
+  uint32_t protocal, protocol_mask;
+  unsigned int number_rule = 0;  // number of rules
 
-    for (int j = 0; j < 4; j++) {
-      r.ipS[j] = (uint8_t)ipS_fscan[j];
-      r.ipD[j] = (uint8_t)ipD_fscan[j];
+  while (1) {
+    Rule5D r;
+    std::array<uint32_t, 2> points;
+    if (fscanf(fp,
+               "@%u.%u.%u.%u/%u\t%u.%u.%u.%u/%u\t%u : %u\t%u : "
+               "%u\t%x/%x\t%*x/%*x\t\n",
+               &sip1, &sip2, &sip3, &sip4, &smask, &dip1, &dip2, &dip3, &dip4,
+               &dmask, &sport1, &sport2, &dport1, &dport2, &protocal,
+               &protocol_mask) == EOF)
+      break;
+
+    if (smask == 0) {
+      points[0] = 0;
+      points[1] = 0xFFFFFFFF;
+    } else if (smask > 0 && smask <= 8) {
+      tmp = sip1 << 24;
+      mask = ~(max_uint >> smask);
+      tmp &= mask;
+      points[0] = tmp;
+      points[1] = points[0] + (1 << (32 - smask)) - 1;
+    } else if (smask > 8 && smask <= 16) {
+      tmp = sip1 << 24;
+      tmp += sip2 << 16;
+      mask = ~(max_uint >> smask);
+      tmp &= mask;
+      points[0] = tmp;
+      points[1] = points[0] + (1 << (32 - smask)) - 1;
+    } else if (smask > 16 && smask <= 24) {
+      tmp = sip1 << 24;
+      tmp += sip2 << 16;
+      tmp += sip3 << 8;
+      mask = ~(max_uint >> smask);
+      tmp &= mask;
+      points[0] = tmp;
+      points[1] = points[0] + (1 << (32 - smask)) - 1;
+    } else if (smask > 24 && smask <= 32) {
+      tmp = sip1 << 24;
+      tmp += sip2 << 16;
+      tmp += sip3 << 8;
+      tmp += sip4;
+      mask = smask != 32 ? ~(max_uint >> smask) : max_uint;
+      tmp &= mask;
+      points[0] = tmp;
+      points[1] = points[0] + (1 << (32 - smask)) - 1;
+    } else {
+      std::cerr << "Src IP length exceeds 32\n";
+      exit(1);
     }
-    r.portS[0] = (uint16_t)portS_fscan[0];
-    r.portS[1] = (uint16_t)portS_fscan[1];
-    r.portD[0] = (uint16_t)portD_fscan[0];
-    r.portD[1] = (uint16_t)portD_fscan[1];
-    rule5V.emplace_back(r);
+    r.range[0] = points;
+
+    if (dmask == 0) {
+      points[0] = 0;
+      points[1] = 0xFFFFFFFF;
+    } else if (dmask > 0 && dmask <= 8) {
+      tmp = dip1 << 24;
+      mask = ~(max_uint >> dmask);
+      tmp &= mask;
+      points[0] = tmp;
+      points[1] = points[0] + (1 << (32 - dmask)) - 1;
+    } else if (dmask > 8 && dmask <= 16) {
+      tmp = dip1 << 24;
+      tmp += dip2 << 16;
+      mask = ~(max_uint >> dmask);
+      tmp &= mask;
+      points[0] = tmp;
+      points[1] = points[0] + (1 << (32 - dmask)) - 1;
+    } else if (dmask > 16 && dmask <= 24) {
+      tmp = dip1 << 24;
+      tmp += dip2 << 16;
+      tmp += dip3 << 8;
+      mask = ~(max_uint >> dmask);
+      tmp &= mask;
+      points[0] = tmp;
+      points[1] = points[0] + (1 << (32 - dmask)) - 1;
+    } else if (dmask > 24 && dmask <= 32) {
+      tmp = dip1 << 24;
+      tmp += dip2 << 16;
+      tmp += dip3 << 8;
+      tmp += dip4;
+      mask = dmask != 32 ? ~(max_uint >> dmask) : max_uint;
+      tmp &= mask;
+      points[0] = tmp;
+      points[1] = points[0] + (1 << (32 - dmask)) - 1;
+    } else {
+      std::cerr << "Dest IP length exceeds 32\n";
+      exit(1);
+    }
+    r.range[1] = points;
+
+    points[0] = sport1;
+    points[1] = sport2;
+    r.range[2] = points;
+
+    points[0] = dport1;
+    points[1] = dport2;
+    r.range[3] = points;
+
+    if (protocol_mask == 0xFF) {
+      points[0] = protocal;
+      points[1] = protocal;
+    } else if (protocol_mask == 0) {
+      points[0] = 0;
+      points[1] = 0xFF;
+    } else {
+      std::cerr << "Protocol mask error\n";
+      exit(1);
+    }
+    r.range[4] = points;
+
+    r.prefix_length[0] = smask;
+    r.prefix_length[1] = dmask;
+    ++number_rule;
+    r.priority = number_rule;
+    rule.emplace_back(r);
   }
-  // std::cout << "Time taken: " << t_loadRule5D.elapsed_ns() << " ns"
-  //           << "\n";
-  // std::cout << "Time taken: " << t_loadRule5D.elapsed_s() << " s"
-  //           << "\n";
-  std::cout << "Leave loadRule5D"
-            << "\n";
-  fclose(fp);
+
+  // std::cout<<"the number of rules = "<< number_rule<<"\n";
+
+  return;
 };
 
-void InputFile5D::loadPacket5D(std::vector<Packet5D> &packet5V,
+void InputFile5D::loadPacket5D(std::vector<Packet5D> &packets,
                                const char *FileName) {
   FILE *fp = NULL;
   fp = fopen(FileName, "r");
   if (fp == NULL) {
     fprintf(stderr, "error - can not open trace file\n");
-    exit(1);  // error
+    exit(1);
   }
-  // Timer t_loadPacket5D;
-  Packet5D p5D;
-  unsigned int ip_src, ip_des;
-  while (fscanf(fp, "%u\t%u\t%hu\t%hu\t%hhu\t%*u\t%*d\n", &ip_src, &ip_des,
-                &p5D.portS, &p5D.portD, &p5D.protocol) != EOF) {
-    memcpy(p5D.ipS, &ip_src, 4);
-    memcpy(p5D.ipD, &ip_des, 4);
+  unsigned int header[MAXDIMENSIONS];
+  unsigned int number_pkt = 0;  // number of packets
 
-    packet5V.emplace_back(p5D);
+  while (1) {
+    if (fscanf(fp, "%u\t%u\t%u\t%u\t%u\t%*u\t%*u\n", &header[0], &header[1],
+               &header[2], &header[3], &header[4]) == EOF)
+      break;
+    Packet5D p;
+    p.emplace_back(header[0]);
+    p.emplace_back(header[1]);
+    p.emplace_back(header[2]);
+    p.emplace_back(header[3]);
+    p.emplace_back(header[4]);
+    ++number_pkt;
+    packets.emplace_back(p);
   }
-  // std::cout << "Time taken: " << t_loadPacket5D.elapsed_ns() << " ns"
-  //           << "\n";
-  // std::cout << "Time taken: " << t_loadPacket5D.elapsed_s() << " s"
-  //           << "\n";
-  std::cout << "Leave loadPacket5D"
-            << "\n";
-  fclose(fp);
+
+  // std::cout<<"the number of pkts = "<< number_pkt<<"\n";
+
+  return;
 };
-
 // <Source Address>	<Destination Address>	<Source Port>	<Destination
 // Port>	<Protocol>	<Filter Number>
 
