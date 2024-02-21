@@ -3,11 +3,9 @@
 
 #include <algorithm>
 #include <fstream>
-#include <vector>
 
 #include "../io/inputFile_test.hpp"
 #include "../lib/basis.hpp"
-#include "../lib/rulesetAnalysis.hpp"
 class TSearch {
  public:
   TSearch(const size_t _Threshold1, const size_t _BucketNum)
@@ -33,16 +31,16 @@ class TSearch {
   void partitionExactSub_portD(std::vector<Rule5D> &);
 
   inline bool comparePri(const Rule5D &a, const Rule5D &b) {
-    return a.pri < b.pri;
+    return a.priority < b.priority;
   }
   inline bool compareIpS(const Rule5D &a, const Rule5D &b) {
-    return a.ipS32 < b.ipS32;
+    return a.range[0][0] < b.range[0][0];
   }
   inline bool compareIpD(const Rule5D &a, const Rule5D &b) {
-    return a.ipD32 < b.ipD32;
+    return a.range[1][0] < b.range[1][0];
   }
   inline bool comparePortD(const Rule5D &a, const Rule5D &b) {
-    return a.portD[0] < b.portD[0];
+    return a.range[3][0] < b.range[3][0];
   }
   inline size_t u64Hash(const uint64_t Val) { return Val % BucketNum; };
   inline size_t u32Hash(const uint32_t Val) { return Val % BucketNum; };

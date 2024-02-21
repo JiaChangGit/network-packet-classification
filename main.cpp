@@ -2,7 +2,7 @@
  * @file main.cpp
  * @brief
  * @author jiachang (jiachanggit@gmail.com)
- * @version 1.4
+ * @version 1.5
  * @date 2024-02-11
  *
  * @copyright Copyright (c) 2024  JIA-CHANG
@@ -10,20 +10,17 @@
  * @par dialog:
  * <table>
  * <tr><th>Date       <th>Version <th>Author  <th>Description
- * <tr><td>2024-02-11 <td>1.4     <td>jiachang     <td>main
+ * <tr><td>2024-02-11 <td>1.5     <td>jiachang     <td>main
  * </table>
  */
 
 #include <getopt.h>
 
 #include <fstream>
-#include <vector>
 
 #include "input.hpp"
 #include "inputFile_test.hpp"
-#include "ksetSearch.hpp"
 #include "linearSearch.hpp"
-#include "rulesetAnalysis.hpp"
 #include "tSearch.hpp"
 
 using std::cerr;
@@ -32,16 +29,14 @@ using std::cout;
 using std::ofstream;
 using std::vector;
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
   vector<Rule5D> rule5V;
   vector<Packet5D> packet5V;
   InputFile5D inputFile5D;
   InputFile5D_test inputFile5D_test;
   Timer timer;
-  const char *LoadRule5D_test_path = "./INFO/loadRule5D_test.txt";
-  const char *LoadPacket5D_test_path = "./INFO/loadPacket5D_test.txt";
-  const char *LoadRule5D_ip_test_path = "./INFO/loadRule5D_ipSD_test.txt";
-  const char *LoadPacket5D_ip_test_path = "./INFO/loadPacket5D_ipSD_test.txt";
+  const char* LoadRule5D_test_path = "./INFO/loadRule5D_test.txt";
+  const char* LoadPacket5D_test_path = "./INFO/loadPacket5D_test.txt";
 
   static struct option long_options[] = {
       {"ruleset", required_argument, NULL, 'r'},
@@ -104,32 +99,23 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  // inputFile5D_test.loadRule5D_ipSD_test(rule5V, LoadRule5D_ip_test_path);
-  // inputFile5D_test.loadPacket5D_ipSD_test(packet5V,
-  // LoadPacket5D_ip_test_path);
-
   size_t rule5V_num = rule5V.size();
   if (rule5V_num <= 0) {
     cerr << "rule5V_num: " << rule5V_num << " <= 0\n";
     exit(1);
   }
-
-  // //// === rulesetAnalysis === ////
-  // RulesetAnalysis rulesetAnalysis(rule5V);
-  // rulesetAnalysis.printRule5V_arr(rule5V_num);
-  // rulesetAnalysis.printUniqRule5V();
-  // //// === rulesetAnalysis === ////
+  cout << "rule5V_num: " << rule5V_num << "\n";
+  size_t packet5V_num = packet5V.size();
+  if (packet5V_num <= 0) {
+    cerr << "packet5V_num: " << packet5V_num << " <= 0\n";
+    exit(1);
+  }
+  cout << "packet5V_num: " << packet5V_num << "\n";
 
   // //// === LinearSearch === ////
   // LinearSearch linearSearch;
-  // int packet5V_num = packet5V.size();
-  // if (packet5V_num <= 0) {
-  //   cerr << "packet5V_num: " << packet5V_num << " <= 0\n";
-  //   exit(1);
-  // }
   // timer.timeReset();
   // linearSearch.search(rule5V, packet5V);
-  // cout << "packet5V_num: " << packet5V_num << "\n";
   // cout << "LinearSearch time avg (ns): " << (timer.elapsed_ns() /
   // packet5V_num)
   //      << "\n";
@@ -137,14 +123,10 @@ int main(int argc, char *argv[]) {
   //      << "\n";
   // //// === LinearSearch === ////
 
-  // //// === KsetSearch === ////
-  // KsetSearch ksetSearch;
-  // ksetSearch.partition(rule5V, rule5V_num, 16);
-  // //// === KsetSearch === ////
-
   //// === tSearch === ////
   TSearch tSearch(8, 17);
   tSearch.partition(rule5V, rule5V_num);
   //// === tSearch === ////
+
   return 0;
 }
