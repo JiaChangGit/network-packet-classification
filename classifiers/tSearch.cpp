@@ -10,7 +10,7 @@ void TSearch::printHashTableToFile64(
   }
 
   for (size_t i = 0; i < hashTable_U64V.size(); ++i) {
-    outfile << "Bucket " << i << "\n";
+    outfile << "link list-> " << i << "\n";
     const auto& dense_hash_map = hashTable_U64V[i];
     for (const auto& pair : dense_hash_map) {
       outfile << "Key: " << pair.first << "\n";
@@ -40,7 +40,7 @@ void TSearch::printHashTableToFile32(
   }
 
   for (size_t i = 0; i < hashTable_U32V.size(); ++i) {
-    outfile << "Bucket " << i << "\n";
+    outfile << "link list-> " << i << "\n";
     const auto& dense_hash_map = hashTable_U32V[i];
     for (const auto& pair : dense_hash_map) {
       outfile << "Key: " << pair.first << "\n";

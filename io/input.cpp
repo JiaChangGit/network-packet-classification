@@ -151,6 +151,25 @@ void InputFile5D::loadRule5D(std::vector<Rule5D> &rule, const char *FileName) {
 
     r.prefix_length[0] = smask;
     r.prefix_length[1] = dmask;
+    if (sport1 == sport2) {
+      // 0: portS is exact value
+      r.prefix_length[2] = 0;
+    } else {
+      r.prefix_length[2] = 1;
+    }
+    if (dport1 == dport2) {
+      // 0: portD is exact value
+      r.prefix_length[3] = 0;
+    } else {
+      r.prefix_length[3] = 1;
+    }
+    if (protocol_mask != 0x00) {
+      // 0: protocol is exact value
+      r.prefix_length[4] = 0;
+    } else {
+      r.prefix_length[4] = 1;
+    }
+
     ++number_rule;
     r.priority = number_rule;
     rule.emplace_back(r);

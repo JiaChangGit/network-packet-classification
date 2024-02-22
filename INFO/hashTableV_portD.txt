@@ -1,4 +1,4 @@
-Bucket 0
+link list-> 0
 Key: 512
 Priority: 470
 Dimensions: 5
@@ -360,7 +360,7 @@ Range 3: 27000 - 27000
 Range 4: 6 - 6
 
 
-Bucket 1
+link list-> 1
 Key: 1712
 Priority: 473
 Dimensions: 5
