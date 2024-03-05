@@ -1,0 +1,984 @@
+lenovo@lenovo-Legion-R7000P-APH8:~/桌面/PacketClassification/HybridTSSv1.2$ python3 run.py
+Namespace(make=False, mode='AllRule')
+make: 「main」已是最新。
+rm: 無法刪除 'result.csv': 沒有此一檔案或目錄
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+./main -r ./acl1_100k -p ./acl1_100k_trace
+./acl1_100k
+./acl1_100k_trace
+the number of rules = 99833
+99833
+998330
+class: TupleMerge:
+	Construction time: 75.3257 ms 
+
+Classify Performance:
+	9983300 packets are classified, 0 of them are misclassified
+	Total classification time: 0.135142 s
+	Average classification time: 0.135368 us
+	Throughput: 7.387271 Mpps
+
+Update Performance:
+	99833 rules update: insert_num = 50155 delete_num = 49678
+	Total update time: 0.036460 s
+	Average update time: 0.365206 us
+	Throughput: 2.738184 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 37.952 ms 
+
+Classify Performance:
+	9983300 packets are classified, 0 of them are misclassified
+	Total classification time: 0.330466 s
+	Average classification time: 0.331019 us
+	Throughput: 3.020978 Mpps
+
+Update Performance:
+	99833 rules update: insert_num = 50155 delete_num = 49678
+	Total update time: 0.025079 s
+	Average update time: 0.251212 us
+	Throughput: 3.980696 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 168.975 ms 
+
+Classify Performance:
+	9983300 packets are classified, 0 of them are misclassified
+	Total classification time: 0.184248 s
+	Average classification time: 0.184556 us
+	Throughput: 5.418402 Mpps
+
+Update Performance:
+	99833 rules update: insert_num = 50155 delete_num = 49678
+	Total update time: 0.045952 s
+	Average update time: 0.460289 us
+	Throughput: 2.172548 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 963584 ms 
+
+Classify Performance:
+	9983300 packets are classified, 0 of them are misclassified
+	Total classification time: 0.036227 s
+	Average classification time: 0.036287 us
+	Throughput: 27.557845 Mpps
+
+Update Performance:
+	99833 rules update: insert_num = 50155 delete_num = 49678
+	Total update time: 0.021922 s
+	Average update time: 0.219588 us
+	Throughput: 4.553986 Mpps
+-------------------------------
+
+./main -r ./acl2_100k -p ./acl2_100k_trace
+./acl2_100k
+./acl2_100k_trace
+the number of rules = 89229
+89229
+892290
+class: TupleMerge:
+	Construction time: 69.0497 ms 
+
+Classify Performance:
+	8922900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.351124 s
+	Average classification time: 0.393509 us
+	Throughput: 2.541237 Mpps
+
+Update Performance:
+	89229 rules update: insert_num = 44822 delete_num = 44407
+	Total update time: 0.053887 s
+	Average update time: 0.603919 us
+	Throughput: 1.655851 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 32.2539 ms 
+
+Classify Performance:
+	8922900 packets are classified, 0 of them are misclassified
+	Total classification time: 1.607823 s
+	Average classification time: 1.801906 us
+	Throughput: 0.554968 Mpps
+
+Update Performance:
+	89229 rules update: insert_num = 44822 delete_num = 44407
+	Total update time: 0.024296 s
+	Average update time: 0.272285 us
+	Throughput: 3.672622 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 151.306 ms 
+
+Classify Performance:
+	8922900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.387129 s
+	Average classification time: 0.433860 us
+	Throughput: 2.304890 Mpps
+
+Update Performance:
+	89229 rules update: insert_num = 44822 delete_num = 44407
+	Total update time: 0.027560 s
+	Average update time: 0.308867 us
+	Throughput: 3.237644 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 932113 ms 
+
+Classify Performance:
+	8922900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.723400 s
+	Average classification time: 0.810723 us
+	Throughput: 1.233467 Mpps
+
+Update Performance:
+	89229 rules update: insert_num = 44822 delete_num = 44407
+	Total update time: 0.040896 s
+	Average update time: 0.458328 us
+	Throughput: 2.181845 Mpps
+-------------------------------
+
+./main -r ./acl3_100k -p ./acl3_100k_trace
+./acl3_100k
+./acl3_100k_trace
+the number of rules = 99859
+99859
+998590
+class: TupleMerge:
+	Construction time: 50.2065 ms 
+
+Classify Performance:
+	9985900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.140347 s
+	Average classification time: 0.140545 us
+	Throughput: 7.115136 Mpps
+
+Update Performance:
+	99859 rules update: insert_num = 50171 delete_num = 49688
+	Total update time: 0.037114 s
+	Average update time: 0.371659 us
+	Throughput: 2.690635 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 38.4093 ms 
+
+Classify Performance:
+	9985900 packets are classified, 0 of them are misclassified
+	Total classification time: 1.087907 s
+	Average classification time: 1.089443 us
+	Throughput: 0.917900 Mpps
+
+Update Performance:
+	99859 rules update: insert_num = 50171 delete_num = 49688
+	Total update time: 0.025596 s
+	Average update time: 0.256319 us
+	Throughput: 3.901387 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 169.122 ms 
+
+Classify Performance:
+	9985900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.185632 s
+	Average classification time: 0.185894 us
+	Throughput: 5.379415 Mpps
+
+Update Performance:
+	99859 rules update: insert_num = 50171 delete_num = 49688
+	Total update time: 0.038140 s
+	Average update time: 0.381940 us
+	Throughput: 2.618211 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 801796 ms 
+
+Classify Performance:
+	9985900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.084529 s
+	Average classification time: 0.084648 us
+	Throughput: 11.813561 Mpps
+
+Update Performance:
+	99859 rules update: insert_num = 50171 delete_num = 49688
+	Total update time: 0.024009 s
+	Average update time: 0.240425 us
+	Throughput: 4.159295 Mpps
+-------------------------------
+
+./main -r ./acl4_100k -p ./acl4_100k_trace
+./acl4_100k
+./acl4_100k_trace
+the number of rules = 99882
+99882
+998820
+class: TupleMerge:
+	Construction time: 57.974 ms 
+
+Classify Performance:
+	9988200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.192964 s
+	Average classification time: 0.193191 us
+	Throughput: 5.176211 Mpps
+
+Update Performance:
+	99882 rules update: insert_num = 50182 delete_num = 49700
+	Total update time: 0.038601 s
+	Average update time: 0.386461 us
+	Throughput: 2.587582 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 38.6481 ms 
+
+Classify Performance:
+	9988200 packets are classified, 0 of them are misclassified
+	Total classification time: 1.243046 s
+	Average classification time: 1.244514 us
+	Throughput: 0.803526 Mpps
+
+Update Performance:
+	99882 rules update: insert_num = 50182 delete_num = 49700
+	Total update time: 0.025540 s
+	Average update time: 0.255699 us
+	Throughput: 3.910853 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 163.812 ms 
+
+Classify Performance:
+	9988200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.200310 s
+	Average classification time: 0.200547 us
+	Throughput: 4.986366 Mpps
+
+Update Performance:
+	99882 rules update: insert_num = 50182 delete_num = 49700
+	Total update time: 0.040653 s
+	Average update time: 0.407012 us
+	Throughput: 2.456929 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 765812 ms 
+
+Classify Performance:
+	9988200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.107023 s
+	Average classification time: 0.107150 us
+	Throughput: 9.332739 Mpps
+
+Update Performance:
+	99882 rules update: insert_num = 50182 delete_num = 49700
+	Total update time: 0.020997 s
+	Average update time: 0.210222 us
+	Throughput: 4.756868 Mpps
+-------------------------------
+
+./main -r ./acl5_100k -p ./acl5_100k_trace
+./acl5_100k
+./acl5_100k_trace
+the number of rules = 99409
+99409
+994090
+class: TupleMerge:
+	Construction time: 50.5769 ms 
+
+Classify Performance:
+	9940900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.093386 s
+	Average classification time: 0.093941 us
+	Throughput: 10.644995 Mpps
+
+Update Performance:
+	99409 rules update: insert_num = 49930 delete_num = 49479
+	Total update time: 0.033556 s
+	Average update time: 0.337556 us
+	Throughput: 2.962473 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 38.9276 ms 
+
+Classify Performance:
+	9940900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.405692 s
+	Average classification time: 0.408104 us
+	Throughput: 2.450354 Mpps
+
+Update Performance:
+	99409 rules update: insert_num = 49930 delete_num = 49479
+	Total update time: 0.026054 s
+	Average update time: 0.262084 us
+	Throughput: 3.815571 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 183.044 ms 
+
+Classify Performance:
+	9940900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.211372 s
+	Average classification time: 0.212628 us
+	Throughput: 4.703045 Mpps
+
+Update Performance:
+	99409 rules update: insert_num = 49930 delete_num = 49479
+	Total update time: 0.040145 s
+	Average update time: 0.403837 us
+	Throughput: 2.476247 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 945801 ms 
+
+Classify Performance:
+	9940900 packets are classified, 0 of them are misclassified
+	Total classification time: 0.074704 s
+	Average classification time: 0.075148 us
+	Throughput: 13.306996 Mpps
+
+Update Performance:
+	99409 rules update: insert_num = 49930 delete_num = 49479
+	Total update time: 0.024419 s
+	Average update time: 0.245640 us
+	Throughput: 4.071000 Mpps
+-------------------------------
+
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+./main -r ./ipc1_100k -p ./ipc1_100k_trace
+./ipc1_100k
+./ipc1_100k_trace
+the number of rules = 99782
+99782
+997820
+class: TupleMerge:
+	Construction time: 49.139 ms 
+
+Classify Performance:
+	9978200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.184315 s
+	Average classification time: 0.184718 us
+	Throughput: 5.413663 Mpps
+
+Update Performance:
+	99782 rules update: insert_num = 50128 delete_num = 49654
+	Total update time: 0.036587 s
+	Average update time: 0.366668 us
+	Throughput: 2.727265 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 36.9611 ms 
+
+Classify Performance:
+	9978200 packets are classified, 0 of them are misclassified
+	Total classification time: 1.852327 s
+	Average classification time: 1.856374 us
+	Throughput: 0.538684 Mpps
+
+Update Performance:
+	99782 rules update: insert_num = 50128 delete_num = 49654
+	Total update time: 0.025192 s
+	Average update time: 0.252466 us
+	Throughput: 3.960931 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 163.593 ms 
+
+Classify Performance:
+	9978200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.207287 s
+	Average classification time: 0.207740 us
+	Throughput: 4.813703 Mpps
+
+Update Performance:
+	99782 rules update: insert_num = 50128 delete_num = 49654
+	Total update time: 0.040492 s
+	Average update time: 0.405800 us
+	Throughput: 2.464267 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 782572 ms 
+
+Classify Performance:
+	9978200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.080726 s
+	Average classification time: 0.080902 us
+	Throughput: 12.360569 Mpps
+
+Update Performance:
+	99782 rules update: insert_num = 50128 delete_num = 49654
+	Total update time: 0.020006 s
+	Average update time: 0.200497 us
+	Throughput: 4.987600 Mpps
+-------------------------------
+
+./main -r ./ipc2_100k -p ./ipc2_100k_trace
+./ipc2_100k
+./ipc2_100k_trace
+the number of rules = 100000
+100000
+1000000
+class: TupleMerge:
+	Construction time: 48.2506 ms 
+
+Classify Performance:
+	10000000 packets are classified, 0 of them are misclassified
+	Total classification time: 0.094234 s
+	Average classification time: 0.094234 us
+	Throughput: 10.611897 Mpps
+
+Update Performance:
+	100000 rules update: insert_num = 50244 delete_num = 49756
+	Total update time: 0.030554 s
+	Average update time: 0.305536 us
+	Throughput: 3.272936 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 37.2943 ms 
+
+Classify Performance:
+	10000000 packets are classified, 0 of them are misclassified
+	Total classification time: 0.278541 s
+	Average classification time: 0.278541 us
+	Throughput: 3.590140 Mpps
+
+Update Performance:
+	100000 rules update: insert_num = 50244 delete_num = 49756
+	Total update time: 0.025140 s
+	Average update time: 0.251397 us
+	Throughput: 3.977778 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 147.935 ms 
+
+Classify Performance:
+	10000000 packets are classified, 0 of them are misclassified
+	Total classification time: 0.136778 s
+	Average classification time: 0.136778 us
+	Throughput: 7.311101 Mpps
+
+Update Performance:
+	100000 rules update: insert_num = 50244 delete_num = 49756
+	Total update time: 0.025846 s
+	Average update time: 0.258459 us
+	Throughput: 3.869086 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 968270 ms 
+
+Classify Performance:
+	10000000 packets are classified, 0 of them are misclassified
+	Total classification time: 0.045880 s
+	Average classification time: 0.045880 us
+	Throughput: 21.796031 Mpps
+
+Update Performance:
+	100000 rules update: insert_num = 50244 delete_num = 49756
+	Total update time: 0.021034 s
+	Average update time: 0.210335 us
+	Throughput: 4.754316 Mpps
+-------------------------------
+
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+Not exist
+./main -r ./fw1_100k -p ./fw1_100k_trace
+./fw1_100k
+./fw1_100k_trace
+the number of rules = 96376
+96376
+963760
+class: TupleMerge:
+	Construction time: 91.451 ms 
+
+Classify Performance:
+	9637600 packets are classified, 0 of them are misclassified
+	Total classification time: 0.172441 s
+	Average classification time: 0.178925 us
+	Throughput: 5.588919 Mpps
+
+Update Performance:
+	96376 rules update: insert_num = 48480 delete_num = 47896
+	Total update time: 0.075688 s
+	Average update time: 0.785345 us
+	Throughput: 1.273326 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 38.3579 ms 
+
+Classify Performance:
+	9637600 packets are classified, 0 of them are misclassified
+	Total classification time: 0.927485 s
+	Average classification time: 0.962361 us
+	Throughput: 1.039111 Mpps
+
+Update Performance:
+	96376 rules update: insert_num = 48480 delete_num = 47896
+	Total update time: 0.024274 s
+	Average update time: 0.251873 us
+	Throughput: 3.970261 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 147.787 ms 
+
+Classify Performance:
+	9637600 packets are classified, 0 of them are misclassified
+	Total classification time: 0.261159 s
+	Average classification time: 0.270979 us
+	Throughput: 3.690325 Mpps
+
+Update Performance:
+	96376 rules update: insert_num = 48480 delete_num = 47896
+	Total update time: 0.031009 s
+	Average update time: 0.321751 us
+	Throughput: 3.107992 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 1.01184e+06 ms 
+
+Classify Performance:
+	9637600 packets are classified, 0 of them are misclassified
+	Total classification time: 0.246718 s
+	Average classification time: 0.255995 us
+	Throughput: 3.906325 Mpps
+
+Update Performance:
+	96376 rules update: insert_num = 48480 delete_num = 47896
+	Total update time: 0.026635 s
+	Average update time: 0.276365 us
+	Throughput: 3.618397 Mpps
+-------------------------------
+
+./main -r ./fw2_100k -p ./fw2_100k_trace
+./fw2_100k
+./fw2_100k_trace
+the number of rules = 98555
+98555
+985550
+class: TupleMerge:
+	Construction time: 46.6872 ms 
+
+Classify Performance:
+	9855500 packets are classified, 0 of them are misclassified
+	Total classification time: 0.147384 s
+	Average classification time: 0.149545 us
+	Throughput: 6.686956 Mpps
+
+Update Performance:
+	98555 rules update: insert_num = 49526 delete_num = 49029
+	Total update time: 0.031672 s
+	Average update time: 0.321360 us
+	Throughput: 3.111774 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 36.41 ms 
+
+Classify Performance:
+	9855500 packets are classified, 0 of them are misclassified
+	Total classification time: 0.490731 s
+	Average classification time: 0.497926 us
+	Throughput: 2.008329 Mpps
+
+Update Performance:
+	98555 rules update: insert_num = 49526 delete_num = 49029
+	Total update time: 0.024435 s
+	Average update time: 0.247937 us
+	Throughput: 4.033286 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 162.857 ms 
+
+Classify Performance:
+	9855500 packets are classified, 0 of them are misclassified
+	Total classification time: 0.136299 s
+	Average classification time: 0.138298 us
+	Throughput: 7.230778 Mpps
+
+Update Performance:
+	98555 rules update: insert_num = 49526 delete_num = 49029
+	Total update time: 0.023516 s
+	Average update time: 0.238612 us
+	Throughput: 4.190907 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 1.0606e+06 ms 
+
+Classify Performance:
+	9855500 packets are classified, 0 of them are misclassified
+	Total classification time: 0.121022 s
+	Average classification time: 0.122797 us
+	Throughput: 8.143546 Mpps
+
+Update Performance:
+	98555 rules update: insert_num = 49526 delete_num = 49029
+	Total update time: 0.023272 s
+	Average update time: 0.236130 us
+	Throughput: 4.234958 Mpps
+-------------------------------
+
+./main -r ./fw3_100k -p ./fw3_100k_trace
+./fw3_100k
+./fw3_100k_trace
+the number of rules = 92932
+92932
+929320
+class: TupleMerge:
+	Construction time: 65.478 ms 
+
+Classify Performance:
+	9293200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.136927 s
+	Average classification time: 0.147341 us
+	Throughput: 6.786955 Mpps
+
+Update Performance:
+	92932 rules update: insert_num = 46742 delete_num = 46190
+	Total update time: 0.046553 s
+	Average update time: 0.500939 us
+	Throughput: 1.996252 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 36.8092 ms 
+
+Classify Performance:
+	9293200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.437417 s
+	Average classification time: 0.470685 us
+	Throughput: 2.124561 Mpps
+
+Update Performance:
+	92932 rules update: insert_num = 46742 delete_num = 46190
+	Total update time: 0.022898 s
+	Average update time: 0.246400 us
+	Throughput: 4.058445 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 142.016 ms 
+
+Classify Performance:
+	9293200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.185754 s
+	Average classification time: 0.199882 us
+	Throughput: 5.002959 Mpps
+
+Update Performance:
+	92932 rules update: insert_num = 46742 delete_num = 46190
+	Total update time: 0.026687 s
+	Average update time: 0.287164 us
+	Throughput: 3.482335 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 983584 ms 
+
+Classify Performance:
+	9293200 packets are classified, 0 of them are misclassified
+	Total classification time: 0.155201 s
+	Average classification time: 0.167005 us
+	Throughput: 5.987847 Mpps
+
+Update Performance:
+	92932 rules update: insert_num = 46742 delete_num = 46190
+	Total update time: 0.026105 s
+	Average update time: 0.280902 us
+	Throughput: 3.559958 Mpps
+-------------------------------
+
+./main -r ./fw4_100k -p ./fw4_100k_trace
+./fw4_100k
+./fw4_100k_trace
+the number of rules = 92765
+92765
+927650
+class: TupleMerge:
+	Construction time: 148.606 ms 
+
+Classify Performance:
+	9276500 packets are classified, 0 of them are misclassified
+	Total classification time: 0.330735 s
+	Average classification time: 0.356530 us
+	Throughput: 2.804816 Mpps
+
+Update Performance:
+	92765 rules update: insert_num = 46646 delete_num = 46119
+	Total update time: 0.165452 s
+	Average update time: 1.783557 us
+	Throughput: 0.560677 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 36.361 ms 
+
+Classify Performance:
+	9276500 packets are classified, 0 of them are misclassified
+	Total classification time: 0.826770 s
+	Average classification time: 0.891252 us
+	Throughput: 1.122017 Mpps
+
+Update Performance:
+	92765 rules update: insert_num = 46646 delete_num = 46119
+	Total update time: 0.023457 s
+	Average update time: 0.252862 us
+	Throughput: 3.954723 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 136.482 ms 
+
+Classify Performance:
+	9276500 packets are classified, 0 of them are misclassified
+	Total classification time: 0.685906 s
+	Average classification time: 0.739402 us
+	Throughput: 1.352445 Mpps
+
+Update Performance:
+	92765 rules update: insert_num = 46646 delete_num = 46119
+	Total update time: 0.020914 s
+	Average update time: 0.225453 us
+	Throughput: 4.435509 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 841607 ms 
+
+Classify Performance:
+	9276500 packets are classified, 0 of them are misclassified
+	Total classification time: 0.272377 s
+	Average classification time: 0.293620 us
+	Throughput: 3.405758 Mpps
+
+Update Performance:
+	92765 rules update: insert_num = 46646 delete_num = 46119
+	Total update time: 0.020355 s
+	Average update time: 0.219428 us
+	Throughput: 4.557307 Mpps
+-------------------------------
+
+./main -r ./fw5_100k -p ./fw5_100k_trace
+./fw5_100k
+./fw5_100k_trace
+the number of rules = 93324
+93324
+933240
+class: TupleMerge:
+	Construction time: 105.077 ms 
+
+Classify Performance:
+	9332400 packets are classified, 0 of them are misclassified
+	Total classification time: 0.126117 s
+	Average classification time: 0.135139 us
+	Throughput: 7.399788 Mpps
+
+Update Performance:
+	93324 rules update: insert_num = 46932 delete_num = 46392
+	Total update time: 0.060860 s
+	Average update time: 0.652137 us
+	Throughput: 1.533421 Mpps
+-------------------------------
+
+class: PSTSS:
+	Construction time: 38.3136 ms 
+
+Classify Performance:
+	9332400 packets are classified, 0 of them are misclassified
+	Total classification time: 0.773121 s
+	Average classification time: 0.828427 us
+	Throughput: 1.207107 Mpps
+
+Update Performance:
+	93324 rules update: insert_num = 46932 delete_num = 46392
+	Total update time: 0.023429 s
+	Average update time: 0.251048 us
+	Throughput: 3.983297 Mpps
+-------------------------------
+
+class: CutTSS:
+	Construction time: 139.462 ms 
+
+Classify Performance:
+	9332400 packets are classified, 0 of them are misclassified
+	Total classification time: 0.194009 s
+	Average classification time: 0.207888 us
+	Throughput: 4.810285 Mpps
+
+Update Performance:
+	93324 rules update: insert_num = 46932 delete_num = 46392
+	Total update time: 0.029756 s
+	Average update time: 0.318849 us
+	Throughput: 3.136283 Mpps
+-------------------------------
+
+class: HybridTSS:
+Training finish 10% ...............Remaining: 90%
+Training finish 20% ...............Remaining: 80%
+Training finish 30% ...............Remaining: 70%
+Training finish 40% ...............Remaining: 60%
+Training finish 50% ...............Remaining: 50%
+Training finish 60% ...............Remaining: 40%
+Training finish 70% ...............Remaining: 30%
+Training finish 80% ...............Remaining: 20%
+Training finish 90% ...............Remaining: 10%
+	Construction time: 934504 ms 
+
+Classify Performance:
+	9332400 packets are classified, 0 of them are misclassified
+	Total classification time: 0.196879 s
+	Average classification time: 0.210963 us
+	Throughput: 4.740171 Mpps
+
+Update Performance:
+	93324 rules update: insert_num = 46932 delete_num = 46392
+	Total update time: 0.022132 s
+	Average update time: 0.237156 us
+	Throughput: 4.216642 Mpps
+-------------------------------

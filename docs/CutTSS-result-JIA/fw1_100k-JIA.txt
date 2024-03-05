@@ -1,0 +1,138 @@
+lenovo@lenovo-Legion-R7000P-APH8:~/桌面/PacketClassification/Code/CutTSS$ ./main -b 8 -t 20 -r ../../classbench_set/ipv4-ruleset/fw1_100k -e ../../classbench_set/ipv4-trace/fw1_100k_trace -c 1 -u 1 
+************CutTSS: version 1.0 (2019.3.5)******************
+Bucket Size =  8
+Threshold (T_SA, T_DA) = <2^20, 2^20>
+Construction: Yes;	Classification:Yes;	Update:Yes.
+The number of rules = 96376
+The number of rules for build = 91516
+#SA&DA_subset:17637  #SA_subset:20405  #DA_subset:52594  #Big_subset:880
+
+**************** Construction ****************
+CutTSS
+	Construction time: 670.050451 ms
+
+	***SA_DA Subset Tree(using FiCuts + PSTSS):***
+	RESULTS:
+	number of rules:17637
+	number of rules in leaf nodes:17637
+	number of rules in non-leaf terminal nodes(PSTSS nodes):0
+	worst case tree level: 8
+	-------------------
+	Total_Rule_Size:17637
+	Leaf_FiCuts_Node num:6938
+	NonLeaf_FiCuts_Node num:1334
+	Total_Array_Size:85376
+	ruleptr_memory: 70548
+	leaf_node_memory: 27752
+	NonLeaf_int_node_memory: 10672
+	array_memory: 341504
+	-------------------
+	total memory(Pre-Cutting): 853.285156(KB)
+	total memory(Post_TSS): 0.000000(KB)
+	total memory: 853.285156(KB)
+	Byte/rule: 49.541532
+	-------------------
+	***SUCCESS in building 3-th CutTSS sub-tree(1_sa, 2_da, 3_sa&da)***
+
+	***SA Subset Tree(using FiCuts + PSTSS):***
+	RESULTS:
+	number of rules:20405
+	number of rules in leaf nodes:11238
+	number of rules in non-leaf terminal nodes(PSTSS nodes):9167
+	worst case tree level: 3
+	-------------------
+	Total_Rule_Size:11238
+	Leaf_FiCuts_Node num:5638
+	NonLeaf_FiCuts_Node num:332
+	Total_Array_Size:19264
+	ruleptr_memory: 44952
+	leaf_node_memory: 22552
+	NonLeaf_int_node_memory: 2656
+	array_memory: 77056
+	-------------------
+	total memory(Pre-Cutting): 407.156250(KB)
+	total memory(Post_TSS): 442.625000(KB)
+	total memory: 849.781250(KB)
+	Byte/rule: 42.645234
+	-------------------
+	***SUCCESS in building 1-th CutTSS sub-tree(1_sa, 2_da, 3_sa&da)***
+
+	***DA Subset Tree(using FiCuts + PSTSS):***
+	RESULTS:
+	number of rules:52594
+	number of rules in leaf nodes:52594
+	number of rules in non-leaf terminal nodes(PSTSS nodes):0
+	worst case tree level: 3
+	-------------------
+	Total_Rule_Size:52594
+	Leaf_FiCuts_Node num:50463
+	NonLeaf_FiCuts_Node num:3164
+	Total_Array_Size:202496
+	ruleptr_memory: 210376
+	leaf_node_memory: 201852
+	NonLeaf_int_node_memory: 25312
+	array_memory: 809984
+	-------------------
+	total memory(Pre-Cutting): 2450.957031(KB)
+	total memory(Post_TSS): 0.000000(KB)
+	total memory: 2450.957031(KB)
+	Byte/rule: 47.719892
+	-------------------
+	***SUCCESS in building 2-th CutTSS sub-tree(1_sa, 2_da, 3_sa&da)***
+
+	***PSTSS for big ruleset:***
+	rules: 880 
+	tuples: 17 
+	Size(KB): 42.273438 
+	Byte/rule: 49.190909 
+
+PSTSS
+	Construction time: 26.473521 ms
+	rules: 91516 
+	tuples: 139 
+	Size(KB): 4405.890625 
+	Byte/rule: 49.298833 
+
+PartitionSort
+	Construction time: 40.466519 ms
+	Total memory consumption: 5007.938477(KB) 
+	Byte/rule: 56.035327	Number of trees:32
+
+**************** Classification ****************
+	The number of packet in the trace file = 963760
+	Total packets (run 10 times circularly): 9637600
+CutTSS
+	9637600 packets are classified, 454880 of them are misclassified
+	Total classification time: 0.197911 s
+	Average classification time: 0.205353 us
+	Throughput: 4.869652 Mpps
+PSTSS
+	9637600 packets are classified, 454880 of them are misclassified
+	Total classification time: 1.055488 s
+	Average classification time: 1.095178 us
+	Throughput: 0.913094 Mpps
+PartitionSort
+	9637600 packets are classified, 454880 of them are misclassified
+	Total classification time: 1.364613 s
+	Average classification time: 1.415926 us
+	Throughput: 0.706252 Mpps
+
+**************** Update ****************
+	The number of updated rules = 4860
+CutTSS
+	Insert time = 0.001913 s, delete time = 0.000463 s
+	Total update time: 0.002375 s
+	Average insert time: 0.393530 us, Average delete time: 0.095191 us
+	Average update time: 0.244360 us
+PSTSS
+	Insert time = 0.002828 s, delete time = 0.000749 s
+	Total update time: 0.003577 s
+	Average insert time: 0.581905 us, Average delete time: 0.154194 us
+	Average update time: 0.368050 us
+PartitionSort
+	Insert time = 0.005418 s, delete time = 0.004105 s
+	Total update time: 0.009523 s
+	Average insert time: 1.114742 us, Average delete time: 0.844677 us
+	Average update time: 0.979710 us
+
+**************** Over ****************

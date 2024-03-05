@@ -1,0 +1,2 @@
+Name,Build,Classify,Memory,MaxHeight,SumHeight,MaxCost,SumCost,Trees,FirstSize,Table90,Table95,Table99,Heights,Costs,Priors,BadTrees,GoodTrees
+ByteCuts,19.546902,0.078255,3666217,11,26,20,56,6,0.853988,3,3,3,5-2-4-2-2-11,11-7-10-3-5-20,99881-15430-61438-16993-9843-461,2,4
