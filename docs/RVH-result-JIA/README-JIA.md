@@ -29,6 +29,7 @@ acl5  and  ipc2 (cannot run)
 ---
 
 make
+
 ulimit -s 81920
 
 ./main -r acl1_100k -p acl1_100k_trace -x 0,4,16,24 -y 0,4,16,24
