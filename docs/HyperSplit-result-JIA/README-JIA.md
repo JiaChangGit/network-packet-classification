@@ -2,6 +2,7 @@ ubuntu22.04
 
 
 ---
+
 change following code:
 
 if (fscanf(rule_fp, RULE_FMT,
@@ -31,6 +32,7 @@ if (fscanf(trace_fp, PKT_FMT,
 
 
 change Makefile
+
 ---
 
 ---
@@ -45,6 +47,7 @@ $ ./pc_algo -r ../classbench_set/ipv4-ruleset/acl1_100k -t ../classbench_set/ipv
 
 
 make
+
 ulimit -s 81920
 
 ./pc_algo -r ../classbench_set/ipv4-ruleset/acl1_100k -t ../classbench_set/ipv4-trace/acl1_100k_trace

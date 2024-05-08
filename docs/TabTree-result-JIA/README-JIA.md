@@ -1,13 +1,17 @@
 ubuntu22.04
 ---
+
 remember to change cpu freq!!
 for my computer, it is 5GHz -> change time_rdtscp to 5000
+
 ---
 
 make
 
 ---
+
 ./main [-b bucketSize][-t threshold(assume T_SA=T_DA)][-r ruleset][-e trace][-c (1:classification)][-u (1:update)]
+
 ---
 
 

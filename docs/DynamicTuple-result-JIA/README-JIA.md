@@ -49,9 +49,11 @@ make
 
 
 ## Sample
+
 sh run.sh
 
 make && ./main --run_mode classification --method_name DynamicTuple --rules_file data/10K_acl1_rules --traces_file data/10K_acl1_traces --rules_shuffle 1 --lookup_round 10 --force_test 0 --print_mode 0 --prefix_dims_num 2
+
 ---
 
 ./main --run_mode classification --method_name DynamicTuple --rules_file ../classbench_set/ipv4-ruleset/acl1_100k --traces_file ../classbench_set/ipv4-trace/acl1_100k_trace --rules_shuffle 1 --lookup_round 10 --force_test 1 --print_mode 0 --prefix_dims_num 2

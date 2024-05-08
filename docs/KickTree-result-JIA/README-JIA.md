@@ -2,9 +2,10 @@ ubuntu22.04
 
 
 ---
-./main [-r ruleFile] [-p traceFile] [-b binth] [-bit numBits] [-t maxTree] [-l maxDepth]
----
 
+./main [-r ruleFile] [-p traceFile] [-b binth] [-bit numBits] [-t maxTree] [-l maxDepth]
+
+---
 
 make
 

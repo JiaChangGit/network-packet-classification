@@ -1,8 +1,15 @@
 ubuntu22.04
 
 ---
+
 using "pyenv" to create a python3.5.10 virtual environment
-{https://blog.kyomind.tw/ubuntu-pyenv/}
+
+{
+
+https://blog.kyomind.tw/ubuntu-pyenv/
+
+}
+
 ---
 
 
@@ -88,21 +95,35 @@ You can use the tools to run NuevoMatch as follows:
 
 
 pyenv virtualenv 3.5.10 neuvenv
+
 pyenv activate neuvenv
+
 pip install --upgrade pip
+
 pip3 install matplotlib numpy tensorflow
 
+
 ./configure
+
 {you will see following message:
+
 =======================
+
 Configure completed successfully. Run make -f to compile NuevoMatch.}
 
 ---
 cannot open libcudart.so.10.1
 solve: 
+
 sudo ln -s /usr/local/cuda/targets/x86_64-linux/lib/libcudart.so.10.2 /usr/lib/x86_64-linux-gnu/libcudart.so.10.1
+
 // notice: link your libcudart.so path to libcudart.so.10.1
-{https://grorge.medium.com/ubuntu-20-04%E5%AE%89%E8%A3%9Dcuda-toolkit-10-2-cudnn-5f4b19770f42}
+
+{
+
+https://grorge.medium.com/ubuntu-20-04%E5%AE%89%E8%A3%9Dcuda-toolkit-10-2-cudnn-5f4b19770f42
+
+}
 
 
 tensorflow2.x -> compatible 1.x:
@@ -120,11 +141,13 @@ make
 
 
 {or optional(zipf):
+
 ./bin/nuevomatch.py -f ../classbench_set/ipv4-ruleset/acl1_100k -o acl1_100k.data --min-size 64 --max-error 64
 
 ./bin/tool_locality.exe --trace-file ../../classbench_set/ipv4-trace/acl1_100k_trace --output-trace acl1_100k_trace_modified.txt --zipf --alpha 0.99
 
 ./bin/tool_classifier.exe -m nuevomatch -l -in acl1_100k.data --trace acl1_100k_trace_modified.txt --parallel 1 --trace-silent --max-subsets 1 --remainder-type tuplemerge --force-remainder-build -v 3
+
 }
 
 

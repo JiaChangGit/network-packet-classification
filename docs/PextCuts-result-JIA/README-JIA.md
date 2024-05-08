@@ -4,10 +4,15 @@ make
 
 ---
 change {#include <immintrin.h>} into following:
+
 #if defined(_MSC_VER)
+
     #include <intrin.h>
+    
 #elif defined(__GNUC__) || defined(__llvm__)
+
     #include <immintrin.h>
+    
 #endif
 
 ---
@@ -65,6 +70,7 @@ sh run.sh
 or
 
 make && ./main --run_mode classification --method_name PextCuts --rules_file ../classbench_set/ipv4-ruleset/acl1_100k --traces_file ../classbench_set/ipv4-trace/acl1_100k_trace --rules_shuffle 1 --lookup_round 10 --force_test 0 --print_mode 0 --prefix_dims_num 2
+
 ---
 
 
