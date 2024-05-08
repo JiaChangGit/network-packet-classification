@@ -18,6 +18,7 @@
 
 #include <fstream>
 
+#include "equivalentPri.hpp"
 #include "input.hpp"
 #include "inputFile_test.hpp"
 
@@ -33,8 +34,9 @@ int main(int argc, char* argv[]) {
   InputFile5D inputFile5D;
   InputFile5D_test inputFile5D_test;
   Timer timer;
-  const char* LoadRule5D_test_path = "./INFO/loadRule5D_test.txt";
-  const char* LoadPacket5D_test_path = "./INFO/loadPacket5D_test.txt";
+  const char* LoadRule5D_test_path = "../../INFO/loadRule5D_test.txt";
+  const char* LoadPacket5D_test_path = "../../INFO/loadPacket5D_test.txt";
+  const char* EquivalentPri_path = "../../INFO/EquivalentPri.txt";
 
   static struct option long_options[] = {
       {"ruleset", required_argument, NULL, 'r'},
@@ -109,5 +111,9 @@ int main(int argc, char* argv[]) {
     exit(1);
   }
   cout << "packet5V_num: " << packet5V_num << "\n";
+
+  EquivalentPri equivalentPri;
+  equivalentPri.pri_MSversion(rule5V, rule5V_num);
+  equivalentPri.print(EquivalentPri_path);
   return 0;
 }
