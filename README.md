@@ -26,7 +26,7 @@ cmake ../../
 
 make
 
-./m -r ../../classbench_set/ipv4-ruleset/acl1_100k -p ../../classbench_set/ipv4-trace/acl1_100k_trace -t
+./m -r ../../classbench_set/ipv4-ruleset/fw1_100k -p ../../classbench_set/ipv4-trace/fw1_100k_trace -t
 
 (long time)
 
@@ -51,8 +51,14 @@ network-packet-classification                                      //
 ├─ CMakeLists.txt                                                  //
 ├─ Doxyfile                                                        //
 ├─ EquivalentPri_plot.py                                           //
+├─ fw1_100k_equ_pri-0.png                                          //
+├─ fw1_100k_equ_pri-1.png                                          //
+├─ fw1_100k_equ_pri-2.png                                          //
 ├─ INFO                                                            //
 │  ├─ .gitkeep                                                     //
+│  ├─ plot_Pri_VS_equPri.png                                       //
+│  ├─ plot_Pri_VS_equPri_slocal.png                                //
+│  ├─ plot_Pri_VS_equPri_biglocal.png                              //
 │  ├─ EquivalentPri.txt                                            //
 │  ├─ EquivalentPri_py.txt                                         //
 │  ├─ loadPacket5D_test.txt                                        //

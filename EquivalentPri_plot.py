@@ -7,6 +7,11 @@ from matplotlib.colors import Normalize
 from matplotlib.cm import ScalarMappable
 
 SaveFigPath = "./INFO/same3D_scatter.png"
+SaveFigPath2 = "./INFO/plot_Pri_VS_equPri.png"
+SaveFigPath3 = "./INFO/plot_Pri_VS_equPri_slocal.png"
+SaveFigPath4 = "./INFO/plot_Pri_VS_equPri_biglocal.png"
+EquPriPath = "./INFO/EquivalentPri.txt"
+EquPriTestPath="./INFO/EquivalentPri_py.txt"
 
 def extract_data(file_path):
     with open(file_path, 'r') as file:
@@ -43,24 +48,12 @@ def extract_data(file_path):
 
     # 建立DataFrame
     df = pd.DataFrame(flat_data)
-    df['gPri'] = pd.to_numeric(df['gPri'], errors='coerce')
-    df['priority'] = pd.to_numeric(df['priority'], errors='coerce')
-    df['prefix_lengths0'] = pd.to_numeric(df['prefix_lengths0'], errors='coerce')
-    df['prefix_lengths1'] = pd.to_numeric(df['prefix_lengths1'], errors='coerce')
-    df['prefix_lengths2'] = pd.to_numeric(df['prefix_lengths2'], errors='coerce')
-    df['prefix_lengths3'] = pd.to_numeric(df['prefix_lengths3'], errors='coerce')
-    df['prefix_lengths4'] = pd.to_numeric(df['prefix_lengths4'], errors='coerce')
+    numeric_columns = ['gPri', 'priority', 'prefix_lengths0', 'prefix_lengths1',
+                   'range0_start', 'range0_end', 'range1_start', 'range1_end', 'range2_start', 'range2_end', 'range3_start', 'range3_end', 'range4_start', 'range4_end']
+    # 'prefix_lengths2', 'prefix_lengths3', 'prefix_lengths4' : not used
+    for col in numeric_columns:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
 
-    df['range0_start'] = pd.to_numeric(df['range0_start'], errors='coerce')
-    df['range0_end'] = pd.to_numeric(df['range0_end'], errors='coerce')
-    df['range1_start'] = pd.to_numeric(df['range1_start'], errors='coerce')
-    df['range1_end'] = pd.to_numeric(df['range1_end'], errors='coerce')
-    df['range2_start'] = pd.to_numeric(df['range2_start'], errors='coerce')
-    df['range2_end'] = pd.to_numeric(df['range2_end'], errors='coerce')
-    df['range3_start'] = pd.to_numeric(df['range3_start'], errors='coerce')
-    df['range3_end'] = pd.to_numeric(df['range3_end'], errors='coerce')
-    df['range4_start'] = pd.to_numeric(df['range4_start'], errors='coerce')
-    df['range4_end'] = pd.to_numeric(df['range4_end'], errors='coerce')
 
     return df
 
@@ -91,8 +84,8 @@ def plot3D(df):
     # 計算每個點的rule個數
     df['3dCount'] = df.apply(lambda row: count_rules(df, row['prefix_lengths0'], row['prefix_lengths1'], row['gPri']), axis=1)
     df['3dCount'] = pd.to_numeric(df['3dCount'], errors='coerce')
-    # 僅選擇出現次數大於1的數據
-    plot_data = df[df['3dCount'] > 1]
+    # 僅選擇出現次數大於0的數據
+    plot_data = df[df['3dCount'] > 0]
     if plot_data.empty:
       print("No data to plot.")
       return
@@ -109,23 +102,66 @@ def plot3D(df):
     ax = fig.add_subplot(111, projection='3d')
     ax.scatter(plot_data['prefix_lengths0'], plot_data['prefix_lengths1'], plot_data['gPri'], s=size, c=colors, alpha=0.6)
     # 設定軸顯示範圍
-    ax.set_xlim(plot_data['prefix_lengths0'].min(), plot_data['prefix_lengths0'].max())
-    ax.set_ylim(plot_data['prefix_lengths1'].min(), plot_data['prefix_lengths1'].max())
-    ax.set_zlim(plot_data['gPri'].min(), plot_data['gPri'].max())
-    ax.set_title('Scatter Plot of same eq_pri num')
+    ax.set_xlim(plot_data['prefix_lengths0'].min()-1, plot_data['prefix_lengths0'].max()+1)
+    ax.set_ylim(plot_data['prefix_lengths1'].min()-1, plot_data['prefix_lengths1'].max()+1)
+    ax.set_zlim(plot_data['gPri'].min()-1, plot_data['gPri'].max()+1)
+    ax.set_title('Scatter Plot of same equ_pri num')
 
     ax.set_xlabel('SIP')
     ax.set_ylabel('DIP')
-    ax.set_zlabel('eq_pri')
+    ax.set_zlabel('equ_pri')
     # 新增顏色條
-    plt.colorbar(mappable, ax=ax, label='3dCount')
+    plt.colorbar(mappable, ax=ax, label='x-y-z same rule')
     plt.savefig(SaveFigPath)
     plt.show()
 
+    ### Plot
+    fig = plt.figure(figsize=(20, 14))
+    ax = fig.add_subplot(111)
+    ax.scatter(df['priority'], df['gPri'], color='red', marker='o',s=4, label='nums')
+    ax.set_xlabel("Pri")
+    ax.set_ylabel('equ_pri')
+    ax.set_xlim(df['priority'].min()-1, df['priority'].max()+1)
+    ax.set_ylim(df['gPri'].min()-1, df['gPri'].max()+1)
+    ax.set_title('Plot of pri vs equ_pri')
+    # 添加圖例
+    ax.legend()
+
+    plt.savefig(SaveFigPath2)
+    plt.show()
+
+    ### Plot local
+    fig = plt.figure(figsize=(20, 14))
+    ax = fig.add_subplot(111)
+    ax.scatter(df['priority'], df['gPri'], color='red', marker='o',s=2, label='nums')
+    ax.set_xlabel("Pri")
+    ax.set_ylabel('equ_pri')
+    ax.set_xlim(df['priority'].min()-1, df['priority'].max()-10)
+    ax.set_ylim(df['gPri'].min()-1, df['gPri'].max()/10)
+    ax.set_title('Plot of pri vs equ_pri')
+    # 添加圖例
+    ax.legend()
+
+    plt.savefig(SaveFigPath3)
+    plt.show()
+
+    fig = plt.figure(figsize=(20, 14))
+    ax = fig.add_subplot(111)
+    ax.scatter(df['priority'], df['gPri'], color='red', marker='o',s=2, label='nums')
+    ax.set_xlabel("Pri")
+    ax.set_ylabel('equ_pri')
+    ax.set_xlim(df['priority'].max()/2, df['priority'].max()+1)
+    ax.set_ylim(df['gPri'].max()/10, df['gPri'].max()+1)
+    ax.set_title('Plot of pri vs equ_pri')
+    # 添加圖例
+    ax.legend()
+
+    plt.savefig(SaveFigPath4)
+    plt.show()
 
 
 if __name__ == "__main__":
-    df = extract_data("./INFO/EquivalentPri.txt")
-    write_df_to_file(df, "./INFO/EquivalentPri_py.txt")
+    df = extract_data(EquPriPath)
+    write_df_to_file(df,EquPriTestPath )
 
     plot3D(df)

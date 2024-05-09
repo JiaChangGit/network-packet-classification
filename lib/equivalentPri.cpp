@@ -53,7 +53,7 @@ void EquivalentPri::print(const char* FileName) {
     std::cerr << "Failed to open " << FileName << " for writing" << "\n";
     return;
   }
-  size_t gPri = 1;
+  size_t gPri = 1, counter = 0;
   for (const auto& rule5V : Gv) {
     for (const auto& rule : rule5V) {
       outFile << "gPri: " << gPri << "\n"
@@ -68,7 +68,10 @@ void EquivalentPri::print(const char* FileName) {
         outFile << "[" << r[0] << ", " << r[1] << "] ";
       }
       outFile << "\n\n";
+      ++counter;
     }
+    std::cout << "gPri= " << gPri << ", nums: " << counter << "\n";
+    counter = 0;
     ++gPri;
   }
   outFile.close();
