@@ -21,9 +21,8 @@ void EquivalentPri::pri_MSversion(const std::vector<Rule5D>& rule5V,
             break;
           }
 
-        } else {
-          // std::cout << "continue\n";
         }
+        // std::cout << "continue\n";
       }
       if (flag) {
         flag = false;
