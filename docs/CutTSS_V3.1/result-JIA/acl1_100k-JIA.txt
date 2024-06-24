@@ -1,0 +1,206 @@
+lenovo@lenovo-Legion-R7000P-APH8:~/桌面/packet_ipLookup/PacketClassification/Cu
+tTSS_V3.1_APACHE-LICENSE$ ./main -b 8 -t 20 -r ../classbench_set/ipv4-ruleset/acl1_100k -e ../classbench_set/ipv4-trace/acl1_100k_trace -c 1 -u 1 
+************CutTSS: version 3.0 (2021.8.8), Peng Cheng Laboratory******************
+Bucket Size =  8
+Threshold (T_SA, T_DA) = <2^20, 2^20>
+Construction: Yes;	Classification:Yes;	Update:Yes.
+The number of rules = 99833
+**************** Construction ****************
+CutTSS
+	Construction time: 210.550456 ms
+	RESULTS:
+	***SA Subset Tree(using FiCuts + PSTSS):***
+
+	number of rules:97035
+	number of rules in leaf nodes:97035
+	number of rules in non-leaf terminal nodes(PSTSS nodes):0
+	worst case tree level: 6
+	-------------------
+	Total_Rule_Size:97035
+	Leaf_FiCuts_Node num:37772
+	NonLeaf_FiCuts_Node num:5626
+	Total_Array_Size:360065
+	ruleptr_memory: 388140
+	leaf_node_memory: 151088
+	NonLeaf_int_node_memory: 45008
+	array_memory: 1440260
+	-------------------
+	total memory(Pre-Cutting): 1977.046875(KB)
+	total memory(Post_TSS): 0.000000(KB)
+	total memory: 1977.046875(KB)
+	Byte/rule: 20.863565
+	-------------------
+	***SUCCESS in building 0-th CutTSS sub-tree(1_sa, 2_da, 3_sa&da)***
+
+	***DA Subset Tree(using FiCuts + PSTSS):***
+
+	number of rules:2577
+	number of rules in leaf nodes:2577
+	number of rules in non-leaf terminal nodes(PSTSS nodes):0
+	worst case tree level: 3
+	-------------------
+	Total_Rule_Size:2577
+	Leaf_FiCuts_Node num:1732
+	NonLeaf_FiCuts_Node num:67
+	Total_Array_Size:4289
+	ruleptr_memory: 10308
+	leaf_node_memory: 6928
+	NonLeaf_int_node_memory: 536
+	array_memory: 17156
+	-------------------
+	total memory(Pre-Cutting): 34.109375(KB)
+	total memory(Post_TSS): 0.000000(KB)
+	total memory: 34.109375(KB)
+	Byte/rule: 13.553745
+	-------------------
+	***SUCCESS in building 1-th CutTSS sub-tree(1_sa, 2_da, 3_sa&da)***
+
+	***SA_DA Subset Tree(using FiCuts + PSTSS):***
+
+	***PSTSS for big ruleset:***
+	rules: 221 
+	tuples: 32 
+	Size(KB): 10.667969 
+	Byte/rule: 49.429864 
+	Total memory consumption: 2021.824219(KB) 
+	Average memory consumption: 20.738113 Byte/rule 
+
+PSTSS
+	rules: 99833 
+	tuples: 163 
+	Size(KB): 4806.890625 
+	Byte/rule: 49.304899 
+	Construction time: 57.186782 ms
+	Total memory consumption: 4806.890625(KB) 
+	Average memory consumption: 49.304899 Byte/rule 
+
+PartitionSort
+	Construction time: 79.474181 ms
+	Total memory consumption: 5459.633789(KB) 
+	Average memory consumption: 56.000170 Byte/rule 
+	Number of trees:16
+
+CutSplit
+	RESULTS:
+	***SA Subset Tree(using FiCuts + HyperSplit):***
+
+	number of rules:98619
+	number of rules in leaf nodes:17471
+	number of rules in non-leaf terminal nodes(HyperSplit nodes):81148
+	worst case tree level: 4
+	-------------------
+	Total_Rule_Size:17471
+	Leaf_FiCuts_Node num:5996
+	NonLeaf_FiCuts_Node num:1458
+	Total_Array_Size:96851
+	ruleptr_memory: 69884
+	leaf_node_memory: 23984
+	NonLeaf_int_node_memory: 11664
+	array_memory: 387404
+	-------------------
+	total memory(Pre-Cutting): 481.382812(KB)
+	total memory(Post_TSS): 17.061523(KB)
+	total memory: 498.444336(KB)
+	Byte/rule: 5.175544
+	-------------------
+	***SUCCESS in building 0-th CutTSS sub-tree(1_sa, 2_da, 3_sa&da)***
+
+	***DA Subset Tree(using FiCuts + HyperSplit):***
+
+	number of rules:993
+	number of rules in leaf nodes:993
+	number of rules in non-leaf terminal nodes(HyperSplit nodes):0
+	worst case tree level: 2
+	-------------------
+	Total_Rule_Size:993
+	Leaf_FiCuts_Node num:823
+	NonLeaf_FiCuts_Node num:63
+	Total_Array_Size:4033
+	ruleptr_memory: 3972
+	leaf_node_memory: 3292
+	NonLeaf_int_node_memory: 504
+	array_memory: 16132
+	-------------------
+	total memory(Pre-Cutting): 23.339844(KB)
+	total memory(Post_TSS): 0.969727(KB)
+	total memory: 24.309570(KB)
+	Byte/rule: 25.068479
+	-------------------
+	***SUCCESS in building 1-th CutTSS sub-tree(1_sa, 2_da, 3_sa&da)***
+
+	***SA_DA Subset Tree(using FiCuts + HyperSplit):***
+
+	number of rules:37
+	number of rules in leaf nodes:24
+	number of rules in non-leaf terminal nodes(HyperSplit nodes):13
+	worst case tree level: 2
+	-------------------
+	Total_Rule_Size:24
+	Leaf_FiCuts_Node num:6
+	NonLeaf_FiCuts_Node num:3
+	Total_Array_Size:194
+	ruleptr_memory: 96
+	leaf_node_memory: 24
+	NonLeaf_int_node_memory: 24
+	array_memory: 776
+	-------------------
+	total memory(Pre-Cutting): 0.898438(KB)
+	total memory(Post_TSS): 0.023438(KB)
+	total memory: 0.921875(KB)
+	Byte/rule: 25.513514
+	-------------------
+	***SUCCESS in building 2-th CutTSS sub-tree(1_sa, 2_da, 3_sa&da)***
+
+	***HyperSplit for big ruleset:***
+	rules: 184
+	average depth: 0.500000
+	Size(KB): 0.750000
+	Byte / rule: 4.173913
+	Construction time: 266.357171 ms
+	Total memory consumption: 524.425781(KB) 
+	Average memory consumption: 5.379103 Byte/rule 
+
+**************** Classification ****************
+	The number of packet in the trace file = 998330
+	Total packets (run 10 times circularly): 9983300
+CutTSS
+	9983300 packets are classified, 0 of them are misclassified
+	Total classification time: 0.301472 s
+	Average classification time: 0.301976 us
+	Throughput: 3.311518 Mpps
+PSTSS
+	9983300 packets are classified, 0 of them are misclassified
+	Total classification time: 0.361794 s
+	Average classification time: 0.362399 us
+	Throughput: 2.759390 Mpps
+PartitionSort
+	9983300 packets are classified, 0 of them are misclassified
+	Total classification time: 0.167733 s
+	Average classification time: 0.168013 us
+	Throughput: 5.951911 Mpps
+CutSplit
+	9983300 packets are classified, 0 of them are misclassified
+	Total classification time: 0.170757 s
+	Average classification time: 0.171043 us
+	Throughput: 5.846498 Mpps
+
+**************** Update ****************
+	The number of updated rules = 99833
+CutTSS
+	99833 rules update: insert_num = 49670 delete_num = 50163
+	Total update time: 0.052439 s
+	Average update time: 0.525269 us
+	Average update throughput: 1.903786 MUPS
+PSTSS
+	99833 rules update: insert_num = 49670 delete_num = 50163
+	Total update time: 0.025586 s
+	Average update time: 0.256292 us
+	Average update throughput: 3.901795 MUPS
+PartitionSort
+	99833 rules update: insert_num = 49670 delete_num = 50163
+	Total update time: 0.084149 s
+	Average update time: 0.842899 us
+	Average update throughput: 1.186382 MUPS
+
+**************** Over ****************
+
