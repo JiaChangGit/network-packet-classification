@@ -2,6 +2,7 @@
 #define _EQUIVALENTPRI_HPP__
 
 #include <algorithm>
+#include <cstring>  // For memset
 #include <fstream>
 
 #include "./basis.hpp"
@@ -13,7 +14,6 @@ class EquivalentPri {
   void print(const char* FileName);
 
  private:
-  const size_t M = 8;
   std::vector<std::vector<Rule5D>> Gv;
   bool inline isOverlap(Rule5D ri, Rule5D rj) {
     for (size_t i = 0; i < 5; i++) {
@@ -25,5 +25,4 @@ class EquivalentPri {
     return true;
   };
 };
-
 #endif

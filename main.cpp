@@ -18,10 +18,10 @@
 
 #include <fstream>
 
+#include "checkCovered.hpp"
 #include "equivalentPri.hpp"
 #include "input.hpp"
 #include "inputFile_test.hpp"
-
 using std::cerr;
 using std::cin;
 using std::cout;
@@ -37,6 +37,7 @@ int main(int argc, char* argv[]) {
   const char* LoadRule5D_test_path = "../../INFO/loadRule5D_test.txt";
   const char* LoadPacket5D_test_path = "../../INFO/loadPacket5D_test.txt";
   const char* EquivalentPri_path = "../../INFO/EquivalentPri.txt";
+  const char* CheckCovered_path = "../../INFO/CheckCovered.txt";
 
   static struct option long_options[] = {
       {"ruleset", required_argument, NULL, 'r'},
@@ -112,8 +113,15 @@ int main(int argc, char* argv[]) {
   }
   cout << "packet5V_num: " << packet5V_num << "\n";
 
-  EquivalentPri equivalentPri;
-  equivalentPri.pri_MSversion(rule5V, rule5V_num);
-  equivalentPri.print(EquivalentPri_path);
+  // ================ //
+  // EquivalentPri equivalentPri;
+  // equivalentPri.pri_MSversion(rule5V, rule5V_num);
+  // equivalentPri.print(EquivalentPri_path);
+  // ================ //
+
+  // =======================//
+  CoverChecker coverChecker;
+  coverChecker.checkCoverageAndRecord(rule5V, CheckCovered_path);
+  // =======================//
   return 0;
 }
