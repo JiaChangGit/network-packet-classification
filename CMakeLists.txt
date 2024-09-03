@@ -6,8 +6,11 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # set(CMAKE_CXX_STANDARD 11) # 將 C++ 標準設定為 C++ 11
 # set(CMAKE_CXX_STANDARD_REQUIRED ON) # C++ 11 是強制要求，不會衰退至低版本
 # flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -pedantic -fpermissive -fopenmp -O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -pedantic -fpermissive -fopenmp -O3 -gstabs -Wl,--stack=999999999999")
 set(CMAKE_CXX_EXTENSIONS OFF) # 禁止使用編譯器特有擴充套件
+
+# 定義一個編譯標誌，用於條件編譯
+#add_definitions(-DCOVERCHECKER_MANY)
 
 # 新增一個 CMake 目標，目標型態為可執行檔。
 add_executable(m)

@@ -20,6 +20,7 @@
 #include <array>
 #include <chrono>
 #include <iostream>
+#include <string>
 #include <vector>
 #define LowDim 0
 #define HighDim 1
@@ -29,7 +30,7 @@ typedef std::vector<uint32_t> Packet5D;
 
 struct Rule5D {
   Rule5D(unsigned int dim = 5)
-      : dim(dim), range(dim, {{0, 0}}), prefix_length(dim, 0){};
+      : dim(dim), priority(0), range(dim, {{0, 0}}), prefix_length(dim, 0) {};
 
   unsigned int dim;
   unsigned int priority;

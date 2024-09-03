@@ -22,9 +22,9 @@
 
 #include "input.hpp"
 
-void InputFile5D::loadRule5D(std::vector<Rule5D> &rule, const char *FileName) {
+void InputFile5D::loadRule5D(std::vector<Rule5D> &rule, const char *fileName) {
   FILE *fp = NULL;
-  fp = fopen(FileName, "r");
+  fp = fopen(fileName, "r");
   if (fp == NULL) {
     fprintf(stderr, "error - can not open rules file\n");
     exit(1);
@@ -43,6 +43,7 @@ void InputFile5D::loadRule5D(std::vector<Rule5D> &rule, const char *FileName) {
   while (1) {
     Rule5D r;
     std::array<uint32_t, 2> points;
+
     if (fscanf(fp,
                "@%u.%u.%u.%u/%u\t%u.%u.%u.%u/%u\t%u : %u\t%u : "
                "%u\t%x/%x\t%*x/%*x\t\n",
@@ -178,12 +179,12 @@ void InputFile5D::loadRule5D(std::vector<Rule5D> &rule, const char *FileName) {
   // std::cout<<"the number of rules = "<< number_rule<<"\n";
 
   return;
-};
+}
 
 void InputFile5D::loadPacket5D(std::vector<Packet5D> &packets,
-                               const char *FileName) {
+                               const char *fileName) {
   FILE *fp = NULL;
-  fp = fopen(FileName, "r");
+  fp = fopen(fileName, "r");
   if (fp == NULL) {
     fprintf(stderr, "error - can not open trace file\n");
     exit(1);
@@ -208,7 +209,7 @@ void InputFile5D::loadPacket5D(std::vector<Packet5D> &packets,
   // std::cout<<"the number of pkts = "<< number_pkt<<"\n";
 
   return;
-};
+}
 // <Source Address>	<Destination Address>	<Source Port>	<Destination
 // Port>	<Protocol>	<Filter Number>
 

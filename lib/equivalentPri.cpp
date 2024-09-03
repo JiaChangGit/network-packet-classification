@@ -20,7 +20,6 @@ void EquivalentPri::pri_MSversion(const std::vector<Rule5D>& rule5V,
             flag = true;
             break;
           }
-
         }
         // std::cout << "continue\n";
       }
@@ -46,10 +45,10 @@ void EquivalentPri::pri_MSversion(const std::vector<Rule5D>& rule5V,
   }
 }
 
-void EquivalentPri::print(const char* FileName) {
-  std::ofstream outFile(FileName);
+void EquivalentPri::print(const char* fileName) {
+  std::ofstream outFile(fileName);
   if (!outFile.is_open()) {
-    std::cerr << "Failed to open " << FileName << " for writing" << "\n";
+    std::cerr << "Failed to open " << fileName << " for writing" << "\n";
     return;
   }
   size_t gPri = 1, counter = 0;

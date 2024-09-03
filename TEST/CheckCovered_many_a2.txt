@@ -1,0 +1,15 @@
+R.pri= 2: N
+R.pri= 3: N
+R.pri= 4: N
+R.pri= 5: N
+R.pri= 6: N
+R.pri= 7: N
+R.pri= 8: N
+R.pri= 9: N
+R.pri= 10: N
+R.pri= 11: N
+R.pri= 12: N
+R.pri= 13: N
+R.pri= 14: N
+R.pri= 15: N
+R.pri= 16: Y

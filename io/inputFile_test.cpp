@@ -18,10 +18,10 @@
 #include "inputFile_test.hpp"
 
 void InputFile5D_test::loadRule5D_test(const std::vector<Rule5D>& rule5V,
-                                       const char* FileName) {
-  std::ofstream outFile(FileName);
+                                       const char* fileName) {
+  std::ofstream outFile(fileName);
   if (!outFile.is_open()) {
-    std::cerr << "Failed to open " << FileName << " for writing"
+    std::cerr << "Failed to open " << fileName << " for writing"
               << "\n";
     return;
   }
@@ -41,13 +41,13 @@ void InputFile5D_test::loadRule5D_test(const std::vector<Rule5D>& rule5V,
   }
 
   outFile.close();
-};
+}
 
 void InputFile5D_test::loadPacket5D_test(const std::vector<Packet5D>& packet5V,
-                                         const char* FileName) {
-  std::ofstream outFile(FileName);
+                                         const char* fileName) {
+  std::ofstream outFile(fileName);
   if (!outFile.is_open()) {
-    std::cerr << "Failed to open " << FileName << " for writing"
+    std::cerr << "Failed to open " << fileName << " for writing"
               << "\n";
     return;
   }
@@ -60,4 +60,4 @@ void InputFile5D_test::loadPacket5D_test(const std::vector<Packet5D>& packet5V,
   }
 
   outFile.close();
-};
+}
