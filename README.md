@@ -14,6 +14,8 @@ Use Doxyfile to generate UML graph, keeping in mind to change "OUTPUT_DIRECTORY"
 
 cpp:
 
+```bash
+
 mkdir ./build
 
 cd ./build
@@ -28,13 +30,19 @@ make
 
 ./m -r ../../classbench_set/ipv4-ruleset/fw1_100k -p ../../classbench_set/ipv4-trace/fw1_100k_trace -t
 
+```
+
 (long time)
 
 python(analysis, EquivalentPri.txt):
 
+```bash
+
 cd ~/network-packet-classification
 
 python3 EquivalentPri_plot.py
+
+```
 
 (long time)
 
@@ -48,44 +56,53 @@ network-packet-classification                                      //
 ├─ .gitignore                                                      //
 ├─ .mailmap                                                        //
 ├─ .stCommitMsg                                                    //
-├─ CMakeLists.txt                                                  //
-├─ Doxyfile                                                        //
-├─ EquivalentPri_plot.py                                           //
-├─ fw1_100k_equ_pri-0.png                                          //
-├─ fw1_100k_equ_pri-1.png                                          //
-├─ fw1_100k_equ_pri-2.png                                          //
-├─ INFO                                                            //
-│  ├─ .gitkeep                                                     //
-│  ├─ plot_Pri_VS_equPri.png                                       //
-│  ├─ plot_Pri_VS_equPri_slocal.png                                //
-│  ├─ plot_Pri_VS_equPri_biglocal.png                              //
-│  ├─ EquivalentPri.txt                                            //
-│  ├─ EquivalentPri_py.txt                                         //
-│  ├─ loadPacket5D_test.txt                                        //
-│  ├─ loadRule5D_test.txt                                          //
-│  └─ same3D_scatter.png                                           //
-├─ LICENSE                                                         //
-├─ README.md                                                       //
-├─ build                                                           //
-│  └─ Debug                                                        //
-│     ├─ Makefile                                                  //
-│     ├─ io                                                        //
-│     │  └─ Makefile                                               //
-│     ├─ lib                                                       //
-│     │  └─ Makefile                                               //
-│     └─ m                                                         //
 ├─ classbench_set                                                  //
 │  ├─ ipv4-ruleset                                                 //
 │  │  ├─ acl1_100k                                                 //
+│  │  ├─ acl1_100k-Orobin                                          //
 │  │  ├─ acl1_1k                                                   //
 │  │  └─ fw1_100k                                                  //
 │  └─ ipv4-trace                                                   //
 │     ├─ acl1_100k_trace                                           //
+│     ├─ acl1_100k_trace_Orobin                                    //
 │     ├─ acl1_1k_trace                                             //
 │     └─ fw1_100k_trace                                            //
+├─ CMakeLists.txt                                                  //
 ├─ docs                                                            //
-│  ├─ CutTSS-result-JIA                                            //
+│  ├─ bytecuts-result-JIA                                          //
 │  │  ├─ README-JIA.md                                             //
+│  │  ├─ stats-acl1_100k.csv                                       //
+│  │  ├─ stats-acl2_100k.csv                                       //
+│  │  ├─ stats-acl3_100k.csv                                       //
+│  │  ├─ stats-acl4_100k.csv                                       //
+│  │  ├─ stats-acl5_100k.csv                                       //
+│  │  ├─ stats-fw1_100k.csv                                        //
+│  │  ├─ stats-fw2_100k.csv                                        //
+│  │  ├─ stats-fw3_100k.csv                                        //
+│  │  ├─ stats-fw4_100k.csv                                        //
+│  │  ├─ stats-fw5_100k.csv                                        //
+│  │  ├─ stats-ipc1_100k.csv                                       //
+│  │  ├─ stats-ipc2_100k.csv                                       //
+│  │  ├─ 螢幕快照 2024-03-02 18-10-31.png                              //
+│  │  ├─ 螢幕快照 2024-03-02 18-11-20.png                              //
+│  │  ├─ 螢幕快照 2024-03-02 18-11-37.png                              //
+│  │  └─ 螢幕快照 2024-03-02 18-11-55.png                              //
+│  ├─ can_run_or_not.txt                                           //
+│  ├─ cmt-result-JIA                                               //
+│  │  ├─ cmt-acl1_100k.png                                         //
+│  │  ├─ cmt-acl2_100k.png                                         //
+│  │  ├─ cmt-acl3_100k.png                                         //
+│  │  ├─ cmt-acl4_100k.png                                         //
+│  │  ├─ cmt-acl5_100k.png                                         //
+│  │  ├─ cmt-fw1_100k.png                                          //
+│  │  ├─ cmt-fw2_100k.png                                          //
+│  │  ├─ cmt-fw3_100k.png                                          //
+│  │  ├─ cmt-fw4_100k.png                                          //
+│  │  ├─ cmt-fw5_100k.png                                          //
+│  │  ├─ cmt-ipc1_100k.png                                         //
+│  │  ├─ cmt-ipc2_100k.png                                         //
+│  │  └─ README-JIA.md                                             //
+│  ├─ CutTSS-result-JIA                                            //
 │  │  ├─ acl1_100k-JIA.txt                                         //
 │  │  ├─ acl2_100k-JIA.txt                                         //
 │  │  ├─ acl3_100k-JIA.txt                                         //
@@ -97,7 +114,22 @@ network-packet-classification                                      //
 │  │  ├─ fw4_100k-JIA.txt                                          //
 │  │  ├─ fw5_100k-JIA.txt                                          //
 │  │  ├─ ipc1_100k-JIA.txt                                         //
-│  │  └─ ipc2_100k-JIA.txt                                         //
+│  │  ├─ ipc2_100k-JIA.txt                                         //
+│  │  └─ README-JIA.md                                             //
+│  ├─ CutTSS_V3.1-JIA                                              //
+│  │  ├─ acl1_100k-JIA.txt                                         //
+│  │  ├─ acl2_100k-JIA.txt                                         //
+│  │  ├─ acl3_100k-JIA.txt                                         //
+│  │  ├─ acl4_100k-JIA.txt                                         //
+│  │  ├─ acl5_100k-JIA.txt                                         //
+│  │  ├─ fw1_100k-JIA.txt                                          //
+│  │  ├─ fw2_100k-JIA.txt                                          //
+│  │  ├─ fw3_100k-JIA.txt                                          //
+│  │  ├─ fw4_100k-JIA.txt                                          //
+│  │  ├─ fw5_100k-JIA.txt                                          //
+│  │  ├─ ipc1_100k-JIA.txt                                         //
+│  │  ├─ ipc2_100k-JIA.txt                                         //
+│  │  └─ README-JIA.md                                             //
 │  ├─ DynamicTuple-result-JIA                                      //
 │  │  ├─ DynamicTuple-acl1_100k-2.png                              //
 │  │  ├─ DynamicTuple-acl1_100k-5.png                              //
@@ -124,6 +156,11 @@ network-packet-classification                                      //
 │  │  ├─ DynamicTuple-ipc2_100k-2.png                              //
 │  │  ├─ DynamicTuple-ipc2_100k-5.png                              //
 │  │  └─ README-JIA.md                                             //
+│  ├─ efficuts-result-JIA                                          //
+│  │  ├─ README-JIA.md                                             //
+│  │  ├─ 螢幕快照 2024-03-05 13-32-19.png                              //
+│  │  ├─ 螢幕快照 2024-03-05 13-32-35.png                              //
+│  │  └─ 螢幕快照 2024-03-05 13-32-49.png                              //
 │  ├─ HybridCuts-result-JIA                                        //
 │  │  ├─ HybridCut-acl1_100k.png                                   //
 │  │  ├─ HybridCut-acl2_100k.png                                   //
@@ -145,20 +182,6 @@ network-packet-classification                                      //
 │  ├─ HyperSplit-result-JIA                                        //
 │  │  ├─ HyperSplit-acl1_100k.png                                  //
 │  │  └─ README-JIA.md                                             //
-│  ├─ KSet-result-JIA                                              //
-│  │  ├─ README-JIA.md                                             //
-│  │  ├─ kSet-acl1_100k.png                                        //
-│  │  ├─ kSet-acl2_100k.png                                        //
-│  │  ├─ kSet-acl3_100k.png                                        //
-│  │  ├─ kSet-acl4_100k.png                                        //
-│  │  ├─ kSet-acl5_100k.png                                        //
-│  │  ├─ kSet-fw1_100k.png                                         //
-│  │  ├─ kSet-fw2_100k.png                                         //
-│  │  ├─ kSet-fw3_100k.png                                         //
-│  │  ├─ kSet-fw4_100k.png                                         //
-│  │  ├─ kSet-fw5_100k.png                                         //
-│  │  ├─ kSet-ipc1_100k.png                                        //
-│  │  └─ kSet-ipc2_100k.png                                        //
 │  ├─ KickTree-result-JIA                                          //
 │  │  ├─ KickTree-acl1_100k.png                                    //
 │  │  ├─ KickTree-acl2_100k.png                                    //
@@ -172,6 +195,20 @@ network-packet-classification                                      //
 │  │  ├─ KickTree-fw5_100k.png                                     //
 │  │  ├─ KickTree-ipc1_100k.png                                    //
 │  │  ├─ KickTree-ipc2_100k.png                                    //
+│  │  └─ README-JIA.md                                             //
+│  ├─ KSet-result-JIA                                              //
+│  │  ├─ kSet-acl1_100k.png                                        //
+│  │  ├─ kSet-acl2_100k.png                                        //
+│  │  ├─ kSet-acl3_100k.png                                        //
+│  │  ├─ kSet-acl4_100k.png                                        //
+│  │  ├─ kSet-acl5_100k.png                                        //
+│  │  ├─ kSet-fw1_100k.png                                         //
+│  │  ├─ kSet-fw2_100k.png                                         //
+│  │  ├─ kSet-fw3_100k.png                                         //
+│  │  ├─ kSet-fw4_100k.png                                         //
+│  │  ├─ kSet-fw5_100k.png                                         //
+│  │  ├─ kSet-ipc1_100k.png                                        //
+│  │  ├─ kSet-ipc2_100k.png                                        //
 │  │  └─ README-JIA.md                                             //
 │  ├─ MBitTree-result-JIA                                          //
 │  │  ├─ MbitTree-acl1_100k.png                                    //
@@ -213,80 +250,20 @@ network-packet-classification                                      //
 │  │  ├─ MultilayerTuple-ipc2_100k-2.png                           //
 │  │  ├─ MultilayerTuple-ipc2_100k-5.png                           //
 │  │  └─ README-JIA.md                                             //
-│  ├─ PT-Tree-result-JIA                                           //
-│  │  ├─ README-JIA.md                                             //
-│  │  ├─ acl1_100k                                                 //
-│  │  │  ├─ PT-Tree-acl1_100k.png                                  //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ acl2_100k                                                 //
-│  │  │  ├─ PT-Tree-acl2_100k.png                                  //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ acl3_100k                                                 //
-│  │  │  ├─ PT-Tree-acl3_100k.png                                  //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ acl4_100k                                                 //
-│  │  │  ├─ PT-Tree-acl4_100k.png                                  //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ acl5_100k                                                 //
-│  │  │  ├─ PT-Tree-acl5_100k.png                                  //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ fw1_100k                                                  //
-│  │  │  ├─ PT-Tree-fw1_100k.png                                   //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ fw2_100k                                                  //
-│  │  │  ├─ PT-Tree-fw2_100k.png                                   //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ fw3_100k                                                  //
-│  │  │  ├─ PT-Tree-fw3_100k.png                                   //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ fw4_100k                                                  //
-│  │  │  ├─ PT-Tree-fw4_100k.png                                   //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ fw5_100k                                                  //
-│  │  │  ├─ PT-Tree-fw5_100k.png                                   //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  ├─ ipc1_100k                                                 //
-│  │  │  ├─ PT-Tree-ipc1_100k.png                                  //
-│  │  │  ├─ pInnerNode_info.txt                                    //
-│  │  │  ├─ pLeafNode_info.txt                                     //
-│  │  │  ├─ results.txt                                            //
-│  │  │  └─ search_info.txt                                        //
-│  │  └─ ipc2_100k                                                 //
-│  │     ├─ PT-Tree-ipc2_100k.png                                  //
-│  │     ├─ pInnerNode_info.txt                                    //
-│  │     ├─ pLeafNode_info.txt                                     //
-│  │     ├─ results.txt                                            //
-│  │     └─ search_info.txt                                        //
+│  ├─ nuevomatch-result-JIA                                        //
+│  │  ├─ Neuvo-acl1_100k.png                                       //
+│  │  ├─ Neuvo-acl2_100k.png                                       //
+│  │  ├─ Neuvo-acl3_100k.png                                       //
+│  │  ├─ Neuvo-acl4_100k.png                                       //
+│  │  ├─ Neuvo-acl5_100k.png                                       //
+│  │  ├─ Neuvo-fw1_100k.png                                        //
+│  │  ├─ Neuvo-fw2_100k.png                                        //
+│  │  ├─ Neuvo-fw3_100k.png                                        //
+│  │  ├─ Neuvo-fw4_100k.png                                        //
+│  │  ├─ Neuvo-fw5_100k.png                                        //
+│  │  ├─ Neuvo-ipc1_100k.png                                       //
+│  │  ├─ Neuvo-ipc2_100k.png                                       //
+│  │  └─ README-JIA.md                                             //
 │  ├─ PextCuts-result-JIA                                          //
 │  │  ├─ PextCuts-acl1_100k-2.png                                  //
 │  │  ├─ PextCuts-acl1_100k-5.png                                  //
@@ -313,6 +290,81 @@ network-packet-classification                                      //
 │  │  ├─ PextCuts-ipc2_100k-2.png                                  //
 │  │  ├─ PextCuts-ipc2_100k-5.png                                  //
 │  │  └─ README-JIA.md                                             //
+│  ├─ PT-Tree-result-JIA                                           //
+│  │  ├─ acl1_100k                                                 //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-acl1_100k.png                                  //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ acl2_100k                                                 //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-acl2_100k.png                                  //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ acl3_100k                                                 //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-acl3_100k.png                                  //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ acl4_100k                                                 //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-acl4_100k.png                                  //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ acl5_100k                                                 //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-acl5_100k.png                                  //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ fw1_100k                                                  //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-fw1_100k.png                                   //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ fw2_100k                                                  //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-fw2_100k.png                                   //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ fw3_100k                                                  //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-fw3_100k.png                                   //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ fw4_100k                                                  //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-fw4_100k.png                                   //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ fw5_100k                                                  //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-fw5_100k.png                                   //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ ipc1_100k                                                 //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-ipc1_100k.png                                  //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  ├─ ipc2_100k                                                 //
+│  │  │  ├─ pInnerNode_info.txt                                    //
+│  │  │  ├─ pLeafNode_info.txt                                     //
+│  │  │  ├─ PT-Tree-ipc2_100k.png                                  //
+│  │  │  ├─ results.txt                                            //
+│  │  │  └─ search_info.txt                                        //
+│  │  └─ README-JIA.md                                             //
+│  ├─ reverseMemCpy_union_ip_analysis.md                           //
 │  ├─ RVH-result-JIA                                               //
 │  │  ├─ README-JIA.md                                             //
 │  │  ├─ RVH-acl1_100k.png                                         //
@@ -328,6 +380,7 @@ network-packet-classification                                      //
 │  ├─ SmartUpdate-result-JIA                                       //
 │  │  ├─ README-JIA.md                                             //
 │  │  └─ SmartUpdate-acl1_100k.png                                 //
+│  ├─ source data 3.xlsx                                           //
 │  ├─ TabTree-result-JIA                                           //
 │  │  ├─ README-JIA.md                                             //
 │  │  ├─ TabTree-acl1_100k.png                                     //
@@ -342,163 +395,120 @@ network-packet-classification                                      //
 │  │  ├─ TabTree-fw5_100k.png                                      //
 │  │  ├─ TabTree-ipc1_100k.png                                     //
 │  │  └─ TabTree-ipc2_100k.png                                     //
-│  ├─ TupleTree-result-JIA                                         //
+│  ├─ tuplemerge-result-JIA                                        //
+│  │  ├─ PSOff                                                     //
+│  │  │  ├─ PSOff-acl1_100k.png                                    //
+│  │  │  ├─ PSOff-acl2_100k.png                                    //
+│  │  │  ├─ PSOff-acl3_100k.png                                    //
+│  │  │  ├─ PSOff-acl4_100k.png                                    //
+│  │  │  ├─ PSOff-acl5_100k.png                                    //
+│  │  │  ├─ PSOff-fw1_100k.png                                     //
+│  │  │  ├─ PSOff-fw2_100k.png                                     //
+│  │  │  ├─ PSOff-fw3_100k.png                                     //
+│  │  │  ├─ PSOff-fw4_100k.png                                     //
+│  │  │  ├─ PSOff-fw5_100k.png                                     //
+│  │  │  ├─ PSOff-ipc1_100k.png                                    //
+│  │  │  ├─ PSOff-ipc2_100k.png                                    //
+│  │  │  ├─ PSOff-partial-acl1_100k.png                            //
+│  │  │  ├─ PSOff-partial-acl2_100k.png                            //
+│  │  │  ├─ PSOff-partial-acl3_100k.png                            //
+│  │  │  ├─ PSOff-partial-acl4_100k.png                            //
+│  │  │  ├─ PSOff-partial-acl5_100k.png                            //
+│  │  │  ├─ PSOff-partial-fw1_100k.png                             //
+│  │  │  ├─ PSOff-partial-fw2_100k.png                             //
+│  │  │  ├─ PSOff-partial-fw3_100k.png                             //
+│  │  │  ├─ PSOff-partial-fw4_100k.png                             //
+│  │  │  ├─ PSOff-partial-fw5_100k.png                             //
+│  │  │  ├─ PSOff-partial-ipc1_100k.png                            //
+│  │  │  └─ PSOff-partial-ipc2_100k.png                            //
 │  │  ├─ README-JIA.md                                             //
-│  │  ├─ TupleTree-acl1_100k-up.png                                //
-│  │  ├─ TupleTree-acl1_100k.png                                   //
-│  │  ├─ TupleTree-acl2_100k-up.png                                //
-│  │  ├─ TupleTree-acl2_100k.png                                   //
-│  │  ├─ TupleTree-acl3_100k-up.png                                //
-│  │  ├─ TupleTree-acl3_100k.png                                   //
-│  │  ├─ TupleTree-acl4_100k-up.png                                //
-│  │  ├─ TupleTree-acl4_100k.png                                   //
-│  │  ├─ TupleTree-acl5_100k-up.png                                //
-│  │  ├─ TupleTree-acl5_100k.png                                   //
-│  │  ├─ TupleTree-fw1_100k-up.png                                 //
-│  │  ├─ TupleTree-fw1_100k.png                                    //
-│  │  ├─ TupleTree-fw2_100k-up.png                                 //
-│  │  ├─ TupleTree-fw2_100k.png                                    //
-│  │  ├─ TupleTree-fw3_100k-up.png                                 //
-│  │  ├─ TupleTree-fw3_100k.png                                    //
-│  │  ├─ TupleTree-fw4_100k-up.png                                 //
-│  │  ├─ TupleTree-fw4_100k.png                                    //
-│  │  ├─ TupleTree-fw5_100k-up.png                                 //
-│  │  ├─ TupleTree-fw5_100k.png                                    //
-│  │  ├─ TupleTree-ipc1_100k-up.png                                //
-│  │  ├─ TupleTree-ipc1_100k.png                                   //
-│  │  ├─ TupleTree-ipc2_100k-up.png                                //
-│  │  └─ TupleTree-ipc2_100k.png                                   //
-│  ├─ bytecuts-result-JIA                                          //
-│  │  ├─ README-JIA.md                                             //
-│  │  ├─ stats-acl1_100k.csv                                       //
-│  │  ├─ stats-acl2_100k.csv                                       //
-│  │  ├─ stats-acl3_100k.csv                                       //
-│  │  ├─ stats-acl4_100k.csv                                       //
-│  │  ├─ stats-acl5_100k.csv                                       //
-│  │  ├─ stats-fw1_100k.csv                                        //
-│  │  ├─ stats-fw2_100k.csv                                        //
-│  │  ├─ stats-fw3_100k.csv                                        //
-│  │  ├─ stats-fw4_100k.csv                                        //
-│  │  ├─ stats-fw5_100k.csv                                        //
-│  │  ├─ stats-ipc1_100k.csv                                       //
-│  │  ├─ stats-ipc2_100k.csv                                       //
-│  │  ├─ 螢幕快照 2024-03-02 18-10-31.png                              //
-│  │  ├─ 螢幕快照 2024-03-02 18-11-20.png                              //
-│  │  ├─ 螢幕快照 2024-03-02 18-11-37.png                              //
-│  │  └─ 螢幕快照 2024-03-02 18-11-55.png                              //
-│  ├─ can_run_or_not.txt                                           //
-│  ├─ cmt-result-JIA                                               //
-│  │  ├─ README-JIA.md                                             //
-│  │  ├─ cmt-acl1_100k.png                                         //
-│  │  ├─ cmt-acl2_100k.png                                         //
-│  │  ├─ cmt-acl3_100k.png                                         //
-│  │  ├─ cmt-acl4_100k.png                                         //
-│  │  ├─ cmt-acl5_100k.png                                         //
-│  │  ├─ cmt-fw1_100k.png                                          //
-│  │  ├─ cmt-fw2_100k.png                                          //
-│  │  ├─ cmt-fw3_100k.png                                          //
-│  │  ├─ cmt-fw4_100k.png                                          //
-│  │  ├─ cmt-fw5_100k.png                                          //
-│  │  ├─ cmt-ipc1_100k.png                                         //
-│  │  └─ cmt-ipc2_100k.png                                         //
-│  ├─ efficuts-result-JIA                                          //
-│  │  ├─ README-JIA.md                                             //
-│  │  ├─ 螢幕快照 2024-03-05 13-32-19.png                              //
-│  │  ├─ 螢幕快照 2024-03-05 13-32-35.png                              //
-│  │  └─ 螢幕快照 2024-03-05 13-32-49.png                              //
-│  ├─ nuevomatch-result-JIA                                        //
-│  │  ├─ Neuvo-acl1_100k.png                                       //
-│  │  ├─ Neuvo-acl2_100k.png                                       //
-│  │  ├─ Neuvo-acl3_100k.png                                       //
-│  │  ├─ Neuvo-acl4_100k.png                                       //
-│  │  ├─ Neuvo-acl5_100k.png                                       //
-│  │  ├─ Neuvo-fw1_100k.png                                        //
-│  │  ├─ Neuvo-fw2_100k.png                                        //
-│  │  ├─ Neuvo-fw3_100k.png                                        //
-│  │  ├─ Neuvo-fw4_100k.png                                        //
-│  │  ├─ Neuvo-fw5_100k.png                                        //
-│  │  ├─ Neuvo-ipc1_100k.png                                       //
-│  │  ├─ Neuvo-ipc2_100k.png                                       //
-│  │  └─ README-JIA.md                                             //
-│  ├─ reverseMemCpy_union_ip_analysis.md                           //
-│  ├─ source data 2.xlsx                                           //
-│  └─ tuplemerge-result-JIA                                        //
-│     ├─ PSOff                                                     //
-│     │  ├─ PSOff-acl1_100k.png                                    //
-│     │  ├─ PSOff-acl2_100k.png                                    //
-│     │  ├─ PSOff-acl3_100k.png                                    //
-│     │  ├─ PSOff-acl4_100k.png                                    //
-│     │  ├─ PSOff-acl5_100k.png                                    //
-│     │  ├─ PSOff-fw1_100k.png                                     //
-│     │  ├─ PSOff-fw2_100k.png                                     //
-│     │  ├─ PSOff-fw3_100k.png                                     //
-│     │  ├─ PSOff-fw4_100k.png                                     //
-│     │  ├─ PSOff-fw5_100k.png                                     //
-│     │  ├─ PSOff-ipc1_100k.png                                    //
-│     │  ├─ PSOff-ipc2_100k.png                                    //
-│     │  ├─ PSOff-partial-acl1_100k.png                            //
-│     │  ├─ PSOff-partial-acl2_100k.png                            //
-│     │  ├─ PSOff-partial-acl3_100k.png                            //
-│     │  ├─ PSOff-partial-acl4_100k.png                            //
-│     │  ├─ PSOff-partial-acl5_100k.png                            //
-│     │  ├─ PSOff-partial-fw1_100k.png                             //
-│     │  ├─ PSOff-partial-fw2_100k.png                             //
-│     │  ├─ PSOff-partial-fw3_100k.png                             //
-│     │  ├─ PSOff-partial-fw4_100k.png                             //
-│     │  ├─ PSOff-partial-fw5_100k.png                             //
-│     │  ├─ PSOff-partial-ipc1_100k.png                            //
-│     │  └─ PSOff-partial-ipc2_100k.png                            //
+│  │  ├─ TMOff                                                     //
+│  │  │  ├─ TMOff-acl1_100k.png                                    //
+│  │  │  ├─ TMOff-acl2_100k.png                                    //
+│  │  │  ├─ TMOff-acl3_100k.png                                    //
+│  │  │  ├─ TMOff-acl4_100k.png                                    //
+│  │  │  ├─ TMOff-acl5_100k.png                                    //
+│  │  │  ├─ TMOff-fw1_100k.png                                     //
+│  │  │  ├─ TMOff-fw2_100k.png                                     //
+│  │  │  ├─ TMOff-fw3_100k.png                                     //
+│  │  │  ├─ TMOff-fw4_100k.png                                     //
+│  │  │  ├─ TMOff-fw5_100k.png                                     //
+│  │  │  ├─ TMOff-ipc1_100k.png                                    //
+│  │  │  ├─ TMOff-ipc2_100k.png                                    //
+│  │  │  ├─ TMOff-partial-acl1_100k.png                            //
+│  │  │  ├─ TMOff-partial-acl2_100k.png                            //
+│  │  │  ├─ TMOff-partial-acl3_100k.png                            //
+│  │  │  ├─ TMOff-partial-acl4_100k.png                            //
+│  │  │  ├─ TMOff-partial-acl5_100k.png                            //
+│  │  │  ├─ TMOff-partial-fw1_100k.png                             //
+│  │  │  ├─ TMOff-partial-fw2_100k.png                             //
+│  │  │  ├─ TMOff-partial-fw3_100k.png                             //
+│  │  │  ├─ TMOff-partial-fw4_100k.png                             //
+│  │  │  ├─ TMOff-partial-fw5_100k.png                             //
+│  │  │  ├─ TMOff-partial-ipc1_100k.png                            //
+│  │  │  └─ TMOff-partial-ipc2_100k.png                            //
+│  │  └─ TMOnline                                                  //
+│  │     ├─ TMOnline-acl1_100k.png                                 //
+│  │     ├─ TMOnline-acl2_100k.png                                 //
+│  │     ├─ TMOnline-acl3_100k.png                                 //
+│  │     ├─ TMOnline-acl4_100k.png                                 //
+│  │     ├─ TMOnline-acl5_100k.png                                 //
+│  │     ├─ TMOnline-fw1_100k.png                                  //
+│  │     ├─ TMOnline-fw2_100k.png                                  //
+│  │     ├─ TMOnline-fw3_100k.png                                  //
+│  │     ├─ TMOnline-fw4_100k.png                                  //
+│  │     ├─ TMOnline-fw5_100k.png                                  //
+│  │     ├─ TMOnline-ipc1_100k.png                                 //
+│  │     ├─ TMOnline-ipc2_100k.png                                 //
+│  │     ├─ TMOnline-partial-acl1_100k.png                         //
+│  │     ├─ TMOnline-partial-acl2_100k.png                         //
+│  │     ├─ TMOnline-partial-acl3_100k.png                         //
+│  │     ├─ TMOnline-partial-acl4_100k.png                         //
+│  │     ├─ TMOnline-partial-acl5_100k.png                         //
+│  │     ├─ TMOnline-partial-fw1_100k.png                          //
+│  │     ├─ TMOnline-partial-fw2_100k.png                          //
+│  │     ├─ TMOnline-partial-fw3_100k.png                          //
+│  │     ├─ TMOnline-partial-fw4_100k.png                          //
+│  │     ├─ TMOnline-partial-fw5_100k.png                          //
+│  │     ├─ TMOnline-partial-ipc1_100k.png                         //
+│  │     └─ TMOnline-partial-ipc2_100k.png                         //
+│  └─ TupleTree-result-JIA                                         //
 │     ├─ README-JIA.md                                             //
-│     ├─ TMOff                                                     //
-│     │  ├─ TMOff-acl1_100k.png                                    //
-│     │  ├─ TMOff-acl2_100k.png                                    //
-│     │  ├─ TMOff-acl3_100k.png                                    //
-│     │  ├─ TMOff-acl4_100k.png                                    //
-│     │  ├─ TMOff-acl5_100k.png                                    //
-│     │  ├─ TMOff-fw1_100k.png                                     //
-│     │  ├─ TMOff-fw2_100k.png                                     //
-│     │  ├─ TMOff-fw3_100k.png                                     //
-│     │  ├─ TMOff-fw4_100k.png                                     //
-│     │  ├─ TMOff-fw5_100k.png                                     //
-│     │  ├─ TMOff-ipc1_100k.png                                    //
-│     │  ├─ TMOff-ipc2_100k.png                                    //
-│     │  ├─ TMOff-partial-acl1_100k.png                            //
-│     │  ├─ TMOff-partial-acl2_100k.png                            //
-│     │  ├─ TMOff-partial-acl3_100k.png                            //
-│     │  ├─ TMOff-partial-acl4_100k.png                            //
-│     │  ├─ TMOff-partial-acl5_100k.png                            //
-│     │  ├─ TMOff-partial-fw1_100k.png                             //
-│     │  ├─ TMOff-partial-fw2_100k.png                             //
-│     │  ├─ TMOff-partial-fw3_100k.png                             //
-│     │  ├─ TMOff-partial-fw4_100k.png                             //
-│     │  ├─ TMOff-partial-fw5_100k.png                             //
-│     │  ├─ TMOff-partial-ipc1_100k.png                            //
-│     │  └─ TMOff-partial-ipc2_100k.png                            //
-│     └─ TMOnline                                                  //
-│        ├─ TMOnline-acl1_100k.png                                 //
-│        ├─ TMOnline-acl2_100k.png                                 //
-│        ├─ TMOnline-acl3_100k.png                                 //
-│        ├─ TMOnline-acl4_100k.png                                 //
-│        ├─ TMOnline-acl5_100k.png                                 //
-│        ├─ TMOnline-fw1_100k.png                                  //
-│        ├─ TMOnline-fw2_100k.png                                  //
-│        ├─ TMOnline-fw3_100k.png                                  //
-│        ├─ TMOnline-fw4_100k.png                                  //
-│        ├─ TMOnline-fw5_100k.png                                  //
-│        ├─ TMOnline-ipc1_100k.png                                 //
-│        ├─ TMOnline-ipc2_100k.png                                 //
-│        ├─ TMOnline-partial-acl1_100k.png                         //
-│        ├─ TMOnline-partial-acl2_100k.png                         //
-│        ├─ TMOnline-partial-acl3_100k.png                         //
-│        ├─ TMOnline-partial-acl4_100k.png                         //
-│        ├─ TMOnline-partial-acl5_100k.png                         //
-│        ├─ TMOnline-partial-fw1_100k.png                          //
-│        ├─ TMOnline-partial-fw2_100k.png                          //
-│        ├─ TMOnline-partial-fw3_100k.png                          //
-│        ├─ TMOnline-partial-fw4_100k.png                          //
-│        ├─ TMOnline-partial-fw5_100k.png                          //
-│        ├─ TMOnline-partial-ipc1_100k.png                         //
-│        └─ TMOnline-partial-ipc2_100k.png                         //
+│     ├─ TupleTree-acl1_100k-up.png                                //
+│     ├─ TupleTree-acl1_100k.png                                   //
+│     ├─ TupleTree-acl2_100k-up.png                                //
+│     ├─ TupleTree-acl2_100k.png                                   //
+│     ├─ TupleTree-acl3_100k-up.png                                //
+│     ├─ TupleTree-acl3_100k.png                                   //
+│     ├─ TupleTree-acl4_100k-up.png                                //
+│     ├─ TupleTree-acl4_100k.png                                   //
+│     ├─ TupleTree-acl5_100k-up.png                                //
+│     ├─ TupleTree-acl5_100k.png                                   //
+│     ├─ TupleTree-fw1_100k-up.png                                 //
+│     ├─ TupleTree-fw1_100k.png                                    //
+│     ├─ TupleTree-fw2_100k-up.png                                 //
+│     ├─ TupleTree-fw2_100k.png                                    //
+│     ├─ TupleTree-fw3_100k-up.png                                 //
+│     ├─ TupleTree-fw3_100k.png                                    //
+│     ├─ TupleTree-fw4_100k-up.png                                 //
+│     ├─ TupleTree-fw4_100k.png                                    //
+│     ├─ TupleTree-fw5_100k-up.png                                 //
+│     ├─ TupleTree-fw5_100k.png                                    //
+│     ├─ TupleTree-ipc1_100k-up.png                                //
+│     ├─ TupleTree-ipc1_100k.png                                   //
+│     ├─ TupleTree-ipc2_100k-up.png                                //
+│     └─ TupleTree-ipc2_100k.png                                   //
+├─ Doxyfile                                                        //
+├─ EquivalentPri_plot.py                                           //
+├─ INFO                                                            //
+│  ├─ .gitkeep                                                     //
+│  ├─ fw1_100k_equ_pri-0.png                                       //
+│  ├─ fw1_100k_equ_pri-1.png                                       //
+│  ├─ fw1_100k_equ_pri-2.png                                       //
+│  ├─ plot_Pri_VS_equPri.png                                       //
+│  ├─ plot_Pri_VS_equPri_biglocal.png                              //
+│  ├─ plot_Pri_VS_equPri_slocal.png                                //
+│  └─ same3D_scatter.png                                           //
 ├─ io                                                              //
 │  ├─ CMakeLists.txt                                               //
 │  ├─ input.cpp                                                    //
@@ -506,11 +516,24 @@ network-packet-classification                                      //
 │  ├─ inputFile_test.cpp                                           //
 │  └─ inputFile_test.hpp                                           //
 ├─ lib                                                             //
-│  ├─ CMakeLists.txt                                               //
 │  ├─ basis.hpp                                                    //
+│  ├─ checkCovered_one.cpp                                         //
+│  ├─ checkCovered_one.hpp                                         //
+│  ├─ CMakeLists.txt                                               //
 │  ├─ equivalentPri.cpp                                            //
-│  └─ equivalentPri.hpp                                            //
-└─ main.cpp                                                        //
+│  ├─ equivalentPri.hpp                                            //
+│  ├─ hyperrectangleCoverChecker.cpp                               //
+│  └─ hyperrectangleCoverChecker.hpp                               //
+├─ LICENSE                                                         //
+├─ main.cpp                                                        //
+├─ README.md                                                       //
+└─ TEST                                                            //
+   ├─ a0.cpp                                                       //
+   ├─ a1.cpp                                                       //
+   ├─ a2.cpp                                                       //
+   ├─ CheckCovered_many_a.txt                                      //
+   ├─ CheckCovered_many_a2.txt                                     //
+   └─ t.cpp                                                        //
 
 ```
 

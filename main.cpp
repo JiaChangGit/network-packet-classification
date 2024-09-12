@@ -29,12 +29,14 @@ using std::cerr;
 using std::cin;
 using std::cout;
 using std::ofstream;
+using std::string;
 using std::vector;
 
+#define P15
 // #define DEBUG
 // #define LAYER
-#define COVER_ONE
-#define ELEMENTARY
+// #define COVER_ONE
+// #define ELEMENTARY
 // #define COVER_MANY
 // #define FOUR
 
@@ -164,6 +166,9 @@ int main(int argc, char* argv[]) {
   const char* LoadRule5D_test_path = "../../INFO/loadRule5D_test.txt";
   const char* LoadPacket5D_test_path = "../../INFO/loadPacket5D_test.txt";
 
+#ifdef P15
+  const char* prefix15Uniq_path = "../../INFO/Prefix15Uniq.txt";
+#endif
 #ifdef LAYER
   const char* EquivalentPri_path = "../../INFO/EquivalentPri.txt";
 #endif
@@ -258,6 +263,7 @@ int main(int argc, char* argv[]) {
   }
 #endif
   cout << "rule5V_num: " << rule5V_num << "\n";
+
   size_t packet5V_num = packet5V.size();
 #ifdef DEBUG
   if (packet5V_num <= 0) {
@@ -267,6 +273,50 @@ int main(int argc, char* argv[]) {
 #endif
   cout << "packet5V_num: " << packet5V_num << "\n";
   packet5V.resize(packet5V_num);
+
+  // ************ //
+
+#ifdef P15
+  ofstream prefix15Uniq_out(prefix15Uniq_path);
+  vector<Rule5D> v15;
+  for (const auto& It : rule5V) {
+    if (It.prefix_length[0] >= 15) {
+      v15.emplace_back(It);
+    }
+  }
+
+  // 2^15 = 32768
+  vector<unsigned int> priV[32768];
+  for (const auto& It : v15) {
+    uint32_t sa = It.range[0][0] >> (32 - 15);
+    priV[sa].emplace_back(It.priority);
+  }
+  size_t pSize_one = 0;
+  size_t pSize_max = 0;
+  size_t spacesNum = 0;
+
+  for (size_t i = 0; i < 32768; ++i) {
+    size_t pSize = priV[i].size();
+    prefix15Uniq_out << "i: " << i << "\n";
+    for (size_t j = 0; j < pSize; ++j) {
+      string spaces(spacesNum, ' ');
+      prefix15Uniq_out << spaces << "-> " << priV[i][j] << "\n";
+      ++spacesNum;
+    }
+    prefix15Uniq_out << "\n";
+    spacesNum = 0;
+    if (pSize == 1) {
+      pSize_one++;
+    }
+    if (pSize_max < pSize) {
+      pSize_max = pSize;
+    }
+  }
+  cout << "pSize_one = " << pSize_one << "\n";
+  cout << "pSize_max = " << pSize_max << "\n";
+  prefix15Uniq_out.close();
+#endif
+// ************ //
 
 // ================ //
 #ifdef LAYER
